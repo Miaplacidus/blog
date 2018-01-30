@@ -1,0 +1,14 @@
+= form_for @changeset, post_path(@conn, :create), fn f ->
+  fieldset
+    = text_input f, :title, placeholder: "title"
+    = error_tag f, :title
+    = text_input f, :slug, placeholder: "slug"
+    = select f, :author_id, @authors
+    = text_input f, :coauthor, placeholder: "coauthor"
+  fieldset
+    = textarea f, :description, placeholder: "description"
+    = error_tag f, :description
+    = textarea f, :body, placeholder: "body"
+    = error_tag f, :body
+
+  = submit "Save Post", class: "btn"

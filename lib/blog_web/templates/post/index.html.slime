@@ -1,0 +1,10 @@
+ul.list-group
+  = for post <- @posts do
+    li.list-group-item
+      p= link to: post_path(@conn, :show, post) do
+        =  post.title
+      p= post.description
+      p= link "Edit", to: post_path(@conn, :edit, post)
+      p= link "Delete", to: post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
+
+%p= link "Create New Post", to: post_path(@conn, :new)
