@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body class="<%= Brady.body_class @conn %>">
+  <body class="<%= body_class @conn %>">
     <div class="container">
       <header class="header">
         <h1> Life As Algorithm </h1>

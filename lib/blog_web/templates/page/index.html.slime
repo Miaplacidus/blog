@@ -1,0 +1,34 @@
+nav
+  p 01 about
+  p 10 work
+  p 11 contact
+
+.intro
+  p Ifu Aniemeka
+  p web dev
+
+.about-me
+  header
+    p Ifu Aniemeka
+    p web developer/martial artist/scifi geek
+    p Chicago
+      i.chitown-flag
+  
+  article
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas accumsan ullamcorper justo eu tincidunt. Aliquam odio neque, vehicula in nisi vel, rutrum ornare purus. Aenean vel risus eu dolor euismod euismod vel nec dui. Vivamus erat nunc, finibus a lorem eu, vehicula sollicitudin ante. Vestibulum sodales sapien id ipsum ultrices, ac lobortis odio ultrices. Phasellus commodo finibus purus eget tempus. Quisque scelerisque dui arcu, vel consectetur erat interdum ac. Aenean a mauris ut massa ornare semper congue sit amet ante. Duis nec felis tincidunt dui tempor posuere.
+
+Nunc suscipit massa quis urna interdum, in sodales nibh rutrum. Sed vel velit dui. Vivamus vestibulum, magna id lacinia cursus, orci est eleifend orci, eget aliquam justo nibh vel nisl. Suspendisse venenatis ex eu metus ornare pulvinar. Pellentesque tempor aliquam nibh, vitae aliquam turpis dapibus sed. Sed venenatis pretium aliquam. In hac habitasse platea dictumst. Cras mi magna, placerat sit amet euismod vel, auctor quis risus. Vivamus quis arcu lacus. Pellentesque id ipsum vitae magna molestie viverra. Cras fringilla augue vitae felis ornare convallis. Etiam elit ligula, consectetur id porttitor vel, blandit at lacus.
+
+.work
+  article
+    section.resume-github
+      .github
+        i.github
+      .resume
+        i.resume
+    section.blog-posts  
+      ul
+        = for post <- @posts do
+            li
+              p= link to: post_path(@conn, :show, post) do
+                =  post.title

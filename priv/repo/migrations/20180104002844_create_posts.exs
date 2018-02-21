@@ -10,6 +10,9 @@ defmodule Blog.Repo.Migrations.CreatePosts do
         body text not null default '',
         slug text,
         state text not null default 'draft',
+        image_url text, 
+        original boolean not null default true,
+        published_at timestamptz,
         inserted_at timestamptz not null default now(),
         updated_at timestamptz not null default now()
       );
