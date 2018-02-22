@@ -32,3 +32,15 @@ Nunc suscipit massa quis urna interdum, in sodales nibh rutrum. Sed vel velit du
             li
               p= link to: post_path(@conn, :show, post) do
                 =  post.title
+
+.contact
+  article
+    section.contact-intro
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat felis a sem condimentum. 
+    section.contact-form
+
+footer
+  hr
+  p.photo-credit
+    photo by 
+    a href="https://unsplash.com/@freeche" "Thomas Kvistholt" 
