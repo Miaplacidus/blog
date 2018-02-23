@@ -33,7 +33,6 @@ defmodule Blog.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:brady, "~> 0.0.7"},
       {:cowboy, "~> 1.0"},
       {:earmark, "~> 1.2"},
       {:espec, "~> 1.4.6", only: :test},

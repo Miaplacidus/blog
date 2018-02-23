@@ -1,9 +1,75 @@
 /* This file is for your main application scss. */
+@font-face {
+    font-family: "Raleway-Medium";
+    font-style: normal;
+    font-weight: 300;
+    src:
+        url("/fonts/raleway/Raleway-Medium.WOFF") format("woff")
+}
+
+@font-face {
+    font-family: "Raleway-Semibold";
+    font-style: normal;
+    font-weight: 300;
+    src:
+        url("/fonts/raleway/Raleway-Semibold.WOFF") format("woff")
+}
+
+$raleway-med: "Raleway-Medium";
+$raleway-semibold: "Raleway-Semibold";
+
+$eggshell-white: #f7f4f4;
 
 body {
   background: url("/images/tk_servers.jpg") no-repeat 25% 10% fixed;
   background-size: cover;
 }
 
+body.page-index {
+  .container {
+    display: flex;
+  }
 
+  nav {
+    min-width: 12em;
+    color: $eggshell-white;
 
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      position: fixed;
+      bottom: 33%;
+      left: 2%;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: block;
+        margin: 1.3em 0 1.3em 0;
+      }
+    }
+
+    .binary {
+      font-family: $raleway-med, sans-serif;
+      font-size: 1.8em;
+    }
+
+    .text {
+      font-family: $raleway-semibold, sans-serif;
+      font-size: 1.6em;
+    }
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero {
+    color: blue;
+    background-color: #000;
+    opacity: 30%;
+  }
+}
