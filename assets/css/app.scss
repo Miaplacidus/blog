@@ -1,24 +1,37 @@
 /* This file is for your main application scss. */
 @font-face {
     font-family: "Raleway-Medium";
-    font-style: normal;
-    font-weight: 300;
     src:
         url("/fonts/raleway/Raleway-Medium.WOFF") format("woff")
 }
 
 @font-face {
     font-family: "Raleway-Semibold";
-    font-style: normal;
-    font-weight: 300;
     src:
         url("/fonts/raleway/Raleway-Semibold.WOFF") format("woff")
 }
 
+@font-face {
+    font-family: "Raleway-Regular";
+    src:
+        url("/fonts/raleway/Raleway-Regular.WOFF") format("woff")
+}
+
+@font-face {
+    font-family: "Raleway-Light";
+    src:
+        url("/fonts/raleway/Raleway-Light.WOFF") format("woff")
+}
+
 $raleway-med: "Raleway-Medium";
 $raleway-semibold: "Raleway-Semibold";
+$raleway-regular: "Raleway-Regular";
+$raleway-light: "Raleway-Light";
+$arial-black: "Arial Black";
 
 $eggshell-white: #f7f4f4;
+$off-white: #fcfcfc;
+
 
 body {
   background: url("/images/tk_servers.jpg") no-repeat 25% 10% fixed;
@@ -67,9 +80,104 @@ body.page-index {
     flex-direction: column;
   }
 
+  .hero-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 100vh;
+    padding: 0 3em; 
+  }
+
   .hero {
-    color: blue;
-    background-color: #000;
-    opacity: 30%;
+    width: max-content;
+    margin-top: 12em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $eggshell-white;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    p.name {
+      font-family: $arial-black, sans-serif;
+      font-size: 4.56em;
+      margin: 0.25em 0 0 0;
+    }
+
+    p.title {
+      font-family: $raleway-semibold, sans-serif;
+      margin: 0 0 0.55em 0;
+      font-size: 1.9em;
+    }
+  }
+
+  .about-me-container {
+    padding: 0 9.5em;
+    height: 100vh;
+    background-color: $off-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .about-me {
+    height: max-content;
+    .title, .location {
+      font-family: $raleway-regular, sans-serif;
+      font-size: 1.05em;
+    } 
+    .name {
+      font-family: $arial-black, sans-serif; 
+      margin-bottom: 0;
+      font-size: 1.05em;
+    }
+    .title {
+      margin-top: 0.1em;
+      margin-bottom: 0;
+    }
+    .location {
+      margin-top: 0.1em;
+    }
+    i.chitown-flag {
+      display: inline-block;
+      background: url("/images/chitown.svg") no-repeat;
+      background-size: contain;
+      height: 0.8em;
+      width: 1.7em;
+      margin-left: 0.3em;
+    }
+
+    article {
+      font-family: $raleway-light, sans-serif; 
+    }
+  }
+
+  .work {
+    background-color: $off-white;
+    padding: 3em 3em;
+    section.resume-github {
+      display: flex;
+      justify-content: center;
+    }
+    i.github, i.resume {
+      display: inline-block;
+      background: url("/images/github_icon.svg") no-repeat;
+      background-size: center;
+      height: 4em;
+      width: 4em;
+      margin: 0 1.5em;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-flow: wrap row;
+      justify-content: center;
+    }
+
+    .blog-posts li {
+      display: inline-block;
+      margin: 1em;
+    }
   }
 }
