@@ -5,6 +5,7 @@
     = text_input f, :slug, placeholder: "slug"
     = select f, :author_id, @authors
     = text_input f, :coauthor, placeholder: "coauthor"
+    = text_input f, :image_url, placeholder: "image url"
   fieldset
     = textarea f, :description, placeholder: "description"
     = error_tag f, :description

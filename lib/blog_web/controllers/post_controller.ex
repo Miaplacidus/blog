@@ -40,7 +40,10 @@ defmodule BlogWeb.PostController do
   def edit(conn, %{"id" => id}) do
     post = Content.get_post!(id)
     changeset = Content.change_post(post)
-    render conn, "edit.html", changeset: changeset, post: post
+    authors =
+      Accounts.list_authors
+      |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})
+    render conn, "edit.html", changeset: changeset, post: post, authors: authors
   end
 
   def update(conn, %{"id" => id, "post" => params}) do

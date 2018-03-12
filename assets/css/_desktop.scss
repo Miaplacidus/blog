@@ -1,0 +1,129 @@
+@media screen and (min-width: $desktop){
+  body {
+    background: url("/images/tk_servers.jpg") no-repeat 50% 10% fixed;
+    background-size: cover;
+    margin: 0;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  body.page-index {
+     nav {
+       min-width: 12em;
+       display: block;
+       color: $eggshell-white;
+
+       ul {
+         display: flex;
+         flex-direction: column;
+         justify-content: space-around;
+         position: fixed;
+         bottom: 33%;
+         left: 2%;
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+
+         li {
+           display: block;
+           margin: 1.3em 0 1.3em 0;
+         }
+       }
+
+       .binary {
+         font-family: $raleway-med, sans-serif;
+         font-size: 1.8em;
+       }
+
+       .text {
+         font-family: $raleway-semibold, sans-serif;
+         font-size: 1.6em;
+       }
+     }
+
+    .hero-container {
+      height: 100vh;
+    }
+
+    .hero {
+      padding: 0 3.5em;
+      p.name {
+        font-size: 4.56em;
+      }
+
+      p.title {
+        font-size: 1.9em;
+      }
+    }
+
+    .about-me-container {
+      height: 95vh;
+    }
+
+    .about-me {
+     height: max-content;
+      
+     .name, .title, .location {
+      font-size: 1.4em;
+     }
+
+     .title {
+       margin-top: 0.1em;
+       margin-bottom: 0;
+     }
+
+     article {
+      font-size: 1.2em;
+     }
+    }
+
+    .contact {
+      height: 90vh;
+    }
+  }
+
+  body.post-index {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    p.alert {
+      display: none;
+    }
+
+     nav {
+       min-width: 12em;
+       display: block;
+       color: $eggshell-white;
+
+       ul {
+         display: flex;
+         flex-direction: row;
+         justify-content: start;
+         list-style-type: none;
+         margin: 0 0 0 2em;
+         padding: 0;
+
+         li {
+           display: block;
+           margin: 1em 1em;
+         }
+       }
+
+       .text {
+         font-family: $raleway-semibold, sans-serif;
+         font-size: 1.6em;
+       }
+
+       .blog-title {
+        font-family: $arial-black, sans-serif;
+        font-size: 1.2em;
+        text-align: right;
+       }
+     }
+  }
+}

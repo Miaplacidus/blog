@@ -1,0 +1,54 @@
+@media screen and (min-width: $tablet){
+  body.page-index {
+    .hero-container {
+      height: 30vh;
+    }
+
+    .hero {
+      p.name {
+        font-size: 3.5em;
+      }
+
+      p.title {
+        font-size: 1.5em;
+      }
+    }
+
+    .about-me-container {
+      min-height: 30em;
+      height: 30vh;
+      padding: 1.5em 2.5em;
+    }
+
+    .work {
+      padding: 1.5em 0.5em;
+      .post-image {
+        width: 24em;
+        height: 16em;
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+      }
+
+      .title {
+        bottom: -1em;
+        right: 7em;
+        width: 19em;
+        justify-content: start;
+
+        a {
+          text-align: left;
+        }
+      }
+
+      div.post-index {
+        margin-top: 3em;
+      }
+    }
+
+    .contact {
+      height: 50vh;
+      padding-right: 5em;
+      padding-left: 5em;
+    }
+  }
+}

@@ -39,24 +39,39 @@ main
         ul
           = for post <- @posts do
               li
-                p= link to: post_path(@conn, :show, post) do
-                  =  post.title
+                .image
+                  = link to: post_path(@conn, :show, post) do 
+                    .post-image style="background-image: url('/images/#{post.image_url}');"
+                .title
+                  = link to: post_path(@conn, :show, post) do
+                    .post-title
+                      = post.title
+      
+      .post-index
+        = link "view all posts", to: post_path(@conn, :index), class: "post-index" 
 
   .contact
     article
-      section.contact-intro
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat felis a sem condimentum. 
+      header
+        h1 Contact Me
+        p.contact-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat felis a sem condimentum. 
       section.contact-form
         form action="https://formspree.io/ianiemeka@gmail.com" method="POST"
-          input type="text" name="name"
-          input type="email" name="_replyto"
+          input type="text" name="name" class="name" placeholder="name"
+          input type="email" name="_replyto" class="email" placeholder="email"
+          label for="message" class="message"  message 
+          textarea name="message" class="message"
           input type="text" name="_gotcha" style="display:none"
           input type="hidden" name="_subject" value="LAA message"
-          input type="submit" value="Send"
+          fieldset
+            input type="submit" value="send" class="submit"
 
 
   footer
     hr
-    p.photo-credit
-      photo by 
-      a href="https://unsplash.com/@freeche" "Thomas Kvistholt" 
+    p.photo-credit 
+      ' photo by
+      a href="https://unsplash.com/@freeche" Thomas Kvistholt 
+      ' 
+      ' on  
+      a href="https://unsplash.com" Unsplash

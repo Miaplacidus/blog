@@ -1,0 +1,333 @@
+@media screen and (min-width: $mobile){
+  body.page-index {
+    nav {
+      display: none;
+      ul {
+        display: none;
+      }
+    }
+
+    .hero-container {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+      min-height: 24em;
+      padding: 0 0em;
+    }
+
+    .hero {
+      color: $eggshell-white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0 0.5em;
+
+      p.name {
+        font-family: $arial-black, sans-serif;
+        font-size: 2.88em;
+        margin: 0.25em 0 0 0;
+      }
+
+      p.title {
+        font-family: $raleway-semibold, sans-serif;
+        margin: 0 0 0.55em 0;
+        font-size: 1.2em;
+      }
+    }
+
+    .about-me-container {
+      padding: 1.5em 1em;
+      min-height: 40em;
+      height: 80vh;
+      background-color: $off-white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-me {
+      .title, .location {
+        font-family: $raleway-regular, sans-serif;
+        font-size: 1.05em;
+      }
+
+      .name {
+        font-family: $arial-black, sans-serif;
+        margin-bottom: 0;
+        font-size: 1.05em;
+      }
+
+      .title {
+        margin-top: 0.1em;
+        margin-bottom: 0;
+      }
+
+      .location {
+        margin-top: 0.1em;
+      }
+
+      i.chitown-flag {
+        display: inline-block;
+        background: url("/images/chitown.svg") no-repeat;
+        background-size: contain;
+        height: 0.8em;
+        width: 1.7em;
+        margin-left: 0.3em;
+      }
+
+      article {
+        font-family: $raleway-light, sans-serif;
+      }
+    }
+
+    .work {
+      padding-top: 1.5em;
+      padding-bottom: 1.5em;
+      background-color: $off-white;
+      section.resume-github {
+        display: flex;
+        justify-content: center;
+      }
+
+      div.github, div.resume {
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      i.github, i.resume {
+        display: inline-block;
+        background: url("/images/github_icon.svg") no-repeat;
+        background-size: center;
+        height: 4em;
+        width: 4em;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-flow: wrap row;
+        justify-content: center;
+      }
+
+      .blog-posts li {
+        position: relative;
+        display: inline-block;
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+
+      .post-image {
+        width: 21em;
+        height: 14em;
+        background: no-repeat center;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5em;
+        position: absolute;
+        bottom: -1em;
+        right: 0.5em;
+        font-family: $arial-black, sans-serif;
+        width: 19em;
+        min-height: 5em;
+        background: rgba(0, 0, 0, 0.6);
+        a {
+          text-decoration: none;
+          display: block;
+          text-align: center;
+        }
+        a:link, a:visited, a:hover, a:active {
+          color: $cerulean;
+        }
+      }
+
+      div.post-index {
+        display: flex;
+        justify-content: center;
+        margin-top: 0.8em;
+      }
+
+      a.post-index {
+        display: block;
+        text-decoration: none;
+        font-family: $arial-black, sans-serif;
+        background-color: rgba(8, 8, 8, 0.6);
+        width: 9.8em;
+        padding: 0.7em;
+        font-size: 1.2em;
+        text-align: center;
+        border-radius: 1px;
+        &:link, &:visited, &:hover, &:active {
+          color: $cerulean;
+        }
+      }
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $off-white;
+      padding: 1.5em 1em 0em 1em;
+      height: 100vh;
+      min-height: 40em;
+      font-family: $arial-black, sans-serif;
+
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1, .contact-intro {
+          text-align: center;
+        }
+
+        h1 {
+          margin: 0;
+          color: $cerulean;
+          font-size: 2.5em;
+        }
+
+        .contact-intro {
+          margin-top: 0.2em;
+        }
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+
+        input.name, input.email, textarea {
+          background-color: $off-white;
+          border-style: solid;
+          border-color: rgba(8, 8, 8, 0.6);
+          font-size: 1.1em;
+        }
+
+        label.message {
+          font-family: $arial-black, sans-serif;
+          margin-top: 1.5em;
+          color: $cerulean;
+          font-size: 1em;
+        }
+
+        textarea {
+          resize: none;
+          border-width: 1px;
+          border-radius: 3px;
+          height: 11em;
+        }
+
+        input.name, input.email {
+         margin-top: 1.5em;
+         border-width: 0 0 1px 0;
+        }
+
+        fieldset {
+          display: flex;
+          justify-content: center;
+          padding: 0;
+          border: 0;
+          margin-top: 1.5em;
+        }
+
+        input.submit {
+          display: block;
+          color: $cerulean;
+          font-family: $arial-black, sans-serif;
+          background-color: rgba(8, 8, 8, 0.6);
+          padding: 0.4em 1.5em;
+          font-size: 1.2em;
+          text-align: center;
+          border-radius: 3px;
+          margin: 0 auto;
+        }
+
+        input:focus {
+          outline: none;
+        }
+
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          font-family: $arial-black, sans-serif;
+          color: $cerulean;
+          line-height: 2.5em;
+          margin: 0;
+          font-size: 0.9em;
+        }
+        ::-moz-placeholder { /* Firefox 19+ */
+          font-family: $arial-black, sans-serif;
+          color: $cerulean;
+          line-height: 2.5em;
+          margin: 0;
+          font-size: 0.9em;
+        }
+        :-ms-input-placeholder { /* IE 10+ */
+          font-family: $arial-black, sans-serif;
+          color: $cerulean;
+          line-height: 2.5em;
+          margin: 0;
+          font-size: 0.9em;
+        }
+        :-moz-placeholder { /* Firefox 18- */
+          font-family: $arial-black, sans-serif;
+          color: $cerulean;
+          line-height: 2.5em;
+          margin: 0;
+          font-size: 0.9em;
+        }
+      }
+    }
+
+    footer {
+      padding-top: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      hr {
+        width: 70%;
+      }
+
+      p.photo-credit {
+       font-family: $raleway-semibold;
+       color: $eggshell-white;
+       a {
+         text-decoration: none;
+         &:link, &:visited, &:hover, &:active {
+            color: $cerulean;
+         }
+       }
+      }
+    }
+  }
+
+  body.post-index {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    p.alert {
+      display: none;
+    }
+
+    
+    nav {
+      display: none;
+      ul {
+        display: none;
+      }
+    }
+  }
+}

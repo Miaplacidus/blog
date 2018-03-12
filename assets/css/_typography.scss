@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "Raleway-Medium";
+    src:
+        url("/fonts/raleway/Raleway-Medium.WOFF") format("woff")
+}
+
+@font-face {
+    font-family: "Raleway-Semibold";
+    src:
+        url("/fonts/raleway/Raleway-Semibold.WOFF") format("woff")
+}
+
+@font-face {
+    font-family: "Raleway-Regular";
+    src:
+        url("/fonts/raleway/Raleway-Regular.WOFF") format("woff")
+}
+
+@font-face {
+    font-family: "Raleway-Light";
+    src:
+        url("/fonts/raleway/Raleway-Light.WOFF") format("woff")
+}
+
+$raleway-med: "Raleway-Medium";
+$raleway-semibold: "Raleway-Semibold";
+$raleway-regular: "Raleway-Regular";
+$raleway-light: "Raleway-Light";
+$arial-black: "Arial Black";

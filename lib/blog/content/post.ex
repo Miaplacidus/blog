@@ -10,13 +10,14 @@ defmodule Blog.Content.Post do
     field :slug, :string
     field :state, :string
     field :author_id, :integer
+    field :image_url, :string
 
     timestamps()
   end
 
   def changeset(%Post{} = post, attrs \\ %{}) do
     post
-    |> cast(attrs, [:title, :description, :body, :slug, :state, :author_id])
+    |> cast(attrs, [:title, :description, :body, :slug, :state, :author_id, :image_url])
     |> validate_required([:title, :description, :body, :author_id])
   end
 end
