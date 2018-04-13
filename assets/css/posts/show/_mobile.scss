@@ -1,0 +1,45 @@
+@media screen and (min-width: $mobile){
+  body.post-show {
+    .alert {
+      display: none;
+    }
+    background-image: none;
+    nav {
+      @include top-navigation;
+
+      ul {
+        @include navigation-list;
+        li {
+          @include navigation-list-item;
+        }
+      }
+
+      .blog-title {
+        @include top-navigation-title;
+      }
+    }
+
+    .post {
+      padding: $post-content-padding;
+      header {
+        @include post-image-header(12em);
+      }
+
+      h2.title {
+        @include post-image-title(1.3em);
+      }
+
+      .body {
+        font-family: $raleway-light, sans-serif;
+        padding-left: 1.5em; 
+        padding-right: 1.5em; 
+      }
+
+      .description {
+        padding-left: 1em;
+        padding-right: 1em;
+        font-family: $arial-black, sans-serif;
+      }
+    }    
+  }
+}

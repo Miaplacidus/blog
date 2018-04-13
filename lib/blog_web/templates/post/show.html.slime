@@ -1,1 +1,20 @@
-= @post.title
+nav 
+  .hamburger
+
+  .blog-title
+    = link "Life As Algorithm", to: page_path(@conn, :index)
+
+  ul
+    li 
+      span.text about
+    li 
+      span.text work
+    li 
+      span.text contact
+
+.post
+  header style="background-image: url('/images/#{@post.image_url}');"
+    h2.title 
+      = @post.title
+  p.description= @post.description
+  p.body= @post.body

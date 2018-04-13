@@ -1,5 +1,9 @@
 @media screen and (min-width: $tablet){
   body.page-index {
+    nav .blog-title {
+      display: none;
+    }
+
     .hero-container {
       height: 30vh;
     }
@@ -51,4 +55,6 @@
       padding-left: 5em;
     }
   }
+
+
 }

@@ -1,14 +1,4 @@
 @media screen and (min-width: $desktop){
-  body {
-    background: url("/images/tk_servers.jpg") no-repeat 50% 10% fixed;
-    background-size: cover;
-    margin: 0;
-  }
-
-  .container {
-    display: flex;
-  }
-
   body.page-index {
      nav {
        min-width: 12em;
@@ -83,47 +73,5 @@
       height: 90vh;
     }
   }
-
-  body.post-index {
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    p.alert {
-      display: none;
-    }
-
-     nav {
-       min-width: 12em;
-       display: block;
-       color: $eggshell-white;
-
-       ul {
-         display: flex;
-         flex-direction: row;
-         justify-content: start;
-         list-style-type: none;
-         margin: 0 0 0 2em;
-         padding: 0;
-
-         li {
-           display: block;
-           margin: 1em 1em;
-         }
-       }
-
-       .text {
-         font-family: $raleway-semibold, sans-serif;
-         font-size: 1.6em;
-       }
-
-       .blog-title {
-        font-family: $arial-black, sans-serif;
-        font-size: 1.2em;
-        text-align: right;
-       }
-     }
-  }
+  
 }

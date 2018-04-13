@@ -1,0 +1,186 @@
+@mixin landing-mobile-nav {
+  @media screen and (max-width: $tablet){
+    nav {
+      display: flex;
+      flex-direction: column;
+      color: $eggshell-white;
+      
+      .blog-title {
+        display: none;
+      }
+
+      .nav-list .binary {
+        display: none;
+      }
+
+      .nav-list {
+        @include navigation-list;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        z-index: -5;
+        top: 1.1em;
+        transition: 0.3s;
+        li {
+          @include navigation-list-item;
+        }
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $eggshell-white;
+        font-family: $raleway-semibold, sans-serif;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        padding: 0.5em 0.5em;
+        align-self: flex-end;
+        height: 100%;
+
+        .top-line, .mid-line, .end-line {
+          padding: 0;
+          background-color: $eggshell-white;
+          margin: 0.2em 0;
+          height: 0.25em;
+          width: 2.5em;
+          border-radius: 0.1em;
+        }
+
+        .text {
+          margin-top: 0.1em;
+        }
+      }        
+
+      .top-line, .end-line {
+        -webkit-transition: transform 0.5s;
+        -ms-transition: transform 0.5s;
+        transition: transform 0.5s;
+      }
+      
+      .mid-line {
+        -webkit-transition: opacity 0.25s;
+        -ms-transition: opacity 0.25s;
+        transition: opacity 0.25s;
+      }
+      
+      &.display-mobile-nav .hamburger{
+        // rotate top-line
+        .top-line {
+          -webkit-transform: rotate(-45deg) translateY(0.5em) translateX(-0.4em);
+              -ms-transform: rotate(-45deg) translateY(0.5em) translateX(-0.4em);
+                  transform: rotate(-45deg) translateY(0.5em) translateX(-0.4em);
+        }
+
+        // disappear mid-line
+        .mid-line {
+          opacity: 0;
+        }
+
+        // rotate end-line
+        .end-line {
+          -webkit-transform: rotate(45deg) translateY(-0.9em) translateX(-0.4em);
+              -ms-transform: rotate(45deg) translateY(-0.9em) translateX(-0.4em);
+                  transform: rotate(45deg) translateY(-0.5em) translateX(-0.4em);
+        }
+
+        & ~ .nav-list {
+          top: 1.8em;
+          z-index: 1;
+          opacity: 1;
+        }
+      }
+
+    }
+  }
+}
+
+@mixin posts-mobile-nav {
+  @media screen and (max-width: $tablet){
+    nav {
+      @include top-navigation;
+      ul {
+        @include navigation-list;
+        li {
+          @include navigation-list-item;
+        }
+      }
+
+      .blog-title {
+        @include top-navigation-title;
+      }
+    }
+  }
+  
+}
+
+@mixin post-image-header($height) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: $height;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 1.5em;
+}
+
+@mixin post-image-title($font-size) {
+  height: 100%;
+  background-color: $transparent-black-dark;
+  border: 0.5px solid $dark-gray;
+  margin: 0;
+  font-size: $font-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $eggshell-white;
+  font-family: $arial-black, sans-serif;
+  text-align: center;
+}
+
+@mixin top-navigation {
+  background: url("/images/tk_servers.jpg") no-repeat;
+  background-size: auto 22em;
+  display: flex;
+  flex-direction: column;
+  color: $eggshell-white;
+}
+
+@mixin navigation-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  font-family: $raleway-semibold, sans-serif;
+  list-style-type: none;
+  font-size: 1.2em;
+  margin-bottom: 0;
+}  
+
+@mixin navigation-list-item {
+  color: $dark-gray;
+  background-color: $eggshell-white;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+
+  &:hover {
+    color: $eggshell-white;
+    background-color: $dark-gray;
+  }
+}
+
+@mixin top-navigation-title {
+  font-family: $arial-black, sans-serif;
+  font-size: 1.4em;
+  text-align: left;
+  padding-top: 0.1em;
+  padding-left: 0.5em;
+  padding-bottom: 0.2em;
+
+  a:visited, a:link, a:hover, a:link {
+    color: $eggshell-white;        
+    text-decoration: none;
+  }
+}

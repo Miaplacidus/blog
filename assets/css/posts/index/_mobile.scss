@@ -1,0 +1,114 @@
+@media screen and (min-width: $mobile) {
+  body.post-index {
+    background-color: $off-white;
+    background-image: none;
+    margin: 0;
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    p.alert {
+      display: none;
+    }
+
+    nav {
+      @include top-navigation;
+      ul {
+        @include navigation-list;
+        li {
+          @include navigation-list-item;
+        }
+      }
+
+      .blog-title {
+        @include top-navigation-title;
+      }
+    }
+
+    main {
+      .posts {
+        padding: 0.8em;
+      }
+
+      .post-list {
+        padding: 0;
+        list-style-type: none;
+        
+      }
+
+      .post-list-item {
+        padding-bottom: 1.5em;
+          header {
+            @include post-image-header(10em);
+          }
+
+        h2.title {
+          @include post-image-title(1.3em)
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          a {
+            font-family: $arial-black, sans-serif;
+            text-decoration: none;
+            text-align: center;
+            &:visited, &:active, &:link, &:hover {
+              color: $eggshell-white;
+            }  
+          }
+        }
+
+        .post-brief {
+          padding: 0.6em;
+          font-family: $raleway-light;
+        }
+      
+        p.publish_date {
+          margin-top: 0;
+          margin-bottom: 0;
+        
+        }
+
+        p.body {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          position: relative; 
+          line-height: 1.2em;
+          max-height: 10.8em; 
+          text-align: justify !important;  
+          padding-right: 1.25em;
+          padding-left: 1em;
+        }
+
+        p.body:before {
+          content: '...';
+          position: absolute;
+          right: 0.625em;
+          bottom: 0;
+        }
+
+        p.body:after {
+          content: '';
+          position: absolute;
+          right: 20px;
+          width: 1em;
+          height: 1em;
+          margin-top: 0.2em;
+        }     
+
+        p.read-more, p.edit, p.delete {
+            text-align: right;
+          a {
+            font-family: $raleway-semibold, sans-serif;
+            text-decoration: none;
+            font-size: 1.2em;
+            &:visited, &:active, &:link, &:hover {
+              color: $cerulean;
+            }
+          }
+        }
+      }  
+    }
+  }
+}

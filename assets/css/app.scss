@@ -1,10 +1,15 @@
 /* This file is for your main application scss. */
+@import "mixins_exts";
 @import "typography";
 @import "colors";
 @import "sizing";
-@import "mobile";
-@import "tablet";
-@import "desktop";
+@import "global";
+@import "home/mobile";
+@import "home/tablet";
+@import "home/desktop";
+@import "posts/index/mobile";
+@import "posts/index/tablet";
+@import "posts/show/mobile";
 
 body {
   background: url("/images/tk_servers.jpg") no-repeat 25% 10% fixed;
