@@ -5,6 +5,10 @@
        display: block;
        color: $eggshell-white;
 
+       .hamburger {
+        display: none;
+       }
+
        ul {
          display: flex;
          flex-direction: column;
@@ -19,18 +23,18 @@
          li {
            display: block;
            margin: 1.3em 0 1.3em 0;
+           .binary {
+             font-family: $raleway-med, sans-serif;
+             font-size: 1.8em;
+           }
+
+           .text {
+             font-family: $raleway-semibold, sans-serif;
+             font-size: 1.6em;
+           }
          }
        }
 
-       .binary {
-         font-family: $raleway-med, sans-serif;
-         font-size: 1.8em;
-       }
-
-       .text {
-         font-family: $raleway-semibold, sans-serif;
-         font-size: 1.6em;
-       }
      }
 
     .hero-container {

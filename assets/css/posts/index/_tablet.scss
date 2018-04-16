@@ -1,9 +1,28 @@
 @media screen and (min-width: $tablet){
   body.post-index {
     nav {
+      height: 4.5em;
+      background-size: auto 85em;
+      padding-top: 0.5em;
       .blog-title {
         font-size: 2em;
       } 
+
+      &.display-mobile-nav .hamburger ~ .nav-list {
+        top: 2.5em;
+      }
+    }
+
+    main .posts {
+      .post-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .post-list-item {
+          width: 85%;
+        }
+      }
     }
   }
 }

@@ -1,6 +1,9 @@
+@media screen and (max-width: $desktop) {
+  body.page-index {
+    @include header-navigation;
+  }
+}
 @media screen and (min-width: $mobile){
-  @include landing-mobile-nav;
-
   body.page-index {
     .hero-container {
       flex-shrink: 0;

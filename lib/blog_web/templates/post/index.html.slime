@@ -1,10 +1,15 @@
 nav 
-  .hamburger
-
   .blog-title
     = link "Life As Algorithm", to: page_path(@conn, :index)
 
-  ul
+  .hamburger
+    .top-line
+    .mid-line
+    .end-line
+    .text
+      'Menu
+
+  ul.nav-list
     li 
       span.text about
     li 

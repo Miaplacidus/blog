@@ -1,5 +1,19 @@
 @media screen and (min-width: $mobile) {
   body.post-index {
+    @include header-navigation;
+
+    nav {
+      @include top-navigation;
+      background-size: auto 43em;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .blog-title {
+        @include top-navigation-title;
+        display: inline;
+      }
+    }
+
     background-color: $off-white;
     background-image: none;
     margin: 0;
@@ -11,20 +25,6 @@
 
     p.alert {
       display: none;
-    }
-
-    nav {
-      @include top-navigation;
-      ul {
-        @include navigation-list;
-        li {
-          @include navigation-list-item;
-        }
-      }
-
-      .blog-title {
-        @include top-navigation-title;
-      }
     }
 
     main {

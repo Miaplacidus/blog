@@ -3,20 +3,20 @@ nav
     .top-line
     .mid-line
     .end-line
-    .text 
+    .text
       'Menu
 
   .blog-title
     'Life As Algorithm
 
   ul.nav-list
-    li 
+    li
       span.binary 01 &nbsp;
       span.text about
-    li 
-      span.binary 10 &nbsp; 
+    li
+      span.binary 10 &nbsp;
       span.text work
-    li 
+    li
       span.binary 11 &nbsp;
       span.text contact
 
@@ -34,7 +34,7 @@ main
         p.title web developer/martial artist/scifi geek
         p.location Chicago
           i.chitown-flag
-      
+
       article
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas accumsan ullamcorper justo eu tincidunt. Aliquam odio neque, vehicula in nisi vel, rutrum ornare purus. Aenean vel risus eu dolor euismod euismod vel nec dui. Vivamus erat nunc, finibus a lorem eu, vehicula sollicitudin ante. Vestibulum sodales sapien id ipsum ultrices, ac lobortis odio ultrices. Phasellus commodo finibus purus eget tempus. Quisque scelerisque dui arcu, vel consectetur erat interdum ac. Aenean a mauris ut massa ornare semper congue sit amet ante. Duis nec felis tincidunt dui tempor posuere.
 
@@ -47,31 +47,31 @@ main
           i.github
         .resume
           i.resume
-      section.blog-posts  
+      section.blog-posts
         ul
           = for post <- @posts do
               li
                 .image
-                  = link to: post_path(@conn, :show, post) do 
+                  = link to: post_path(@conn, :show, post) do
                     .post-image style="background-image: url('/images/#{post.image_url}');"
                 .title
                   = link to: post_path(@conn, :show, post) do
                     .post-title
                       = post.title
-      
+
       .post-index
-        = link "view all posts", to: post_path(@conn, :index), class: "post-index" 
+        = link "view all posts", to: post_path(@conn, :index), class: "post-index"
 
   .contact
     article
       header
         h1 Contact Me
-        p.contact-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat felis a sem condimentum. 
+        p.contact-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat felis a sem condimentum.
       section.contact-form
         form action="https://formspree.io/ianiemeka@gmail.com" method="POST"
           input type="text" name="name" class="name" placeholder="name"
           input type="email" name="_replyto" class="email" placeholder="email"
-          label for="message" class="message"  message 
+          label for="message" class="message"  message
           textarea name="message" class="message"
           input type="text" name="_gotcha" style="display:none"
           input type="hidden" name="_subject" value="LAA message"
@@ -81,9 +81,9 @@ main
 
   footer
     hr
-    p.photo-credit 
+    p.photo-credit
       ' photo by
-      a href="https://unsplash.com/@freeche" Thomas Kvistholt 
-      ' 
-      ' on  
+      a href="https://unsplash.com/@freeche" Thomas Kvistholt
+      '
+      ' on
       a href="https://unsplash.com" Unsplash
