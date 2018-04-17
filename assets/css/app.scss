@@ -9,7 +9,10 @@
 @import "home/desktop";
 @import "posts/index/mobile";
 @import "posts/index/tablet";
+@import "posts/index/desktop";
 @import "posts/show/mobile";
+@import "posts/show/tablet";
+@import "posts/show/desktop";
 
 body {
   background: url("/images/tk_servers.jpg") no-repeat 25% 10% fixed;
@@ -23,7 +26,3 @@ main {
   align-items: stretch;
 }
 
-// TODO: make a hamburger
-// TODO: add a mobile nav
-// TODO: make sketch SVGs functional
-// TODO: make navigation links scroll to parts of page/go to page index

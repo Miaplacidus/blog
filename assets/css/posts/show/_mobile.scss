@@ -16,20 +16,18 @@
       flex-direction: row;
       justify-content: space-between;
 
-      // ul {
-      //   @include navigation-list;
-      //   li {
-      //     @include navigation-list-item;
-      //   }
-      // }
-
       .blog-title {
         @include top-navigation-title;
         display: inline;
       }
     }
-
+    
+    main {
+      align-items: center;
+      margin: 1em;
+    }
     .post {
+      width: 95%;
       padding: $post-content-padding;
       header {
         @include post-image-header(12em);

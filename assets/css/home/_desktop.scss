@@ -9,7 +9,7 @@
         display: none;
        }
 
-       ul {
+       ul.nav-list {
          display: flex;
          flex-direction: column;
          justify-content: space-around;
@@ -31,6 +31,13 @@
            .text {
              font-family: $raleway-semibold, sans-serif;
              font-size: 1.6em;
+
+             a {
+                &:link, &:visited, &:hover, &:visited {
+                  text-decoration: none;
+                  color: $eggshell-white;
+                }
+             }
            }
          }
        }

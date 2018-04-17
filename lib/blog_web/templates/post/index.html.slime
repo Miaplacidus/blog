@@ -11,20 +11,23 @@ nav
 
   ul.nav-list
     li 
-      span.text about
+      span.text 
+        = link "about", to: page_path(@conn, :index) <> "#about-me-section"
     li 
-      span.text work
+      span.text 
+        = link "work", to: page_path(@conn, :index) <> "#work-section"
     li 
-      span.text contact
+      span.text 
+        = link "contact", to: page_path(@conn, :index) <> "#contact-section"
 
 main  
   .posts  
     ul.post-list
       = for post <- @posts do
         li.post-list-item 
-          header style="background-image: url('images/#{post.image_url}');"
-            h2.title 
-              = link to: post_path(@conn, :show, post) do 
+          = link to: post_path(@conn, :show, post), class: "header-link" do
+            header style="background-image: url('images/#{post.image_url}');"
+              h2.title 
                 = post.title
           .post-brief
             .post-brief-text

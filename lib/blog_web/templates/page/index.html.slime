@@ -12,14 +12,16 @@ nav
   ul.nav-list
     li
       span.binary 01 &nbsp;
-      span.text about
+      span.text 
+        = link "about", to: "#about-me-section", class: "to-about-me"
     li
       span.binary 10 &nbsp;
-      span.text work
+      span.text 
+        = link "work", to: "#work-section", class: "to-work"
     li
       span.binary 11 &nbsp;
-      span.text contact
-
+      span.text 
+        = link "contact", to: "#contact-section", class: "to-contact"
 
 main
   .hero-container
@@ -27,7 +29,7 @@ main
       p.name Ifu Aniemeka
       p.title web dev
 
-  .about-me-container
+  .about-me-container#about-me-section
     .about-me
       header
         p.name Ifu Aniemeka
@@ -40,7 +42,7 @@ main
 
         p Nunc suscipit massa quis urna interdum, in sodales nibh rutrum. Sed vel velit dui. Vivamus vestibulum, magna id lacinia cursus, orci est eleifend orci, eget aliquam justo nibh vel nisl. Suspendisse venenatis ex eu metus ornare pulvinar. Pellentesque tempor aliquam nibh, vitae aliquam turpis dapibus sed. Sed venenatis pretium aliquam. In hac habitasse platea dictumst. Cras mi magna, placerat sit amet euismod vel, auctor quis risus. Vivamus quis arcu lacus. Pellentesque id ipsum vitae magna molestie viverra. Cras fringilla augue vitae felis ornare convallis. Etiam elit ligula, consectetur id porttitor vel, blandit at lacus.
 
-  .work
+  .work#work-section
     article
       section.resume-github
         .github
@@ -62,7 +64,7 @@ main
       .post-index
         = link "view all posts", to: post_path(@conn, :index), class: "post-index"
 
-  .contact
+  .contact#contact-section
     article
       header
         h1 Contact Me

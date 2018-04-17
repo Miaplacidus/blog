@@ -1,5 +1,5 @@
 @media screen and (min-width: $desktop){
-  body.post-index {
+  body.post-show {
     @include desktop-header-navigation;
 
     nav {
@@ -7,5 +7,9 @@
         display: none;
       }
     }    
+
+    .post {
+      width: 75%;
+    }
   }
 }
