@@ -26,4 +26,4 @@ main
       h2.title 
         = @post.title
     p.description= @post.description
-    p.body= @post.body
+    .body= BlogWeb.PostView.to_markdown(@post.body)
