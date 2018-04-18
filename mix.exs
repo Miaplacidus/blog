@@ -34,7 +34,6 @@ defmodule Blog.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0"},
-      {:earmark, "~> 1.2"},
       {:espec, "~> 1.4.6", only: :test},
       {:faker, "~> 0.9", only: [:test, :dev]},
       {:gettext, "~> 0.11"},
