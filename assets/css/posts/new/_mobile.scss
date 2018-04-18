@@ -1,0 +1,56 @@
+@media screen and (min-width: $mobile) {
+  body.post-new, body.post-edit {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    main {
+      h2 {
+        color: $eggshell-white;
+        font-family: $raleway-med, sans-serif;
+      }
+      justify-content: center;
+      align-items: center;
+      padding: 1em;
+
+    }
+
+    form.new-post-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 75%;
+
+      input, textarea, select {
+        display: block;
+        margin: 0.5em;
+        border-radius: 3px;
+        border: solid 1px $dark-gray
+      }
+
+      input, select {
+        height: 2em;
+      }
+
+      textarea {
+        resize: none;
+
+        &.description {
+          height: 5em;
+          width: 40em;
+        }
+        &.body {
+          height: 40em;
+          width: 60em;
+        }
+      }
+
+      input.title, input.slug {
+        width: 50em;
+      }
+
+    }
+  }
+}

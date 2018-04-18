@@ -13,6 +13,8 @@
 @import "posts/show/mobile";
 @import "posts/show/tablet";
 @import "posts/show/desktop";
+@import "posts/new/mobile";
+@import "posts/edit/mobile";
 
 body {
   background: url("/images/tk_servers.jpg") no-repeat 25% 10% fixed;
@@ -25,4 +27,3 @@ main {
   flex-direction: column;
   align-items: stretch;
 }
-
