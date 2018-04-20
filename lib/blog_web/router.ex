@@ -18,6 +18,7 @@ defmodule BlogWeb.Router do
 
     get "/", PageController, :index
     resources "/posts", PostController
+    get "/blog-admin", AuthController, :new
   end
 
   scope "/auth", BlogWeb do

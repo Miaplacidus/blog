@@ -1,4 +1,4 @@
-require IEx
+use Timex
 
 defmodule BlogWeb.PostView do
   use BlogWeb, :view
@@ -21,5 +21,10 @@ defmodule BlogWeb.PostView do
     
     body_as_html
     |> raw
+  end
+
+  def display_data(time) do
+    {status, humanized_time } = Timex.format(time, "%A %B %e, %Y", :strftime)
+    humanized_time
   end
 end

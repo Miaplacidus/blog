@@ -1,0 +1,41 @@
+@media screen and (min-width: $mobile) {
+  form.post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+
+    fieldset {
+      border: none;
+    }
+
+    input, textarea, select {
+      display: block;
+      margin: 0.5em;
+      border-radius: 3px;
+      border: solid 1px $dark-gray;
+      font-size: 0.9em;
+    }
+
+    input, select {
+      height: 2em;
+    }
+
+    textarea {
+      resize: none;
+
+      &.description {
+        height: 5em;
+        width: 40em;
+      }
+      &.body {
+        height: 40em;
+        width: 60em;
+      }
+    }
+
+    input.title, input.slug, input.image-url {
+      width: 50em;
+    }
+  }
+}

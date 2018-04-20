@@ -1,0 +1,15 @@
+= form_for @changeset, post_path(@conn, :create), [class: "post-form"], fn f ->
+  fieldset
+    = text_input f, :title, placeholder: "title", class: "title"
+    = error_tag f, :title
+    = text_input f, :slug, placeholder: "slug", class: "slug"
+    = select f, :author_id, @authors, class: "author"
+    = text_input f, :coauthor, placeholder: "coauthor", class: "coauthor"
+    = text_input f, :image_url, placeholder: "image url", class: "image-url"
+  fieldset
+    = textarea f, :description, placeholder: "description", class: "description"
+    = error_tag f, :description
+    = textarea f, :body, placeholder: "body", class: "body"
+    = error_tag f, :body
+
+  = submit "Save Post", class: "btn"

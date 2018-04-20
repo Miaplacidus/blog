@@ -50,7 +50,7 @@ defmodule BlogWeb.PostController do
     post = Content.get_post!(id)
 
     case Content.update_post(post, params) do
-      {:ok, :post} ->
+      {:ok, _updated_post} ->
         conn
         |> put_flash(:info, "Post successfully updated!")
         |> redirect(to: post_path(conn, :show, post))
