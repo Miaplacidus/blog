@@ -1,5 +1,6 @@
 defmodule BlogWeb.Router do
   use BlogWeb, :router
+  require Ueberauth
 
   pipeline :browser do
     plug :accepts, ["html"]

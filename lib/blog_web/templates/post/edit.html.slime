@@ -1,15 +1,23 @@
-= form_for @changeset, post_path(@conn, :update, @post), fn f ->
-  fieldset.form-group
-    = text_input f, :title, placeholder: "title"
-    = error_tag f, :title
-    = text_input f, :slug, placeholder: "slug"
-    = select f, :author_id, @authors
-    = text_input f, :coauthor, placeholder: "coauthor"
-    = text_input f, :image_url, placeholder: "image url"
-  fieldset
-    = textarea f, :description, placeholder: "description"
-    = error_tag f, :description
-    = textarea f, :body, placeholder: "body"
-    = error_tag f, :body
+main
+  h2.section-title Edit Post
+  = form_for @changeset, post_path(@conn, :update, @post), [class: "post-form"], fn f ->
+    fieldset.form-group
+      = text_input f, :title, placeholder: "title", class: "title"
+      = error_tag f, :title
+      = text_input f, :slug, placeholder: "slug", class: "slug"
+      = select f, :author_id, @authors, class: "author"
+      = text_input f, :coauthor, placeholder: "coauthor", class: "coauthor"
+      = text_input f, :image_url, placeholder: "image url", class: "image_url"
+    fieldset
+      = textarea f, :description, placeholder: "description", class: "description"
+      = error_tag f, :description
+      = textarea f, :body, placeholder: "body", class: "body"
+      = error_tag f, :body
 
-  = submit "Save Post", class: "btn btn-primary"
+    = submit "Save Post", class: "btn btn-primary"
+
+    .preview-post-button Preview Post
+
+    .preview-post
+      .preview-post-body
+        = BlogWeb.PostView.to_html(@post.body)

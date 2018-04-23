@@ -4,7 +4,7 @@
     flex-direction: column;
     color: $eggshell-white;
     color: blue;
-    
+
     .blog-title {
       display: none;
     }
@@ -24,7 +24,7 @@
       li {
         @include navigation-list-item;
         .text {
-          opacity: 0.2; 
+          opacity: 0.2;
           transition: 1.5s;
           -webkit-transition: 1.5s;
           -ms-transition: 1.5s;
@@ -58,20 +58,20 @@
       .text {
         margin-top: 0.1em;
       }
-    }        
+    }
 
     .top-line, .end-line {
       -webkit-transition: transform 0.5s;
       -ms-transition: transform 0.5s;
       transition: transform 0.4s;
     }
-    
+
     .mid-line {
       -webkit-transition: opacity 0.25s;
       -ms-transition: opacity 0.25s;
       transition: opacity 0.15s;
     }
-    
+
     &.display-mobile-nav .hamburger{
       // rotate top-line
       .top-line {
@@ -115,7 +115,7 @@
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
-      
+
       a {
         transition: 1.4s;
       }
@@ -148,8 +148,8 @@
           }
         }
       }
-    }  
-    
+    }
+
     .blog-title {
       font-size: 1.6em;
       line-height: 1.1em;
@@ -215,7 +215,7 @@
   font-family: $raleway-semibold, sans-serif;
   list-style-type: none;
   margin-bottom: 0;
-}  
+}
 
 @mixin navigation-list-item {
   color: $dark-gray;
@@ -258,7 +258,51 @@
   padding-bottom: 0.2em;
 
   a:visited, a:link, a:hover, a:link {
-    color: $eggshell-white;        
+    color: $eggshell-white;
     text-decoration: none;
+  }
+}
+
+@mixin post-form {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  main {
+    h2.section-title, h3.section-title {
+      color: $eggshell-white;
+      font-family: $raleway-med, sans-serif;
+      padding: 1em;
+      background-color: $transparent-black-light;
+      text-align: center;
+    }
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+  }
+}
+
+@mixin preview-post {
+  .preview-post-button {
+    margin-top: 9em;
+    color: $cerulean;
+    font-family: $raleway-med;
+    border: 1px $eggshell-white solid;
+    border-radius: 0.2em;
+    padding: 0.5em;
+    background-color: $transparent-black-dark
+  }
+
+  .preview-post-button:hover {
+    background-color: $eggshell-white;
+  }
+
+  .preview-post {
+    background-color: $off-white;
+    padding: 1em;
+    font-family: $raleway-med, sans-serif;
+    margin-top: 2em;
   }
 }

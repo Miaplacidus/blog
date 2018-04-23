@@ -1,21 +1,5 @@
 @media screen and (min-width: $mobile) {
   body.post-new {
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    main {
-      h2 {
-        color: $eggshell-white;
-        font-family: $raleway-med, sans-serif;
-        padding: 1em;
-        background-color: $transparent-black-light;
-      }
-      justify-content: center;
-      align-items: center;
-      padding: 1em;
-    }
+    @include post-form;
   }
 }

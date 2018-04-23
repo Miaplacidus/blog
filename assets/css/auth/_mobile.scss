@@ -1,0 +1,26 @@
+@media screen and (min-width: $mobile) {
+  body.auth-new {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: $raleway-med, sans-serif;
+      padding: 1.5em;
+      color: $eggshell-white;
+    } 
+
+    a {
+      display: block;
+      font-size: 1.2em;
+      font-family: $raleway-med, sans-serif;
+      padding: 1.5em;
+
+      &:link, &:visited, &:hover, &:active {
+        color: $cerulean;
+        background-color: $transparent-black-dark;
+      }
+    }
+  } 
+}
