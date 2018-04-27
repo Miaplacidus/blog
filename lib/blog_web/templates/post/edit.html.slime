@@ -20,4 +20,4 @@ main
 
     .preview-post
       .preview-post-body
-        = BlogWeb.PostView.to_html(@post.body)
+        = BlogWeb.PostView.safe_html(@post.body)

@@ -67,4 +67,9 @@ defmodule BlogWeb.PostController do
     |> put_flash(:info, "Post successfully deleted")
     |> redirect(to: post_path(conn, :index))
   end
+
+  def post_preview(conn, params) do
+    %{"post_body" => post_body} = params
+    render conn, "preview.json", post_body: post_body
+  end
 end

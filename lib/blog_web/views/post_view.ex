@@ -2,6 +2,7 @@ use Timex
 
 defmodule BlogWeb.PostView do
   use BlogWeb, :view
+  alias BlogWeb.PostView
 
   def to_html(body) do 
     tmp_dir_path = Path.join(System.tmp_dir, "post_body.md")
@@ -20,11 +21,19 @@ defmodule BlogWeb.PostView do
     send port, {self(), :close}
     
     body_as_html
+  end
+
+  def safe_html(body) do 
+    PostView.to_html(body)
     |> raw
   end
 
-  def display_data(time) do
+  def display_time(time) do
     {status, humanized_time } = Timex.format(time, "%A %B %e, %Y", :strftime)
     humanized_time
+  end
+
+  def render("preview.json", %{post_body: post_body}) do
+    %{ data: %{ post_body: BlogWeb.PostView.to_html(post_body) }}
   end
 end

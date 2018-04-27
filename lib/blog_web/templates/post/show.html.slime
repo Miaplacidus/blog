@@ -26,4 +26,4 @@ main
       h2.title 
         = @post.title
     p.description= @post.description
-    .body= BlogWeb.PostView.to_html(@post.body)
+    .body= BlogWeb.PostView.safe_html(@post.body)

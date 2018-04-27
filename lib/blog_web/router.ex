@@ -20,6 +20,7 @@ defmodule BlogWeb.Router do
     get "/", PageController, :index
     resources "/posts", PostController
     get "/blog-admin", AuthController, :new
+    get "/post-preview", PostController, :post_preview
   end
 
   scope "/auth", BlogWeb do
