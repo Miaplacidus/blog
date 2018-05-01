@@ -1,3 +1,3 @@
 h1 Life As Algorithm
 
-= link "Sign In With Github", to: auth_path(@conn, :request, :github), class: "github-signin"
+= link "Sign In With Google", to: auth_path(@conn, :request, :google), class: "google-signin"

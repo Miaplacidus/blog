@@ -36,7 +36,8 @@ defmodule BlogWeb.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_blog_key",
-    signing_salt: "SMhLlb1W"
+    signing_salt: "SMhLlb1W",
+    encryption_salt: "tI9s7sa42"
 
   plug BlogWeb.Router
 

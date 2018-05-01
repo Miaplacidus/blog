@@ -11,6 +11,10 @@ defmodule Blog.Accounts do
     Repo.get(Author, author_id)
   end
 
+  def find_author(email) do 
+    Repo.get_by(Author, email: email)
+  end
+
   def create_author(attrs \\ %{}) do
     %Author{}
     |> Author.changeset(attrs)

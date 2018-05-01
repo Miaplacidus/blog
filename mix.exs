@@ -20,7 +20,7 @@ defmodule Blog.Mixfile do
   def application do
     [
       mod: {Blog.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ueberauth_github, :timex]
+      extra_applications: [:logger, :runtime_tools, :timex, :guardian, :ueberauth_google]
     ]
   end
 
@@ -37,6 +37,7 @@ defmodule Blog.Mixfile do
       {:espec, "~> 1.4.6", only: :test},
       {:faker, "~> 0.9", only: [:test, :dev]},
       {:gettext, "~> 0.11"},
+      {:guardian, "~> 1.0"},
       {:phoenix, "~> 1.3.0"},
       {:phoenix_ecto, "~> 3.2"},
       {:phoenix_html, "~> 2.10"},
@@ -46,8 +47,7 @@ defmodule Blog.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:timex, "~> 3.1"},
       {:ueberauth, "~> 0.4"},
-      {:ueberauth_github, "~> 0.7.0"},
-      {:wallaby, "~>0.19.2", only: :test}
+      {:ueberauth_google, "~> 0.7.0"}
     ]
   end
 

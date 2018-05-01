@@ -34,6 +34,6 @@ defmodule BlogWeb.PostView do
   end
 
   def render("preview.json", %{post_body: post_body}) do
-    %{ data: %{ post_body: BlogWeb.PostView.to_html(post_body) }}
+    %{ data: %{ post_body: PostView.to_html(post_body) }}
   end
 end

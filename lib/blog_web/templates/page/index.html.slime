@@ -27,13 +27,13 @@ main
   .hero-container
     .hero
       p.name Ifu Aniemeka
-      p.title web dev
+      p.title web dev 
 
   .about-me-container#about-me-section
     .about-me
       header
         p.name Ifu Aniemeka
-        p.title web developer/martial artist/scifi geek
+        p.title web developer/openAI scholar/martial artist
         p.location Chicago
           i.chitown-flag
 

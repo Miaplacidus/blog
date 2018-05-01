@@ -15,6 +15,7 @@ defmodule BlogWeb.PostController do
 
   def new(conn, _params) do
     changeset = Content.change_post(%Post{})
+
     authors =
       Accounts.list_authors
       |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})
