@@ -40,7 +40,7 @@ config :ueberauth, Ueberauth.Strategy.Google.OAuth,
 config :blog, Blog.Guardian, 
   issuer: "blog",
   secret_key: System.get_env("GUARDIAN_SECRET"),
-  ttl: {25, :minutes},
+  ttl: {15, :minutes},
   verify_issuer: true
     
 # Import environment specific config. This must remain at the bottom
