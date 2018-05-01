@@ -4,20 +4,21 @@ defmodule Blog.Content.Post do
   alias Blog.Content.Post
 
   schema "posts" do
+    belongs_to :author, Blog.Accounts.Author
     field :title, :string
     field :description, :string
     field :body, :string
-    field :slug, :string
     field :state, :string
-    field :author_id, :integer
     field :image_url, :string
+    field :original, :boolean
+    field :published_at, :utc_datetime
 
     timestamps()
   end
 
   def changeset(%Post{} = post, attrs \\ %{}) do
     post
-    |> cast(attrs, [:title, :description, :body, :slug, :state, :author_id, :image_url])
-    |> validate_required([:title, :description, :body, :author_id])
+    |> cast(attrs, [:title, :description, :body, :state, :image_url, :original, :published_at])
+    |> validate_required([:title, :description, :body, :state, :original])
   end
 end

@@ -3,8 +3,9 @@ defmodule Blog.Content do
   alias Blog.Repo
   alias Blog.Content.Post
 
-  def list_posts do
-    Repo.all(Post)
+  def list_posts(num) do
+    query = from p in Post, order_by: [desc: p.published_at], limit: ^num
+    Repo.all(query)
   end
 
   def get_post(post_id) do

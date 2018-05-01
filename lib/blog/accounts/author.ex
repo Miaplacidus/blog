@@ -6,12 +6,6 @@ defmodule Blog.Accounts.Author do
   schema "authors" do
     field :first_name, :string
     field :last_name, :string
-    field :nickname, :string
-    field :github_handle, :string
-    field :github_token, :string
-    field :provider, :string
-    field :twitter_handle, :string
-    field :github_id, :string
     field :email, :string
 
     timestamps()
@@ -19,7 +13,7 @@ defmodule Blog.Accounts.Author do
 
   def changeset(%Author{}=author, attrs \\ %{}) do
     author
-    |> cast(attrs, [:first_name, :last_name, :nickname, :github_handle, :github_token, :provider, :twitter_handle, :github_id, :email])
+    |> cast(attrs, [:first_name, :last_name, :email])
     |> validate_required([:first_name, :last_name, :email])
   end
 end
