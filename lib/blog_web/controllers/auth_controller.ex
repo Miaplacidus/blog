@@ -2,7 +2,6 @@ defmodule BlogWeb.AuthController do
   use BlogWeb, :controller
   plug Ueberauth
   alias Ueberauth.Strategy.Helpers
-  alias BlogWeb.AuthController
 
   def admin_signin(conn, _params) do 
     render(conn, "new.html")
@@ -13,12 +12,12 @@ defmodule BlogWeb.AuthController do
 
     author = Blog.Accounts.find_author(email)
 
-    case author do 
-      %Blog.Accounts.Author{} -> 
-        AuthController.login({:ok, author})
+    case Blog.Accounts.find_author(email) do 
+      author -> 
+        login({:ok, author}, conn)
 
       nil ->
-        AuthController.login({:error, "Naaah, son!"})
+        login({:error, "Naaah, son!"}, conn)
     end
   end
 
@@ -29,7 +28,7 @@ defmodule BlogWeb.AuthController do
 
   defp login({:ok, author}, conn) do 
     conn
-    |> BlogWeb.Guardian.Plug.sign_in(author)
+    |> Blog.Guardian.Plug.sign_in(author)
     |> redirect(to: post_path(conn, :new))
   end
 
