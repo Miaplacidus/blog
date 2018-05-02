@@ -5,9 +5,6 @@ defmodule BlogWeb.PostController do
   alias Blog.Content.Post
   alias Blog.Accounts
   
-  @authors Accounts.list_authors
-    |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})
-
   def index(conn, _params) do
     render(conn, "index.html", posts: Content.list_posts(6))
   end
@@ -19,7 +16,7 @@ defmodule BlogWeb.PostController do
   def new(conn, _params) do
     changeset = Content.change_post(%Post{})
 
-    render conn, "new.html", changeset: changeset, authors: @authors
+    render conn, "new.html", changeset: changeset, authors: authors
   end
 
   def create(conn, %{"post" => post_params}) do
@@ -30,7 +27,7 @@ defmodule BlogWeb.PostController do
         |> redirect(to: post_path(conn, :show, post))
       {:error, %Ecto.Changeset{} = changeset} ->
         put_flash(conn, :error, "See errors below")
-        render(conn, "new.html", changeset: changeset, authors: @authors)
+        render(conn, "new.html", changeset: changeset, authors: authors)
       _ ->
         put_flash(conn, :error, "WTF")
         render(conn, "new.html")
@@ -40,9 +37,6 @@ defmodule BlogWeb.PostController do
   def edit(conn, %{"id" => id}) do
     post = Content.get_post!(id)
     changeset = Content.change_post(post)
-    authors =
-      Accounts.list_authors
-      |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})
     render conn, "edit.html", changeset: changeset, post: post, authors: authors
   end
 
@@ -71,5 +65,10 @@ defmodule BlogWeb.PostController do
   def post_preview(conn, params) do
     %{"post_body" => post_body} = params
     render conn, "preview.json", post_body: post_body
+  end
+
+  defp authors do 
+    Accounts.list_authors
+      |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})
   end
 end
