@@ -9,6 +9,10 @@ main
       = select f, :author_id, @authors, class: "author"
       = label f, :image_url, "Add Image"
       = text_input f, :image_url, class: "image-url"
+      = label f, :published, "Published"
+      = checkbox f, :published, class: "published"
+      = label f, :original, "Original" 
+      = checkbox f, :original, class: "original"
     fieldset
       = label f, :description, "Description"
       = textarea f, :description, class: "description"
