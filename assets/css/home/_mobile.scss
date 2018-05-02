@@ -164,7 +164,7 @@
         padding: 0.7em;
         font-size: 1.2em;
         text-align: center;
-        border-radius: 1px;
+        border-radius: $button-border-radius;
         &:link, &:visited, &:hover, &:active {
           color: $cerulean;
         }
@@ -244,11 +244,11 @@
           display: block;
           color: $cerulean;
           font-family: $arial-black, sans-serif;
-          background-color: rgba(8, 8, 8, 0.6);
+          background-color: $transparent-button;
           padding: 0.4em 1.5em;
           font-size: 1.2em;
           text-align: center;
-          border-radius: 3px;
+          border-radius: $button-border-radius;
           margin: 0 auto;
         }
 
