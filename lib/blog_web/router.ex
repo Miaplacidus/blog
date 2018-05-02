@@ -30,7 +30,7 @@ defmodule BlogWeb.Router do
     get "/", PageController, :index
     resources "/posts", PostController, only: [:index, :show]
     get "/admin-signin", AuthController, :admin_signin
-    get "/post-preview", PostController, :post_preview
+    post "/post-preview", PostController, :post_preview
   end
 
   scope "/auth", BlogWeb do

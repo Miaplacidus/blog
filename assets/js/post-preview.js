@@ -1,14 +1,22 @@
 $(document).ready(function(){
+  
+  $(".preview-post-form").on("submit", function(e){
+    e.preventDefault(); 
+    var $postBody = $("form.post-form .body").val(); 
+    var xcsrfToken = $(".preview-post-form input[name='_csrf_token']").val()
 
-  $(".preview-post-button").on("click", function(){
-    var $postBody = $("form .body").val(); 
-
-    $.ajax({
+    $.post({
       url: "/post-preview", 
-      data: {"post_body": $postBody}
+      data: {
+        "post_body": $postBody
+      },
+      beforeSend: function(xhr)
+        {
+          xhr.setRequestHeader('x-csrf-token', xcsrfToken );
+        },
     }).done(function(data){
-      console.log(data.data.post_body);
       $(".preview-post-body").html(data.data.post_body);
     });
+
   });
 });

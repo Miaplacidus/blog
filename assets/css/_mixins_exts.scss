@@ -282,16 +282,45 @@
     align-items: center;
     padding: 1em;
   }
+
+  .post-form {
+    background-color: $transparent-black-light;
+    padding: 0.5em;
+    label {
+      font-family: $raleway-semibold, sans-serif;
+      color: $eggshell-white;
+      background-color: $transparent-black-dark;
+      padding: 0.3em 1em;
+      display: inline-block;
+      margin-top: 0.9em;
+    }
+  }
+
+  .save-button {
+    font-family: $raleway-semibold, sans-serif; 
+    font-size: 1.2em;
+    border-radius: 0.1em;
+    padding: 0.3em 1em;
+    cursor: pointer;
+    background-color: $transparent-black-dark;
+    color: $cerulean;
+
+    &:hover {
+      background-color: $eggshell-white;
+    }
+  }
 }
 
 @mixin preview-post {
   .preview-post-button {
+    cursor: pointer;
     margin-top: 9em;
     color: $cerulean;
     font-family: $raleway-med;
     border: 1px $eggshell-white solid;
     border-radius: 0.2em;
-    padding: 0.5em;
+    font-size: 1.2em;
+    padding: 0.3em 1em;
     background-color: $transparent-black-dark
   }
 
@@ -304,5 +333,14 @@
     padding: 1em;
     font-family: $raleway-med, sans-serif;
     margin-top: 2em;
+  }
+}
+
+@mixin post-form-page {
+  h2.new-post {
+    font-family: $raleway-med, sans-serif;
+    color: $eggshell-white;
+    background-color: $transparent-black-light;
+    padding: 0.8em;
   }
 }
