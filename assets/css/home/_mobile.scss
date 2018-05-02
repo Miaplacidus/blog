@@ -99,10 +99,18 @@
 
       i.github, i.resume {
         display: inline-block;
-        background: url("/images/github_icon.svg") no-repeat;
-        background-size: center;
         height: 4em;
         width: 4em;
+      }
+
+      i.github {
+        background: url("/images/github_icon.svg") no-repeat;
+        background-size: contain;
+      }
+
+      i.resume {
+        background: url("/images/resume_icon.svg") no-repeat;
+        background-size: contain;
       }
 
       ul {
