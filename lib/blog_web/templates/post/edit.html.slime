@@ -2,20 +2,29 @@ main
   h2.section-title Edit Post
   = form_for @changeset, post_path(@conn, :update, @post), [class: "post-form"], fn f ->
     fieldset.form-group
-      = text_input f, :title, placeholder: "title", class: "title"
+      = label f, :title, "Title"
+      = text_input f, :title, class: "title"
       = error_tag f, :title
-      = text_input f, :slug, placeholder: "slug", class: "slug"
+      = label f, :author_id, "Author"
       = select f, :author_id, @authors, class: "author"
-      = text_input f, :image_url, placeholder: "image url", class: "image_url"
+      = label f, :image_url, "Add Image"
+      = text_input f, :image_url, class: "image-url"
+      = label f, :published, "Published"
+      = checkbox f, :published, class: "published"
+      = label f, :original, "Original" 
+      = checkbox f, :original, class: "original"
     fieldset
-      = textarea f, :description, placeholder: "description", class: "description"
+      = label f, :description, "Description"
+      = textarea f, :description, class: "description"
       = error_tag f, :description
-      = textarea f, :body, placeholder: "body", class: "body"
+      = label f, :body, "Body"
+      = textarea f, :body, class: "body"
       = error_tag f, :body
 
-    = submit "Save Post", class: "btn btn-primary"
+    = submit "Save Post", class: "btn save-button"
 
-    .preview-post-button Preview Post
+  = form_for @conn, post_path(@conn, :post_preview), [class: "preview-post-form"], fn f ->
+    = submit "Preview Post", class: "preview-post-button"
 
     .preview-post
       .preview-post-body
