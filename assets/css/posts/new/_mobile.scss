@@ -1,5 +1,5 @@
 @media screen and (min-width: $mobile) {
-  body.post-new {
+  body.post-new, body.post-create {
     @include post-form;
     @include post-form-page;
     @include preview-post;

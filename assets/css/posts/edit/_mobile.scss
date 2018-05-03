@@ -1,5 +1,5 @@
 @media screen and (min-width: $mobile) {
-  body.post-edit {
+  body.post-edit, body.post-update {
     @include post-form;
     @include preview-post;
   }
