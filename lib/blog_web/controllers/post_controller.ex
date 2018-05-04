@@ -47,10 +47,17 @@ defmodule BlogWeb.PostController do
     render conn, "edit.html", changeset: changeset, post: post, authors: authors()
   end
 
-  def update(conn, %{"id" => id, "post" => params}) do
+  def update(conn, %{"id" => id, "post" => post_params}) do
     post = Content.get_post!(id)
 
-    case Content.update_post(post, params) do
+    post_params = case upload_image(post_params) do 
+      {:ok, params} ->
+        params
+      {:error, _} -> 
+        post_params
+    end
+
+    case Content.update_post(post, post_params) do
       {:ok, _updated_post} ->
         conn
         |> put_flash(:info, "Post successfully updated!")
@@ -79,8 +86,7 @@ defmodule BlogWeb.PostController do
       |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})
   end
 
-  defp upload_image(params) do 
-    %{"image_url" => %Plug.Upload{ path: image_path}} = params
+  defp upload_image(%{"image_url" => %Plug.Upload{ path: image_path}} = params) do 
     case Cloudex.upload(image_path) do 
       {:ok, image} -> 
         %Cloudex.UploadedImage{public_id: public_id} = image
@@ -88,5 +94,9 @@ defmodule BlogWeb.PostController do
       {:error, message} -> 
         {:error, params} 
     end
+  end
+
+  defp upload_image(_) do 
+    {:error, "image not updated"}
   end
 end
