@@ -8,7 +8,7 @@ defmodule Blog.Accounts.Author do
     field :last_name, :string
     field :email, :string
 
-    timestamps()
+    timestamps(type: :utc_datetime)
   end
 
   def changeset(%Author{}=author, attrs \\ %{}) do

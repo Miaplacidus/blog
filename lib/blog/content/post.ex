@@ -13,12 +13,12 @@ defmodule Blog.Content.Post do
     field :original, :boolean
     field :published_at, :utc_datetime
 
-    timestamps()
+    timestamps(type: :utc_datetime)
   end
 
   def changeset(%Post{} = post, attrs \\ %{}) do
     post
-    |> cast(attrs, [:title, :description, :body, :published, :image_url, :original, :published_at])
-    |> validate_required([:title, :description, :body, :published, :original])
+    |> cast(attrs, [:author_id, :title, :description, :body, :published, :image_url, :original, :published_at])
+    |> validate_required([:author_id, :title, :description, :body, :published, :original])
   end
 end

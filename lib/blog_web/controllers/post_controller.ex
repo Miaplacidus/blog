@@ -19,7 +19,9 @@ defmodule BlogWeb.PostController do
     render conn, "new.html", changeset: changeset, authors: authors()
   end
 
-  def create(conn, %{"post" => post_params}) do
+  def create(conn, %{"post" => post_params} = params) do
+    post_params = save_or_publish(params)
+
     post_params = case upload_image(post_params) do 
       {:ok, params} ->
         params
@@ -47,7 +49,9 @@ defmodule BlogWeb.PostController do
     render conn, "edit.html", changeset: changeset, post: post, authors: authors()
   end
 
-  def update(conn, %{"id" => id, "post" => post_params}) do
+  def update(conn, %{"id" => id, "post" => post_params} = params) do
+    post_params = save_or_publish(params)
+
     post = Content.get_post!(id)
 
     post_params = case upload_image(post_params) do 
@@ -98,5 +102,13 @@ defmodule BlogWeb.PostController do
 
   defp upload_image(_) do 
     {:error, "image not updated"}
+  end
+
+  def save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "publish"}} = params) do 
+    Map.merge(post_params, %{"published" => true}) 
+  end
+
+  def save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "draft"}} = params) do 
+    Map.merge(post_params, %{"published" => false, "published_at" => Timex.now }) 
   end
 end

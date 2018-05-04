@@ -29,7 +29,7 @@ defmodule BlogWeb.PostView do
   end
 
   def display_time(time) do
-    {status, humanized_time } = Timex.format(time, "%A %B %e, %Y", :strftime)
+    {_status, humanized_time } = Timex.format(time, "%A %B %e, %Y", :strftime)
     humanized_time
   end
 

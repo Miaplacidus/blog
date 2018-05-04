@@ -11,17 +11,18 @@ main
       = error_tag f, :author_id
       = select f, :author_id, @authors, class: "author"
 
+      = label :publish_post, :state, "Publish State"
+      = select :publish_post, :state, ["draft", "publish"], class: "publish"
+
       = label f, :image_url, "Add Image"
       = error_tag f, :image_url
       = file_input f, :image_url, class: "image-url"
 
-      = label f, :published, "Published"
-      = error_tag f, :published
-      = checkbox f, :published, class: "published"
+      /* = hidden_input f, :published, value: "true" */
 
       = label f, :original, "Original" 
       = error_tag f, :original
-      = checkbox f, :original, class: "original"
+      = checkbox f, :original, class: "original", checked: "checked"
 
     fieldset
       = label f, :description, "Description"
@@ -32,7 +33,8 @@ main
       = error_tag f, :body
       = textarea f, :body, class: "body"
 
-    = submit "Save Post", class: "btn save-button"
+    fieldset.actions
+      = submit "Save Post", class: "btn save-button"
   
   = form_for @conn, post_path(@conn, :post_preview), [class: "preview-post-form"], fn f ->
     = submit "Preview Post", class: "preview-post-button"
