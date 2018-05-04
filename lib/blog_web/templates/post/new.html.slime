@@ -1,5 +1,6 @@
 main
   h2.new-post Create New Post
+
   = form_for @changeset, post_path(@conn, :create), [class: "post-form", multipart: true], fn f ->
     fieldset
       = label f, :title, "Title"

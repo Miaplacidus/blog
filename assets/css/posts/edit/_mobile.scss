@@ -2,5 +2,6 @@
   body.post-edit, body.post-update {
     @include post-form;
     @include preview-post;
+    @include post-form-page;
   }
 }

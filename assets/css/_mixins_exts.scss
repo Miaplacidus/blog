@@ -363,4 +363,31 @@
     background-color: $transparent-black-light;
     padding: 0.8em;
   }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button.delete-post {
+    display: block; 
+    align-self: flex-end;
+    font-family: $raleway-semibold, sans-serif; 
+    font-size: 1.2em;
+    border-radius: 0.1em;
+    padding: 0.3em 1em;
+    cursor: pointer;
+    background-color: $transparent-black-dark;
+    margin-right: 10em;
+    margin-bottom: 0.5em; 
+    a {
+      color: $apple-red;
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: $eggshell-white;
+    }
+  }
 }

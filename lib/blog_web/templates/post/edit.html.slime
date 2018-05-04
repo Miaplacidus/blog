@@ -1,6 +1,9 @@
 main
   h2.section-title Edit Post
 
+  button.delete-post
+    = link "delete post", to: post_path(@conn, :delete, @post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
+
   = form_for @changeset, post_path(@conn, :update, @post), [class: "post-form", multipart: true], fn f ->
     fieldset.form-group
       = label f, :title, "Title"
