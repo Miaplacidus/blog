@@ -4,7 +4,7 @@ defmodule Blog.Content.Post do
   alias Blog.Content.Post
 
   schema "posts" do
-    belongs_to :author, Blog.Accounts.Author
+    field :author_id, :integer
     field :title, :string
     field :description, :string
     field :body, :string

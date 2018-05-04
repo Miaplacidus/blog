@@ -286,6 +286,15 @@
   .post-form {
     background-color: $transparent-black-light;
     padding: 0.5em;
+    
+    .help-block {
+      color: $apple-red;
+      display: inline-block;
+      font-family: $raleway-semibold, sans-serif;
+      padding: 0.3em 1em;
+      background-color: $transparent-black-dark;
+    }
+
     label {
       font-family: $raleway-semibold, sans-serif;
       color: $eggshell-white;
@@ -293,6 +302,17 @@
       padding: 0.3em 1em;
       display: inline-block;
       margin-top: 0.9em;
+    }
+
+    .image-url {
+      background-color: white;
+    }
+
+    .image-preview {
+      display: inline-block;
+      width: 3.5em;
+      vertical-align: bottom;
+      margin-left: 0.5em;
     }
   }
 

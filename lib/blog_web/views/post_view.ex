@@ -36,4 +36,8 @@ defmodule BlogWeb.PostView do
   def render("preview.json", %{post_body: post_body}) do
     %{ data: %{ post_body: PostView.to_html(post_body) }}
   end
+
+  def generate_image_url(post) do
+    "https:" <> Cloudex.Url.for(post.image_url) <> ".jpg"
+  end
 end

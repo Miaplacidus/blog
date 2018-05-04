@@ -1,25 +1,35 @@
 main
   h2.new-post Create New Post
-  = form_for @changeset, post_path(@conn, :create), [class: "post-form"], fn f ->
+  = form_for @changeset, post_path(@conn, :create), [class: "post-form", multipart: true], fn f ->
     fieldset
       = label f, :title, "Title"
-      = text_input f, :title, class: "title"
       = error_tag f, :title
+      = text_input f, :title, class: "title"
+      
       = label f, :author_id, "Author"
+      = error_tag f, :author_id
       = select f, :author_id, @authors, class: "author"
+
       = label f, :image_url, "Add Image"
-      = text_input f, :image_url, class: "image-url"
+      = error_tag f, :image_url
+      = file_input f, :image_url, class: "image-url"
+
       = label f, :published, "Published"
+      = error_tag f, :published
       = checkbox f, :published, class: "published"
+
       = label f, :original, "Original" 
+      = error_tag f, :original
       = checkbox f, :original, class: "original"
+
     fieldset
       = label f, :description, "Description"
-      = textarea f, :description, class: "description"
       = error_tag f, :description
+      = textarea f, :description, class: "description"
+      
       = label f, :body, "Body"
-      = textarea f, :body, class: "body"
       = error_tag f, :body
+      = textarea f, :body, class: "body"
 
     = submit "Save Post", class: "btn save-button"
   

@@ -22,7 +22,7 @@ nav
 
 main
   .post
-    header style="background-image: url('/images/#{@post.image_url}');"
+    header style="background-image: url('#{generate_image_url(@post)}');"
       h2.title 
         = @post.title
     p.description= @post.description

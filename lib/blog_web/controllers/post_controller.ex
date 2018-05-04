@@ -16,10 +16,17 @@ defmodule BlogWeb.PostController do
   def new(conn, _params) do
     changeset = Content.change_post(%Post{})
 
-    render conn, "new.html", changeset: changeset, authors: authors
+    render conn, "new.html", changeset: changeset, authors: authors()
   end
 
   def create(conn, %{"post" => post_params}) do
+    post_params = case upload_image(post_params) do 
+      {:ok, params} ->
+        params
+      {:error, _} -> 
+        post_params
+    end
+
     case Content.create_post(post_params) do
       {:ok, post} ->
         conn
@@ -27,7 +34,7 @@ defmodule BlogWeb.PostController do
         |> redirect(to: post_path(conn, :show, post))
       {:error, %Ecto.Changeset{} = changeset} ->
         put_flash(conn, :error, "See errors below")
-        render(conn, "new.html", changeset: changeset, authors: authors)
+        render(conn, "new.html", changeset: changeset, authors: authors())
       _ ->
         put_flash(conn, :error, "WTF")
         render(conn, "new.html")
@@ -37,7 +44,7 @@ defmodule BlogWeb.PostController do
   def edit(conn, %{"id" => id}) do
     post = Content.get_post!(id)
     changeset = Content.change_post(post)
-    render conn, "edit.html", changeset: changeset, post: post, authors: authors
+    render conn, "edit.html", changeset: changeset, post: post, authors: authors()
   end
 
   def update(conn, %{"id" => id, "post" => params}) do
@@ -49,7 +56,7 @@ defmodule BlogWeb.PostController do
         |> put_flash(:info, "Post successfully updated!")
         |> redirect(to: post_path(conn, :show, post))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", post: post, changeset: changeset)
+        render(conn, "edit.html", post: post, changeset: changeset, authors: authors())
     end
   end
 
@@ -70,5 +77,16 @@ defmodule BlogWeb.PostController do
   defp authors do 
     Accounts.list_authors
       |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})
+  end
+
+  defp upload_image(params) do 
+    %{"image_url" => %Plug.Upload{ path: image_path}} = params
+    case Cloudex.upload(image_path) do 
+      {:ok, image} -> 
+        %Cloudex.UploadedImage{public_id: public_id} = image
+        {:ok, Map.merge(params, %{"image_url" => public_id})}
+      {:error, message} -> 
+        {:error, params} 
+    end
   end
 end

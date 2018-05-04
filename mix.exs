@@ -33,6 +33,7 @@ defmodule Blog.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:cloudex, "~> 1.1"},
       {:cowboy, "~> 1.0"},
       {:espec, "~> 1.4.6", only: :test},
       {:faker, "~> 0.9", only: [:test, :dev]},
