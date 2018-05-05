@@ -55,7 +55,7 @@ main
               li
                 .image
                   = link to: post_path(@conn, :show, post) do
-                    .post-image style="background-image: url('/images/#{post.image_url}');"
+                    .post-image style="background-image: url('#{generate_image_url(post)}');"
                 .title
                   = link to: post_path(@conn, :show, post) do
                     .post-title

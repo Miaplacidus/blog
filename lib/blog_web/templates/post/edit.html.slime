@@ -14,14 +14,13 @@ main
       = error_tag f, :author_id
       = select f, :author_id, @authors, class: "author"
 
+      = label :publish_post, :state, "Publish State"
+      = select :publish_post, :state, ["draft", "publish"], class: "publish"
+
       = label f, :image_url, "Add Image"
       img.image-preview src="#{generate_image_url(@post)}"
       = error_tag f, :image_url
       = file_input f, :image_url, class: "image-url"
-
-      = label f, :published, "Published"
-      = error_tag f, :published
-      = checkbox f, :published, class: "published"
 
       = label f, :original, "Original" 
       = error_tag f, :original
