@@ -9,7 +9,6 @@ defmodule Blog.Repo.Migrations.CreatePosts do
         title text not null,
         description text not null default '',
         body text not null default '',
-        published boolean not null default false,
         image_url text,
         original boolean not null default true,
         published_at timestamptz,

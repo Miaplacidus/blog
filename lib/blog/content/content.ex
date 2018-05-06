@@ -7,9 +7,19 @@ defmodule Blog.Content do
     query = from p in Post, order_by: [desc: p.published_at], limit: ^num
     Repo.all(query)
   end
+  
+  def list_published_posts(num) do 
+    query = from p in Post, where: not is_nil(p.published_at), order_by: [desc: p.published_at], limit: ^num
+  Repo.all(query)
+  end
 
   def get_post(post_id) do
     Repo.get(Post, post_id)
+  end
+
+  def get_published_post(post_id) do 
+    query = from p in Post, where: p.id == ^post_id and not is_nil(p.published_at) 
+    Repo.one(query)
   end
 
   def get_post!(post_id) do
@@ -19,7 +29,6 @@ defmodule Blog.Content do
   @doc """
     creates a new post
   """
-
   def create_post(attrs \\ %{}) do
     %Post{}
     |> Post.changeset(attrs)

@@ -18,8 +18,6 @@ main
       = error_tag f, :image_url
       = file_input f, :image_url, class: "image-url"
 
-      /* = hidden_input f, :published, value: "true" */
-
       = label f, :original, "Original" 
       = error_tag f, :original
       = checkbox f, :original, class: "original", checked: "checked"

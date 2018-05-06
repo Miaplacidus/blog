@@ -4,6 +4,6 @@ defmodule BlogWeb.PageController do
   alias Blog.Content
 
   def index(conn, _params) do
-    render(conn, "index.html", posts: Content.list_posts(4))
+    render(conn, "index.html", posts: Content.list_published_posts(4))
   end
 end

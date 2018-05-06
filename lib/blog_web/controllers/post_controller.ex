@@ -6,11 +6,11 @@ defmodule BlogWeb.PostController do
   alias Blog.Accounts
   
   def index(conn, _params) do
-    render(conn, "index.html", posts: Content.list_posts(6))
+    render(conn, "index.html", posts: Content.list_published_posts(6))
   end
 
   def show(conn, %{"id" => id}) do
-    render(conn, "show.html", post: Content.get_post(id))
+    render(conn, "show.html", post: Content.get_published_post(id))
   end
 
   def new(conn, _params) do
@@ -105,10 +105,10 @@ defmodule BlogWeb.PostController do
   end
 
   def save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "publish"}} = params) do 
-    Map.merge(post_params, %{"published" => true}) 
+    Map.merge(post_params, %{"published_at" => Timex.now}) 
   end
 
   def save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "draft"}} = params) do 
-    Map.merge(post_params, %{"published" => false, "published_at" => Timex.now }) 
+    post_params
   end
 end
