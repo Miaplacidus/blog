@@ -85,6 +85,10 @@ defmodule BlogWeb.PostController do
     render conn, "preview.json", post_body: post_body
   end
 
+  def admin_index(conn, _params) do 
+    render(conn, "index.html", posts: Content.list_posts(20))
+  end
+
   defp authors do 
     Accounts.list_authors
       |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})

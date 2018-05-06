@@ -21,6 +21,7 @@ nav
         = link "contact", to: page_path(@conn, :index) <> "#contact-section"
 
 main  
+  h2 Admin Index
   .posts  
     ul.post-list
       = for post <- @posts do
@@ -34,3 +35,9 @@ main
               p.publish_date= BlogWeb.PostView.display_time(post.inserted_at)
               p.body= BlogWeb.PostView.safe_html(post.body)
             p.read-more= link "read more", to: post_path(@conn, :show, post)
+            p.edit-post= link "edit", to: post_path(@conn, :edit, post)
+
+    .new-post
+      = link "Create New Post", to: post_path(@conn, :new)
+
+
