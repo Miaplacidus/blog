@@ -33,7 +33,7 @@ defmodule BlogWeb.PostController do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post saved!")
-        |> redirect(to: post_path(conn, :show, post))
+        |> redirect(to: post_path(conn, :admin_index))
       {:error, %Ecto.Changeset{} = changeset} ->
         put_flash(conn, :error, "See errors below")
         render(conn, "new.html", changeset: changeset, authors: authors())
@@ -65,7 +65,7 @@ defmodule BlogWeb.PostController do
       {:ok, _updated_post} ->
         conn
         |> put_flash(:info, "Post successfully updated!")
-        |> redirect(to: post_path(conn, :show, post))
+        |> redirect(to: post_path(conn, :admin_index))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", post: post, changeset: changeset, authors: authors())
     end

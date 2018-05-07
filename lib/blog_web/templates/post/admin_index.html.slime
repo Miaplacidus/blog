@@ -30,7 +30,8 @@ main
       th Title
       th Description
       th Author
-      th Image
+      th Image URL
+      th ""
       th ""
     = for post <- @posts do 
       tr 
@@ -41,6 +42,8 @@ main
         td= post.description
         td= post.author_id 
         td= post.image_url
+        td 
+          img.image-preview src="#{generate_image_url(post)}"
         td.delete= link "Delete", to: post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
 
   .new-post
