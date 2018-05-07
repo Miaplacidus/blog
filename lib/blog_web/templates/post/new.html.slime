@@ -6,6 +6,10 @@ main
       = label f, :title, "Title"
       = error_tag f, :title
       = text_input f, :title, class: "title"
+
+      = label f, :external_resource_url, "External Resource URL"
+      = error_tag f, :external_resource_url
+      = text_input f, :external_resource_url, class: "external-resource-url"
       
       = label f, :author_id, "Author"
       = error_tag f, :author_id
