@@ -86,7 +86,7 @@ defmodule BlogWeb.PostController do
   end
 
   def admin_index(conn, _params) do 
-    render(conn, "index.html", posts: Content.list_posts(20))
+    render(conn, "admin_index.html", posts: Content.list_posts(20))
   end
 
   defp authors do 
