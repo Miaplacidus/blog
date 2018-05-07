@@ -22,21 +22,6 @@ nav
 
 main  
   h2 Admin Index
-  .posts  
-    /* ul.post-list */
-    /*   = for post <- @posts do */
-    /*     li.post-list-item */ 
-    /*       = link to: post_path(@conn, :show, post), class: "header-link" do */
-    /*         /1* header style="background-image: url('#{generate_image_url(post)}');" *1/ */
-    /*           h2.title */ 
-    /*             = post.title */
-    /*       .post-brief */
-    /*         .post-brief-text */
-    /*           p.publish_date= BlogWeb.PostView.display_time(post.inserted_at) */
-    /*           p.body= BlogWeb.PostView.safe_html(post.body) */
-    /*         p.read-more= link "read more", to: post_path(@conn, :show, post) */
-    /*         p.edit-post= link "edit", to: post_path(@conn, :edit, post) */
-
   table.posts
     tr
       th ID
@@ -47,19 +32,16 @@ main
       th Author
       th Image
       th ""
-      th ""
     = for post <- @posts do 
       tr 
         td= post.id
         td= display_time(post.published_at)
         td= display_time(post.updated_at)
-        td= post.title
+        td.edit= link post.title, to: post_path(@conn, :edit, post)
         td= post.description
         td= post.author_id 
         td= post.image_url
-        td= link "Edit", to: post_path(@conn, :edit, post)
-        td= link "Delete", to: post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
-
+        td.delete= link "Delete", to: post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
 
   .new-post
     = link "Create New Post", to: post_path(@conn, :new)

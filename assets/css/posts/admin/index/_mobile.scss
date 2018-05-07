@@ -14,8 +14,6 @@
       }
     }
 
-    background-color: $off-white;
-    background-image: none;
     margin: 0;
     .container {
       display: flex;
@@ -28,95 +26,43 @@
     }
 
     main {
-      .posts {
-        padding: 0.8em;
+      padding: 1.5em;
+      color: $eggshell-white; 
+      h2 {
+        font-family: $raleway-med, sans-serif;
       }
 
-      .post-list {
-        padding: 0;
-        list-style-type: none;
-        
-      }
-
-      .post-list-item {
-        padding-bottom: 1.5em;
-        a.header-link {
-          font-family: $arial-black, sans-serif;
-          text-decoration: none;
-          text-align: center;
-          &:visited, &:active, &:link, &:hover {
-            color: $eggshell-white;
-          }  
-
-          &:hover {
-            h2.title {
-              background-color: rgba(100, 100, 100, 0.6);
-            }
+      .new-post {
+        font-family: $raleway-med, sans-serif; 
+        font-size: 1.2em;
+        padding: 1.5em;
+        background-color: $transparent-black-dark;
+        a {
+          &:link, &:active, &:visited, &:hover {
+            color: $cerulean; 
           }
         }
+      }
 
-        header {
-          @include post-image-header(10em);
+      table.posts {
+        padding: 0.8em;
+        background-color: $transparent-black-dark;
+        th {
+          font-family: $raleway-med, sans-serif;
         }
 
-        h2.title {
-          @include post-image-title(1.3em)
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: 0.5s;
+        td {
+          font-family: $arial-black, sans-serif;
         }
 
-        .post-brief {
-          padding: 0.6em;
-          font-family: $raleway-light;
-        }
-      
-        p.publish_date {
-          margin-top: 0;
-          margin-bottom: 0;
-        
-        }
-
-        p.body {
-          text-overflow: ellipsis;
-          overflow: hidden;
-          position: relative; 
-          line-height: 1.2em;
-          max-height: 10.8em; 
-          text-align: justify !important;  
-          padding-right: 1.25em;
-          padding-left: 1em;
-        }
-
-        p.body:before {
-          content: '...';
-          position: absolute;
-          right: 0.625em;
-          bottom: 0;
-        }
-
-        p.body:after {
-          content: '';
-          position: absolute;
-          right: 20px;
-          width: 1em;
-          height: 1em;
-          margin-top: 0.2em;
-        }     
-
-        p.read-more, p.edit, p.delete {
-            text-align: right;
+        td.edit, td.delete {
           a {
-            font-family: $raleway-semibold, sans-serif;
-            text-decoration: none;
-            font-size: 1.2em;
-            &:visited, &:active, &:link, &:hover {
+            &:link, &:active, &:visited, &:hover {
               color: $cerulean;
             }
-          }
+          } 
         }
-      }  
+      }
     }
   }
 }

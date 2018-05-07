@@ -19,6 +19,10 @@ defmodule BlogWeb.PostView do
     |> raw
   end
 
+  def display_time(nil) do 
+    "No date to display"
+  end
+
   def display_time(time) do
     {_status, humanized_time } = Timex.format(time, "%A %B %e, %Y", :strftime)
     humanized_time
