@@ -7,16 +7,20 @@ defmodule BlogWeb.PostController do
   alias Blog.Accounts
   
   def index(conn, params) do
+    page_number = 
+      Map.get(params, "page_number", 1)
+      |> String.to_integer
+
     page =
       Post
       |> where([p], not is_nil(p.published_at))
       |> order_by(desc: :published_at)
-      |> Blog.Repo.paginate(page_size: 5)
+      |> Blog.Repo.paginate(page: page_number, page_size: 5)
 
     render(conn, 
            "index.html", 
            posts: page.entries,
-           page_number: page.page_number,
+           page_number: page_number,
            page_size: page.page_size,
            total_pages: page.total_pages,
            total_entries: page.total_entries 
