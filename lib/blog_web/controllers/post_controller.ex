@@ -118,6 +118,10 @@ defmodule BlogWeb.PostController do
     end
   end
 
+  defp upload_image(%{"external_resource_url" => ""}) do 
+    {:error, "image not updated"} 
+  end
+
   defp upload_image(%{"external_resource_url" => external_resource_url} = params) do 
     %HTTPoison.Response{body: body} = HTTPoison.get! external_resource_url
 
