@@ -1,5 +1,6 @@
 defmodule Blog.Repo do
   use Ecto.Repo, otp_app: :blog
+  use Scrivener
 
   @timestamps_opts(inserted_at: :created_at)
   @doc """

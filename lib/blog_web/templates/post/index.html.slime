@@ -34,3 +34,10 @@ main
               p.publish_date= BlogWeb.PostView.display_time(post.inserted_at)
               p.body= BlogWeb.PostView.safe_html(post.body)
             p.read-more= link "read more", to: post_path(@conn, :show, post)
+
+  .pagination            
+    .page-numbers
+      ul.page-list
+        = for page <- 1..@total_pages do
+            li.page-number
+              = link "#{page}", to: post_path(@conn, :index, page_number: page)

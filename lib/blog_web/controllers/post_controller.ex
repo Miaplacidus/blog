@@ -1,12 +1,26 @@
 defmodule BlogWeb.PostController do
   use BlogWeb, :controller
+  import Ecto.Query, warn: false
 
   alias Blog.Content
   alias Blog.Content.Post
   alias Blog.Accounts
   
-  def index(conn, _params) do
-    render(conn, "index.html", posts: Content.list_published_posts(6))
+  def index(conn, params) do
+    page =
+      Post
+      |> where([p], not is_nil(p.published_at))
+      |> order_by(desc: :published_at)
+      |> Blog.Repo.paginate(page_size: 5)
+
+    render(conn, 
+           "index.html", 
+           posts: page.entries,
+           page_number: page.page_number,
+           page_size: page.page_size,
+           total_pages: page.total_pages,
+           total_entries: page.total_entries 
+    )
   end
 
   def show(conn, %{"id" => id}) do

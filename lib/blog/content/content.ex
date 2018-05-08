@@ -7,7 +7,7 @@ defmodule Blog.Content do
     query = from p in Post, order_by: [desc: p.published_at], limit: ^num
     Repo.all(query)
   end
-  
+
   def list_published_posts(num) do 
     query = from p in Post, where: not is_nil(p.published_at), order_by: [desc: p.published_at], limit: ^num
   Repo.all(query)
