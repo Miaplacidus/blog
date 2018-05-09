@@ -49,6 +49,7 @@
     }
 
     .about-me {
+      color: $dark-gray;
       .title, .location {
         font-family: $raleway-regular, sans-serif;
         font-size: 1.05em;
@@ -206,6 +207,7 @@
         }
 
         .contact-intro {
+          color: $dark-gray;
           margin-top: 0.2em;
         }
       }
