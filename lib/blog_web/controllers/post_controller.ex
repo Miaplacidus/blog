@@ -129,9 +129,11 @@ defmodule BlogWeb.PostController do
   defp upload_image(%{"external_resource_url" => external_resource_url} = params) do 
     %HTTPoison.Response{body: body} = HTTPoison.get! external_resource_url
 
-    [%HTTPoison.Response{request_url: request_url}] = Floki.find(body, "head meta[property='og:image']") 
-      |> Floki.attribute("content") 
-      |> Enum.map(fn(url) -> HTTPoison.get!(url) end)
+    [%HTTPoison.Response{request_url: request_url}] = 
+      Floki.find(body, "head meta[property='og:image']") 
+        |> List.first
+        |> Floki.attribute("content") 
+        |> Enum.map(fn(url) -> HTTPoison.get!(url) end)
 
     case Cloudex.upload(request_url) do 
       {:ok, image} -> 
