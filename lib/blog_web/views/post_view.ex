@@ -24,8 +24,11 @@ defmodule BlogWeb.PostView do
   end
 
   def display_time(time) do
-    {_status, humanized_time } = Timex.format(time, "%A %B %e, %Y", :strftime)
-    humanized_time
+    abbreviation = Timex.Timezone.get("America/Chicago").abbreviation
+    {_status, humanized_time } =
+      Timex.Timezone.convert(time, "America/Chicago")
+      |> Timex.format("%A %B %e, %Y at %I:%M %P", :strftime)
+    humanized_time <> " #{abbreviation}"
   end
 
   def render("preview.json", %{post_body: post_body}) do
