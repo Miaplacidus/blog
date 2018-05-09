@@ -184,6 +184,7 @@
   background-position: center;
   background-size: cover;
   padding: 1.5em;
+  border: 1px solid $eggshell-white;
 }
 
 @mixin post-image-title($font-size) {
