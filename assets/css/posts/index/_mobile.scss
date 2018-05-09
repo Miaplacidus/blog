@@ -1,6 +1,7 @@
 @media screen and (min-width: $mobile) {
   body.post-index {
     @include header-navigation;
+    @include paginated-posts-nav;
 
     nav {
       @include top-navigation;

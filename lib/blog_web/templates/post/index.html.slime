@@ -38,6 +38,11 @@ main
   .pagination            
     .page-numbers
       ul.page-list
+        li.chevron 
+          = link "<<", to: post_path(@conn, :index, page_number: chevron_page_number("left", @page_number))
         = for page <- 1..@total_pages do
             li.page-number
-              = link "#{page}", to: post_path(@conn, :index, page_number: page)
+              = link "#{page}", to: post_path(@conn, :index, page_number: page), class: active_page(page, @page_number)
+        li.chevron 
+          = link ">>", to: post_path(@conn, :index, page_number: chevron_page_number("right", @page_number, @total_pages))
+

@@ -391,3 +391,40 @@
     }
   }
 }
+
+@mixin paginated-posts-nav {
+ .pagination {
+   display: flex;
+   justify-content: center;
+
+   .page-numbers {
+     padding: 0 0 3em 0;
+   }
+
+   ul {
+     font-family: $raleway-semibold, sans-serif;
+     list-style-type: none;
+     padding-left: 0;
+   }
+
+  li {
+    font-size: 1.5em;
+    display: inline-block;
+    margin: 0 0.6em;
+  }
+
+   li {
+     a {
+       &:active, &:link, &:hover, &:visited {
+          color: $dark-gray;
+          text-decoration: none;
+       }
+
+       &.active {
+        color: $cerulean;
+       }
+     }
+   }
+
+ } 
+}

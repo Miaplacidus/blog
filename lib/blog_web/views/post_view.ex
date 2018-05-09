@@ -35,4 +35,30 @@ defmodule BlogWeb.PostView do
   def generate_image_url(post) do
     "https:" <> Cloudex.Url.for(post.image_url) <> ".jpg"
   end
+
+  def chevron_page_number("left", 1) do 
+    1
+  end
+
+  def chevron_page_number("left", current_page_number) do
+    current_page_number - 1
+  end
+
+  def chevron_page_number("right", current_page_number, total_pages) do 
+    case current_page_number == total_pages do
+      true ->
+        current_page_number
+      false ->
+        current_page_number + 1
+    end
+  end
+
+  def active_page(link_number, current_page_number) do 
+    case link_number == current_page_number do 
+      true ->
+        "active"
+      false ->
+        "inactive"
+    end
+  end
 end
