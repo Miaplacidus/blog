@@ -91,6 +91,9 @@ defmodule BlogWeb.PostController do
 
   def delete(conn, %{"id" => id}) do
     post = Content.get_post!(id)
+    
+    delete_image(post.image_url)
+
     {:ok, _post} = Content.delete_post(post)
 
     conn
@@ -153,6 +156,11 @@ defmodule BlogWeb.PostController do
 
   defp upload_image(_) do 
     {:error, "image not updated"}
+  end
+
+
+  defp delete_image(image_url) do
+    Cloudex.delete(image_url)
   end
 
   def save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "publish"}} = params) do 
