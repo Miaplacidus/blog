@@ -8,7 +8,7 @@ defmodule BlogWeb.PostController do
   
   def index(conn, params) do
     page_number = 
-      Map.get(params, "page_number", 1)
+      Map.get(params, "page_number", "1")
       |> String.to_integer
 
     page =
