@@ -1,6 +1,7 @@
 @media screen and (min-width: $mobile){
   body.post-show {
     @include header-navigation;
+    @include back-to-index-link;
     background-color: $off-white;
     background-image: none;
 
@@ -26,6 +27,7 @@
       align-items: center;
       margin: 1em;
     }
+
     .post {
       width: 95%;
       padding: $post-content-padding;

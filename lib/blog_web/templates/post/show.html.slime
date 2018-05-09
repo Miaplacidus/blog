@@ -21,6 +21,9 @@ nav
         = link "contact", to: page_path(@conn, :index) <> "#contact-section"
 
 main
+  .back-to-index
+    = link "<< back to index", to: post_path(@conn, :index)
+
   .post
     header style="background-image: url('#{generate_image_url(@post)}');"
       h2.title 

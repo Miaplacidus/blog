@@ -429,3 +429,19 @@
 
  } 
 }
+
+@mixin back-to-index-link {
+  .back-to-index {
+    font-family: $raleway-semibold, sans-serif;
+    font-size: 1.2em;
+    padding: 0.5em;
+    width: 100%;
+
+    a {
+      &:link, &:active, &:active, &:visited {
+        text-decoration: none;
+        color: $cerulean;
+      }
+    }
+  }
+} 
