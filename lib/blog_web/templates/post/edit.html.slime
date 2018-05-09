@@ -1,4 +1,7 @@
 main
+  .back-to-index
+    = link "<< back to admin index", to: post_path(@conn, :admin_index)
+
   h2.section-title Edit Post
 
   button.delete-post

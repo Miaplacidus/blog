@@ -1,6 +1,7 @@
 main
   .back-to-index
     = link "<< back to admin index", to: post_path(@conn, :admin_index)
+
   h2.new-post Create New Post
 
   = form_for @changeset, post_path(@conn, :create), [class: "post-form", multipart: true], fn f ->
