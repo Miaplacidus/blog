@@ -23,24 +23,22 @@ nav
 main  
   h2 Admin Index
   table.posts
-    tr
+    tr 
       th ID
       th Published At
       th Updated At
       th Title
       th Description
-      th Author
       th Image URL
       th ""
       th ""
     = for post <- @posts do 
-      tr 
+      tr class=link_post(post)
         td= post.id
-        td= display_time(post.published_at)
-        td= display_time(post.updated_at)
+        td= display_short_time(post.published_at)
+        td= display_short_time(post.updated_at)
         td.edit= link post.title, to: post_path(@conn, :edit, post)
         td= post.description
-        td= post.author_id 
         td= post.image_url
         td 
           img.image-preview src="#{generate_image_url(post)}"

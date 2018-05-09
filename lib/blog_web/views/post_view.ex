@@ -31,6 +31,17 @@ defmodule BlogWeb.PostView do
     humanized_time <> " #{abbreviation}"
   end
 
+  def display_short_time(nil) do 
+    "No date to display"
+  end
+
+  def display_short_time(time) do 
+    {_status, humanized_time } =
+      Timex.Timezone.convert(time, "America/Chicago")
+      |> Timex.format("%-m/%-d/%Y, %l:%M%P", :strftime)
+    humanized_time 
+  end
+
   def render("preview.json", %{post_body: post_body}) do
     %{ data: %{ post_body: PostView.to_html(post_body) }}
   end
@@ -62,6 +73,15 @@ defmodule BlogWeb.PostView do
         "active"
       false ->
         "inactive"
+    end
+  end
+
+  def link_post(post) do 
+    case post.original do 
+      true -> 
+        "original-post"
+      false ->
+        "link-post"
     end
   end
 end
