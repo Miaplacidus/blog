@@ -49,4 +49,7 @@ main
   .new-post
     = link "Create New Post", to: post_path(@conn, :new)
 
+  .post-index
+    = link "Post Index", to: post_path(@conn, :index)
+
 

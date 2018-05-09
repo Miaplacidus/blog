@@ -32,7 +32,7 @@
         font-family: $raleway-med, sans-serif;
       }
 
-      .new-post {
+      .new-post, .post-index {
         font-family: $raleway-med, sans-serif; 
         font-size: 1.2em;
         padding: 1.5em;
@@ -42,6 +42,10 @@
             color: $cerulean; 
           }
         }
+      }
+
+      .post-index {
+        padding: 0 0 1.5em 1.5em;
       }
 
       table.posts {
