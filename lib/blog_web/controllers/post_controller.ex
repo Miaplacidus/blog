@@ -116,13 +116,8 @@ defmodule BlogWeb.PostController do
   end
 
   defp upload_image(%{"image_url" => %Plug.Upload{ path: image_path}} = params) do 
-    case Cloudex.upload(image_path) do 
-      {:ok, image} -> 
-        %Cloudex.UploadedImage{public_id: public_id} = image
-        {:ok, Map.merge(params, %{"image_url" => public_id})}
-      {:error, message} -> 
-        {:error, params} 
-    end
+    delete_old_image(params)
+    upload_to_cloudex(image_path, params)
   end
 
   defp upload_image(%{"external_resource_url" => ""}) do 
@@ -130,22 +125,35 @@ defmodule BlogWeb.PostController do
   end
 
   defp upload_image(%{"external_resource_url" => external_resource_url} = params) do 
+    delete_old_image(params)
+
     %HTTPoison.Response{body: body} = HTTPoison.get! external_resource_url
 
     response =
       Floki.find(body, "head meta[property='og:image']") 
         |> List.wrap
+        |> List.first
+        |> List.wrap
         |> Floki.attribute("content") 
         |> Enum.map(fn(url) -> HTTPoison.get!(url) end)
 
-    url = case response do 
-      [%HTTPoison.Response{request_url: request_url}] ->
-        request_url
-      [] ->
-        ""
-    end
+    url = 
+      case response do 
+        [%HTTPoison.Response{request_url: request_url}] ->
+          request_url
+        [] ->
+          ""
+      end
 
-    case Cloudex.upload(url) do 
+    upload_to_cloudex(url, params)
+  end
+
+  defp upload_image(_) do 
+    {:error, "image not updated"}
+  end
+
+  defp upload_to_cloudex(image_location, params) do 
+    case Cloudex.upload(image_location) do 
       {:ok, image} -> 
         %Cloudex.UploadedImage{public_id: public_id} = image
         {:ok, Map.merge(params, %{"image_url" => public_id})}
@@ -154,10 +162,15 @@ defmodule BlogWeb.PostController do
     end
   end
 
-  defp upload_image(_) do 
-    {:error, "image not updated"}
+  defp delete_old_image(params) do 
+    if Map.has_key?(params, "id") == true do
+      post_id = 
+        Map.get(params, "id")
+        |> String.to_integer
+      post = Content.get_post(post_id)
+      delete_image(post.image_url)
+    end
   end
-
 
   defp delete_image(image_url) do
     Cloudex.delete(image_url)

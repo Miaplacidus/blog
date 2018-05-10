@@ -82,6 +82,14 @@
       article {
         font-family: $raleway-light, sans-serif;
       }
+
+      a {
+        &:link, &:visited, &:hover, &:active {
+          text-decoration: none;
+          color: $dark-gray;
+          font-family: $raleway-med;
+        }
+      }
     }
 
     .work {
