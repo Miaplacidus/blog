@@ -15,15 +15,24 @@ defmodule Blog.Content do
 
   def list_published_posts(num) do 
     query = from p in Post, where: not is_nil(p.published_at), order_by: [desc: p.published_at], limit: ^num
-  Repo.all(query)
+    Repo.all(query)
   end
 
   def get_post(post_id) do
     Repo.get(Post, post_id)
   end
 
+  def get_post_by_slug(slug) do
+    Repo.get_by(Post, slug: slug)
+  end
+
   def get_published_post(post_id) do 
     query = from p in Post, where: p.id == ^post_id and not is_nil(p.published_at) 
+    Repo.one(query)
+  end
+
+  def get_published_post_by_slug(slug) do 
+    query = from p in Post, where: p.slug == ^slug and not is_nil(p.published_at)
     Repo.one(query)
   end
 
@@ -49,7 +58,6 @@ defmodule Blog.Content do
   @doc """
     Returns %Ecto.Changeset{}. Useful for tracking changes in posts.
   """
-
   def change_post(%Post{} = post) do
     Post.changeset(post, %{})
   end

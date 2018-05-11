@@ -12,13 +12,20 @@ defmodule Blog.Content.Post do
     field :external_resource_url, :string
     field :original, :boolean
     field :published_at, :utc_datetime
+    field :slug, :string
 
     timestamps(type: :utc_datetime)
   end
 
   def changeset(%Post{} = post, attrs \\ %{}) do
     post
-    |> cast(attrs, [:author_id, :title, :description, :body, :image_url, :external_resource_url, :original, :published_at])
-    |> validate_required([:author_id, :title, :description, :body, :original])
+    |> cast(attrs, [:author_id, :title, :description, :body, :image_url, :external_resource_url, :original, :published_at, :slug])
+    |> validate_required([:author_id, :title, :description, :body, :original, :slug])
+  end
+
+  defimpl Phoenix.Param, for: Post do 
+    def to_param(%{slug: slug}) do 
+      "#{slug}"
+    end
   end
 end

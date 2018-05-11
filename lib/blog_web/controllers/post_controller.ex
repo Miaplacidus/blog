@@ -28,7 +28,7 @@ defmodule BlogWeb.PostController do
   end
 
   def show(conn, %{"id" => id}) do
-    render(conn, "show.html", post: Content.get_published_post(id))
+    render(conn, "show.html", post: Content.get_published_post_by_slug(id))
   end
 
   def new(conn, _params) do
@@ -47,6 +47,8 @@ defmodule BlogWeb.PostController do
         post_params
     end
 
+    post_params = generate_slug(post_params)
+
     case Content.create_post(post_params) do
       {:ok, post} ->
         conn
@@ -62,7 +64,7 @@ defmodule BlogWeb.PostController do
   end
 
   def edit(conn, %{"id" => id}) do
-    post = Content.get_post!(id)
+    post = Content.get_post_by_slug(id)
     changeset = Content.change_post(post)
     render conn, "edit.html", changeset: changeset, post: post, authors: authors()
   end
@@ -70,7 +72,7 @@ defmodule BlogWeb.PostController do
   def update(conn, %{"id" => id, "post" => post_params} = params) do
     post_params = save_or_publish(params)
 
-    post = Content.get_post!(id)
+    post = Content.get_post_by_slug(id)
 
     post_params = case upload_image(post_params) do 
       {:ok, params} ->
@@ -78,6 +80,8 @@ defmodule BlogWeb.PostController do
       {:error, _} -> 
         post_params
     end
+
+    post_params = generate_slug(post_params)
 
     case Content.update_post(post, post_params) do
       {:ok, _updated_post} ->
@@ -90,7 +94,7 @@ defmodule BlogWeb.PostController do
   end
 
   def delete(conn, %{"id" => id}) do
-    post = Content.get_post!(id)
+    post = Content.get_post_by_slug(id)
     
     delete_image(post.image_url)
 
@@ -98,7 +102,7 @@ defmodule BlogWeb.PostController do
 
     conn
     |> put_flash(:info, "Post successfully deleted")
-    |> redirect(to: post_path(conn, :index))
+    |> redirect(to: post_path(conn, :admin_index))
   end
 
   def post_preview(conn, params) do
@@ -176,11 +180,18 @@ defmodule BlogWeb.PostController do
     Cloudex.delete(image_url)
   end
 
-  def save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "publish"}} = params) do 
+  defp save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "publish"}} = params) do 
     Map.merge(post_params, %{"published_at" => Timex.now}) 
   end
 
-  def save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "draft"}} = params) do 
+  defp save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "draft"}} = params) do 
     post_params
+  end
+
+  defp generate_slug(%{"title" => title} = params) do 
+    slug = String.downcase(title)
+      |> String.replace(" ", "-")
+
+    Map.merge(params, %{"slug" => slug})
   end
 end
