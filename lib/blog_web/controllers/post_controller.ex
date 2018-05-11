@@ -148,7 +148,7 @@ defmodule BlogWeb.PostController do
         [] ->
           ""
       end
-
+    
     upload_to_cloudex(url, params)
   end
 

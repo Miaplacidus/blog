@@ -84,4 +84,11 @@ defmodule BlogWeb.PostView do
         "link-post"
     end
   end
+
+  def publish_state_selected_value(post) do
+    case not is_nil(post.published_at) do 
+      true -> "publish"
+      false -> "draft"
+    end
+  end
 end

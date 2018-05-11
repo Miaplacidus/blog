@@ -22,7 +22,7 @@ main
       = select f, :author_id, @authors, class: "author"
 
       = label :publish_post, :state, "Publish State"
-      = select :publish_post, :state, ["draft", "publish"], class: "publish"
+      = select :publish_post, :state, ["draft", "publish"], class: "publish", selected: publish_state_selected_value(@post) 
 
       = label f, :image_url, "Add Image"
       img.image-preview src="#{generate_image_url(@post)}"
