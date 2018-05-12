@@ -77,6 +77,8 @@
         height: 0.8em;
         width: 1.7em;
         margin-left: 0.3em;
+        position: relative;
+        top: 0.09em;
       }
 
       article {
@@ -88,6 +90,12 @@
           text-decoration: none;
           color: $dark-gray;
           font-family: $raleway-med;
+        }
+
+        img.hashrocket-logo, img.openai-logo {
+          width: 1em;
+          position: relative;
+          top: 0.09em;
         }
       }
     }
