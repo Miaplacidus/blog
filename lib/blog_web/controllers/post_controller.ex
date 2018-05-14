@@ -70,18 +70,18 @@ defmodule BlogWeb.PostController do
   end
 
   def update(conn, %{"id" => id, "post" => post_params} = params) do
-    post_params = save_or_publish(params)
+    params = save_or_publish(params)
 
     post = Content.get_post_by_slug(id)
 
-    post_params = case upload_image(post_params) do 
-      {:ok, params} ->
-        params
+    params = case upload_image(params) do 
+      {:ok, updated_params} ->
+        updated_params
       {:error, _} -> 
-        post_params
+        params
     end
 
-    post_params = generate_slug(post_params)
+    %{"post" => post_params} = generate_slug(params)
 
     case Content.update_post(post, post_params) do
       {:ok, _updated_post} ->
@@ -128,39 +128,47 @@ defmodule BlogWeb.PostController do
     {:error, "image not updated"} 
   end
 
-  defp upload_image(%{"external_resource_url" => external_resource_url} = params) do 
+  defp upload_image(%{"post" => %{"external_resource_url" => external_resource_url}} = params) do 
     delete_old_image(params)
 
-    %HTTPoison.Response{body: body} = HTTPoison.get! external_resource_url
+    body = make_request(external_resource_url)
 
-    response =
-      Floki.find(body, "head meta[property='og:image']") 
-        |> List.wrap
-        |> List.first
-        |> List.wrap
-        |> Floki.attribute("content") 
-        |> Enum.map(fn(url) -> HTTPoison.get!(url) end)
+    og_image_url =
+      Floki.find(body, "meta[property='og:image']") 
+        |> get_image_url
 
-    url = 
-      case response do 
-        [%HTTPoison.Response{request_url: request_url}] ->
-          request_url
-        [] ->
-          ""
-      end
-    
-    upload_to_cloudex(url, params)
+    upload_to_cloudex(og_image_url, params)
   end
 
   defp upload_image(_) do 
     {:error, "image not updated"}
   end
 
+  defp make_request(url) do 
+    case HTTPoison.request(:get, url, "", [], [follow_redirect: true]) do 
+      {:ok, %HTTPoison.Response{ body: body }} ->
+        body
+      {:error, %HTTPoison.Error{ reason: reason }} ->
+        IO.inspect "ERROR: " <> reason
+        ""
+    end
+  end
+
+  defp get_image_url([]) do   
+    ""
+  end
+
+  defp get_image_url([html_tree]) do 
+    html_tree
+      |> Floki.attribute("content") 
+      |> List.first
+  end
+
   defp upload_to_cloudex(image_location, params) do 
     case Cloudex.upload(image_location) do 
       {:ok, image} -> 
         %Cloudex.UploadedImage{public_id: public_id} = image
-        {:ok, Map.merge(params, %{"image_url" => public_id})}
+        {:ok, put_in(params, ["post", "image_url"], public_id)} 
       {:error, message} -> 
         {:error, params} 
     end
@@ -168,10 +176,9 @@ defmodule BlogWeb.PostController do
 
   defp delete_old_image(params) do 
     if Map.has_key?(params, "id") == true do
-      post_id = 
+      post = 
         Map.get(params, "id")
-        |> String.to_integer
-      post = Content.get_post(post_id)
+        |> Content.get_post_by_slug
       delete_image(post.image_url)
     end
   end
@@ -180,18 +187,18 @@ defmodule BlogWeb.PostController do
     Cloudex.delete(image_url)
   end
 
-  defp save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "publish"}} = params) do 
-    Map.merge(post_params, %{"published_at" => Timex.now}) 
+  defp save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "publish"}} = params) do
+    put_in(params, ["post", "published_at"], Timex.now) 
   end
 
   defp save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "draft"}} = params) do 
-    post_params
+    params
   end
 
-  defp generate_slug(%{"title" => title} = params) do 
+  defp generate_slug(%{ "post" => %{ "title" => title }} = params) do 
     slug = String.downcase(title)
       |> String.replace(" ", "-")
 
-    Map.merge(params, %{"slug" => slug})
+    put_in(params, ["post", "slug"], slug)
   end
 end
