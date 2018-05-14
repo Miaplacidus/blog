@@ -38,16 +38,16 @@ defmodule BlogWeb.PostController do
   end
 
   def create(conn, %{"post" => post_params} = params) do
-    post_params = save_or_publish(params)
+    params_w_publish_state = save_or_publish(params)
 
-    post_params = case upload_image(post_params) do 
-      {:ok, params} ->
-        params
+    complete_params = case upload_image(params_w_publish_state) do 
+      {:ok, updated_params} ->
+        updated_params
       {:error, _} -> 
-        post_params
+        params_w_publish_state
     end
 
-    post_params = generate_slug(post_params)
+    %{ "post" => post_params } = generate_slug(complete_params)
 
     case Content.create_post(post_params) do
       {:ok, post} ->
@@ -56,6 +56,7 @@ defmodule BlogWeb.PostController do
         |> redirect(to: post_path(conn, :admin_index))
       {:error, %Ecto.Changeset{} = changeset} ->
         put_flash(conn, :error, "See errors below")
+        IO.inspect changeset
         render(conn, "new.html", changeset: changeset, authors: authors())
       _ ->
         put_flash(conn, :error, "WTF")
@@ -119,12 +120,12 @@ defmodule BlogWeb.PostController do
       |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})
   end
 
-  defp upload_image(%{"image_url" => %Plug.Upload{ path: image_path}} = params) do 
+  defp upload_image(%{"post" => %{"image_url" => %Plug.Upload{ path: image_path}}} = params) do 
     delete_old_image(params)
     upload_to_cloudex(image_path, params)
   end
 
-  defp upload_image(%{"external_resource_url" => ""}) do 
+  defp upload_image(%{"post" => %{ "external_resource_url" => ""}}) do 
     {:error, "image not updated"} 
   end
 
