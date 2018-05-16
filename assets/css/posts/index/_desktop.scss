@@ -3,6 +3,7 @@
     @include desktop-header-navigation;
 
     nav {
+      background-size: cover;
       .hamburger {
         display: none;
       }

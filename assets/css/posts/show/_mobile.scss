@@ -43,9 +43,14 @@
         font-family: $raleway-light, sans-serif;
         padding-left: 1.5em; 
         padding-right: 1.5em; 
+
+        iframe#ytplayer {
+          display: block;
+          margin: 1em auto;
+        }
         
         a {
-          &:active, &:visited, &:link {
+          &:active, &:visited, &:link, &:hover {
             color: $dark-gray;
           }
         }

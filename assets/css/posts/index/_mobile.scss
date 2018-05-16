@@ -72,6 +72,19 @@
           padding: 0.6em;
           font-family: $raleway-light;
         }
+
+        .post-brief-text {
+          iframe#ytplayer {
+            display: block;
+            margin: 1em auto;
+          }
+
+          a {
+            &:link, &:active, &:hover, &:visited {
+              color: $dark-gray;
+            }
+          }
+        }
       
         p.publish_date {
           margin-top: 0;
