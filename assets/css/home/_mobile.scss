@@ -92,11 +92,15 @@
           font-family: $raleway-med;
         }
 
-        img.hashrocket-logo, img.openai-logo {
+        img.hashrocket-logo, img.openai-logo, img.phoenix-logo {
           width: 1em;
           position: relative;
           top: 0.09em;
         }
+      }
+      .footnote {
+        margin-top: 3.5em;
+        font-size: 0.7em;
       }
     }
 
@@ -226,6 +230,10 @@
           color: $dark-gray;
           margin-top: 0.2em;
         }
+      }
+
+      article {
+        width: 75%;
       }
 
       form {

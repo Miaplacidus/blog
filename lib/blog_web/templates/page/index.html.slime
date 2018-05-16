@@ -33,22 +33,50 @@ main
     .about-me
       header
         p.name Ifu Aniemeka
-        p.title web developer/openAI scholar/martial artist
+        p.title software engineer/openAI scholar/martial artist
         p.location Chicago
           i.chitown-flag
 
       article
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas accumsan ullamcorper justo eu tincidunt. Aliquam odio neque, vehicula in nisi vel, rutrum ornare purus. Aenean vel risus eu dolor euismod euismod vel nec dui. Vivamus erat nunc, finibus a lorem eu, vehicula sollicitudin ante. Vestibulum sodales sapien id ipsum ultrices, ac lobortis odio ultrices. Phasellus commodo finibus purus eget tempus. Quisque scelerisque dui arcu, vel consectetur erat interdum ac. Aenean a mauris ut massa ornare semper congue sit amet ante. Duis nec felis tincidunt dui tempor posuere.
-
-        p Nunc suscipit massa quis urna interdum, in sodales nibh rutrum. Sed vel velit dui. Vivamus vestibulum, magna id lacinia cursus, orci est eleifend orci, eget aliquam justo nibh vel nisl. Suspendisse venenatis ex eu metus ornare pulvinar. Pellentesque tempor aliquam nibh, vitae aliquam turpis dapibus sed. Sed venenatis pretium aliquam. In hac habitasse platea dictumst. Cras mi magna, placerat sit amet euismod vel, auctor quis risus. Vivamus quis arcu lacus. Pellentesque id ipsum vitae magna molestie viverra. Cras fringilla augue vitae felis ornare convallis. Etiam elit ligula, consectetur id porttitor vel, blandit at lacus.
+        p 
+          'Hey there! My name's Ifu and I write code. 
+        p 
+          'My languages of choice are ruby, python, javascript, and elixir (btw, this site was built using the
+          '
+          a href="https://phoenixframework.org/"
+            ' phoenix framework 
+            img.phoenix-logo src="/images/phoenix.png"
+          '). I work at the Chicago office of 
+          a href="https://hashrocket.com" 
+            ' Hashrocket 
+            img.hashrocket-logo src="/images/hashrocket.png"
+          ', a software consultancy. 
+        p At the moment, I'm taking a 3-month sabbatical to study machine learning as an 
+          '
+          a href="https://openai.com" 
+            ' OpenAI Scholar
+            img.openai-logo src="/images/openai.jpg"
+          '.
+          ' I'm working under the tutelage of 
+          a href="https://scholar.google.com/citations?user=Vzr1RukAAAAJ" Igor Mordatch 🧔🏻
+          ', a researcher at OpenAI. At the end of those 3 months, I'm not entirely certain what will happen, but I'm excited to find out.
+        p My other interests include science fiction*, martial arts, and using technology to improve the condition of mankind. In my free time, I practice martial arts choreography with the Forza Fight stunt team.  
+        p Feel free to check out my 
+          '
+          = link to: post_path(@conn, :index) do
+            'blog 📃
+          ' to see what I'm working on. 
+        .footnote * Wakanda forever
 
   .work#work-section
     article
       section.resume-github
-        .github
-          i.github
-        .resume
-          i.resume
+        a href="https://www.github.com/miaplacidus"
+          .github
+            i.github
+        = link to: resume_path(@conn, :download_resume) do
+          .resume
+            i.resume
       section.blog-posts
         ul
           = for post <- @posts do
@@ -67,8 +95,8 @@ main
   .contact#contact-section
     article
       header
-        h1 Contact Me
-        p.contact-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat felis a sem condimentum.
+        h1 Let's Grab Coffee
+        p.contact-intro Shoot me a message if you'd like to work with me or even if you just want to chat. I'm always down for nerdy conversations! 
       section.contact-form
         form action="https://formspree.io/ianiemeka@gmail.com" method="POST"
           input type="text" name="name" class="name" placeholder="name"

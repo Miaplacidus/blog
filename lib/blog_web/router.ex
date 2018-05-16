@@ -32,6 +32,7 @@ defmodule BlogWeb.Router do
     resources "/posts", PostController, only: [:index, :show]
     get "/admin-signin", AuthController, :admin_signin
     post "/post-preview", PostController, :post_preview
+    get "/download_resume", ResumeController, :download_resume
   end
 
   scope "/auth", BlogWeb do
