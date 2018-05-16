@@ -92,7 +92,7 @@
         
         }
 
-        p.body {
+        .body {
           text-overflow: ellipsis;
           overflow: hidden;
           position: relative; 
@@ -103,14 +103,14 @@
           padding-left: 1em;
         }
 
-        p.body:before {
+        .body:before {
           content: '...';
           position: absolute;
           right: 0.625em;
           bottom: 0;
         }
 
-        p.body:after {
+        .body:after {
           content: '';
           position: absolute;
           right: 20px;
