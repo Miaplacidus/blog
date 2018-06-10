@@ -34,12 +34,12 @@ config :ueberauth, Ueberauth,
   ]
 
 config :ueberauth, Ueberauth.Strategy.Google.OAuth,
-  client_id: System.get_env("GOOGLE_CLIENT_ID"),
-  client_secret: System.get_env("GOOGLE_CLIENT_SECRET")
+  client_id: "${GOOGLE_CLIENT_ID}",
+  client_secret: "${GOOGLE_CLIENT_SECRET}"
 
 config :blog, Blog.Guardian, 
   issuer: "blog",
-  secret_key: System.get_env("GUARDIAN_SECRET"),
+  secret_key: "${GUARDIAN_SECRET}",
   ttl: {15, :minutes},
   verify_issuer: true
     
