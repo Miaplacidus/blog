@@ -36,6 +36,7 @@ defmodule Blog.Mixfile do
       {:cloudex, "~> 1.1"},
       {:cowboy, "~> 1.0"},
       {:espec, "~> 1.4.6", only: :test},
+      {:distillery, "~> 1.5", runtime: false},
       {:faker, "~> 0.9", only: [:test, :dev]},
       {:floki, "~> 0.20.0"},
       {:gettext, "~> 0.11"},
