@@ -60,7 +60,7 @@ main
           ' I'm working under the tutelage of 
           a href="https://scholar.google.com/citations?user=Vzr1RukAAAAJ" Igor Mordatch 🧔🏻
           ', a researcher at OpenAI. At the end of those 3 months, I'm not entirely certain what will happen, but I'm excited to find out.
-        p My other interests include science fiction*, martial arts, and using technology to improve the condition of mankind. In my free time, I practice martial arts choreography with the Forza Fight stunt team.  
+        p Other subjects I'm interested in include science fiction*, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice martial arts choreography with the Forza Fight stunt team.  
         p Feel free to check out my 
           '
           = link to: post_path(@conn, :index) do
@@ -96,7 +96,7 @@ main
     article
       header
         h1 Let's Grab Coffee
-        p.contact-intro Shoot me a message if you'd like to work with me or even if you just want to chat. I'm always down for nerdy conversations! 
+        p.contact-intro Feel free to send me a message if you want to work with me or if you just want to chat! 
       section.contact-form
         form action="https://formspree.io/ianiemeka@gmail.com" method="POST"
           input type="text" name="name" class="name" placeholder="name"
