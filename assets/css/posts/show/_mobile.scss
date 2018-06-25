@@ -39,6 +39,11 @@
         @include post-image-title(1.3em);
       }
 
+      .publish_date {
+        font-family: $raleway-semibold, sans-serif;
+        padding: 0.6em;
+      }
+
       .body {
         font-family: $raleway-light, sans-serif;
         padding-left: 1.5em; 

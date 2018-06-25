@@ -28,4 +28,5 @@ main
     header style="background-image: url('#{generate_image_url(@post)}');"
       h2.title 
         = @post.title
+    .publish_date= BlogWeb.PostView.display_time(@post.inserted_at)
     .body= BlogWeb.PostView.safe_html(@post.body)
