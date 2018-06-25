@@ -97,7 +97,8 @@
           overflow: hidden;
           position: relative; 
           line-height: 1.2em;
-          max-height: 10.8em; 
+          // max-height ~= line-height * max line number
+          max-height: 10.6em; 
           text-align: justify !important;  
           padding-right: 1.25em;
           padding-left: 1em;
