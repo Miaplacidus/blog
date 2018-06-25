@@ -28,5 +28,4 @@ main
     header style="background-image: url('#{generate_image_url(@post)}');"
       h2.title 
         = @post.title
-    p.description= @post.description
     .body= BlogWeb.PostView.safe_html(@post.body)
