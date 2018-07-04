@@ -28,7 +28,6 @@ main
       th Published At
       th Updated At
       th Title
-      th Description
       th Image URL
       th ""
       th ""
@@ -38,7 +37,6 @@ main
         td= display_short_time(post.published_at)
         td= display_short_time(post.updated_at)
         td.edit= link post.title, to: post_path(@conn, :edit, post)
-        td= post.description
         td= post.image_url
         td 
           img.image-preview src="#{generate_image_url(post)}"
