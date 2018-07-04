@@ -93,32 +93,14 @@
         }
 
         .body {
-          text-overflow: ellipsis;
           overflow: hidden;
           position: relative; 
           line-height: 1.2em;
-          // max-height ~= line-height * max line number
-          max-height: 10.6em; 
-          text-align: justify !important;  
-          padding-right: 1.25em;
+          max-height: 7em; 
+          padding-right: 1em;
           padding-left: 1em;
+          color: red;
         }
-
-        .body:before {
-          content: '...';
-          position: absolute;
-          right: 0.625em;
-          bottom: 0;
-        }
-
-        .body:after {
-          content: '';
-          position: absolute;
-          right: 20px;
-          width: 1em;
-          height: 1em;
-          margin-top: 0.2em;
-        }     
 
         p.read-more, p.edit, p.delete {
             text-align: right;
