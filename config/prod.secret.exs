@@ -14,7 +14,16 @@ config :blog, BlogWeb.Endpoint,
 # Configure your database
 config :blog, Blog.Repo,
   adapter: Ecto.Adapters.Postgres,
+<<<<<<< Updated upstream
   url: "${DATABASE_URL}",
   database: "",
   pool_size: 1,
+=======
+  username: "${DB_USERNAME}",
+  password: "${DB_PASSWORD}",
+  hostname: "${DB_HOSTNAME}",
+  database: "${DB_NAME}",
+  port: 5432,
+  pool_size: 40,
+>>>>>>> Stashed changes
   ssl: true
