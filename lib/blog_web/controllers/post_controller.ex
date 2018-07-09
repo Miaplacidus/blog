@@ -188,8 +188,14 @@ defmodule BlogWeb.PostController do
     Cloudex.delete(image_url)
   end
 
-  defp save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "publish"}} = params) do
-    put_in(params, ["post", "published_at"], Timex.now) 
+  defp save_or_publish(%{"post" => post_params,"id" => id, "publish_post" => %{"state" => "publish"}} = params) do
+    %Post{published_at: published_at} = Content.get_post_by_slug(id)
+    
+    if published_at == nil do 
+      put_in(params, ["post", "published_at"], Timex.now) 
+    else
+      params
+    end
   end
 
   defp save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "draft"}} = params) do 
