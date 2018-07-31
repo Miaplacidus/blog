@@ -60,6 +60,9 @@ exports.config = {
     enabled: true,
     globals: {
       $: "jquery"
+    },
+    styles: {
+      "highlight.js": ['styles/gruvbox-dark.css']
     }
   }
 };

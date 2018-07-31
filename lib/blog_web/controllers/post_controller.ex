@@ -15,7 +15,7 @@ defmodule BlogWeb.PostController do
       Post
       |> where([p], not is_nil(p.published_at))
       |> order_by(desc: :published_at)
-      |> Blog.Repo.paginate(page: page_number, page_size: 5)
+      |> Blog.Repo.paginate(page: page_number, page_size: 7)
 
     render(conn, 
            "index.html", 
