@@ -80,7 +80,7 @@ main
         a href="https://www.github.com/miaplacidus"
           .github
             i.github
-        = link to: resume_path(@conn, :download_resume) do
+        = link to: documents_path(@conn, :download_resume) do
           .resume
             i.resume
       section.blog-posts
