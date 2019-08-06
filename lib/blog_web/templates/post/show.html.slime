@@ -1,6 +1,6 @@
-nav 
+nav
   .blog-title
-    = link "Life As Algorithm", to: page_path(@conn, :index)
+    = link "Life As Algorithm", to: Routes.page_path(@conn, :index)
 
   .hamburger
     .top-line
@@ -10,23 +10,23 @@ nav
       'Menu
 
   ul.nav-list
-    li 
-      span.text 
-        = link "about", to: page_path(@conn, :index) <> "#about-me-section"
-    li 
-      span.text 
-        = link "work", to: page_path(@conn, :index) <> "#work-section"
-    li 
-      span.text 
-        = link "contact", to: page_path(@conn, :index) <> "#contact-section"
+    li
+      span.text
+        = link "about", to: Routes.page_path(@conn, :index) <> "#about-me-section"
+    li
+      span.text
+        = link "work", to: Routes.page_path(@conn, :index) <> "#work-section"
+    li
+      span.text
+        = link "contact", to: Routes.page_path(@conn, :index) <> "#contact-section"
 
 main
   .back-to-index
-    = link "<< back to index", to: post_path(@conn, :index)
+    = link "<< back to index", to: Routes.post_path(@conn, :index)
 
   .post
     header style="background-image: url('#{generate_image_url(@post)}');"
-      h2.title 
+      h2.title
         = @post.title
     .publish_date= BlogWeb.PostView.display_time(@post.published_at)
     .body= BlogWeb.PostView.safe_html(@post.body)

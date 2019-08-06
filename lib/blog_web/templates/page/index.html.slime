@@ -12,22 +12,22 @@ nav
   ul.nav-list
     li
       span.binary 01 &nbsp;
-      span.text 
+      span.text
         = link "about", to: "#about-me-section", class: "to-about-me"
     li
       span.binary 10 &nbsp;
-      span.text 
+      span.text
         = link "work", to: "#work-section", class: "to-work"
     li
       span.binary 11 &nbsp;
-      span.text 
+      span.text
         = link "contact", to: "#contact-section", class: "to-contact"
 
 main
   .hero-container
     .hero
       p.name Ifu Aniemeka
-      p.title web dev 
+      p.title web dev
 
   .about-me-container#about-me-section
     .about-me
@@ -38,40 +38,40 @@ main
           i.chitown-flag
 
       article
-        p 
-          'Hey there! My name's Ifu and I write code. 
-        p 
+        p
+          'Hey there! My name's Ifu and I write code.
+        p
           'My languages of choice are ruby, python, javascript, and elixir (btw, this site was built using the
           '
           a href="https://phoenixframework.org/"
-            ' phoenix framework 
+            ' phoenix framework
             img.phoenix-logo src="/images/phoenix.png"
-          '). I work at the Chicago office of 
-          a href="https://hashrocket.com" 
-            ' Hashrocket 
+          '). I work at the Chicago office of
+          a href="https://hashrocket.com"
+            ' Hashrocket
             img.hashrocket-logo src="/images/hashrocket.png"
-          ', a software consultancy. 
-        p At the moment, I'm taking a 3-month sabbatical to study machine learning as an 
+          ', a software consultancy.
+        p At the moment, I'm taking a 3-month sabbatical to study machine learning as an
           '
-          a href="https://openai.com" 
+          a href="https://openai.com"
             ' OpenAI Scholar
             img.openai-logo src="/images/openai.jpg"
           '.
-          ' I'm working under the tutelage of 
+          ' I'm working under the tutelage of
           a href="https://scholar.google.com/citations?user=Vzr1RukAAAAJ" Igor Mordatch 🧔🏻
           ', a researcher at OpenAI. At the end of those 3 months, I'm not entirely certain what will happen, but I'm excited to find out.
-        p Other subjects I'm interested in include science fiction*, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice muay thai at 
+        p Other subjects I'm interested in include science fiction*, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice muay thai at
           '
-          a href="https://chicagomma.com"  
-            ' ChicagoMMA 
+          a href="https://chicagomma.com"
+            ' ChicagoMMA
             img.cmma-logo src="/images/cmma.png"
           '
-          ' and  martial arts choreography with the Forza Fight stunt team.  
-        p Feel free to check out my 
+          ' and  martial arts choreography with the Forza Fight stunt team.
+        p Feel free to check out my
           '
-          = link to: post_path(@conn, :index) do
+          = link to: Routes.post_path(@conn, :index) do
             'blog 📃
-          ' to see what I'm working on. 
+          ' to see what I'm working on.
         .footnote * Wakanda forever
 
   .work#work-section
@@ -80,7 +80,7 @@ main
         a href="https://www.github.com/miaplacidus"
           .github
             i.github
-        = link to: documents_path(@conn, :download_resume) do
+        = link to: Routes.document_path(@conn, :download_resume) do
           .resume
             i.resume
       section.blog-posts
@@ -88,21 +88,21 @@ main
           = for post <- @posts do
               li
                 .image
-                  = link to: post_path(@conn, :show, post) do
+                  = link to: Routes.post_path(@conn, :show, post) do
                     .post-image style="background-image: url('#{generate_image_url(post)}');"
                 .title
-                  = link to: post_path(@conn, :show, post) do
+                  = link to: Routes.post_path(@conn, :show, post) do
                     .post-title
                       = post.title
 
       .post-index
-        = link "view all posts", to: post_path(@conn, :index), class: "post-index"
+        = link "view all posts", to: Routes.post_path(@conn, :index), class: "post-index"
 
   .contact#contact-section
     article
       header
         h1 Let's Grab Coffee
-        p.contact-intro Feel free to send me a message if you want to work with me or if you just want to chat! 
+        p.contact-intro Feel free to send me a message if you want to work with me or if you just want to chat!
       section.contact-form
         form action="https://formspree.io/ianiemeka@gmail.com" method="POST"
           input type="text" name="name" class="name" placeholder="name"

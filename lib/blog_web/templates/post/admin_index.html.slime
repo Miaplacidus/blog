@@ -1,6 +1,6 @@
-nav 
+nav
   .blog-title
-    = link "Life As Algorithm", to: page_path(@conn, :index)
+    = link "Life As Algorithm", to: Routes.page_path(@conn, :index)
 
   .hamburger
     .top-line
@@ -10,20 +10,20 @@ nav
       'Menu
 
   ul.nav-list
-    li 
-      span.text 
-        = link "about", to: page_path(@conn, :index) <> "#about-me-section"
-    li 
-      span.text 
-        = link "work", to: page_path(@conn, :index) <> "#work-section"
-    li 
-      span.text 
-        = link "contact", to: page_path(@conn, :index) <> "#contact-section"
+    li
+      span.text
+        = link "about", to: Routes.page_path(@conn, :index) <> "#about-me-section"
+    li
+      span.text
+        = link "work", to: Routes.page_path(@conn, :index) <> "#work-section"
+    li
+      span.text
+        = link "contact", to: Routes.page_path(@conn, :index) <> "#contact-section"
 
-main  
+main
   h2 Admin Index
   table.posts
-    tr 
+    tr
       th ID
       th Published At
       th Updated At
@@ -31,21 +31,19 @@ main
       th Image URL
       th ""
       th ""
-    = for post <- @posts do 
+    = for post <- @posts do
       tr class=link_post(post)
         td= post.id
         td= display_short_time(post.published_at)
         td= display_short_time(post.updated_at)
-        td.edit= link post.title, to: post_path(@conn, :edit, post)
+        td.edit= link post.title, to: Routes.post_path(@conn, :edit, post)
         td= post.image_url
-        td 
+        td
           img.image-preview src="#{generate_image_url(post)}"
-        td.delete= link "Delete", to: post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
+        td.delete= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
 
   .new-post
-    = link "Create New Post", to: post_path(@conn, :new)
+    = link "Create New Post", to: Routes.post_path(@conn, :new)
 
   .post-index
-    = link "Post Index", to: post_path(@conn, :index)
-
-
+    = link "Post Index", to: Routes.post_path(@conn, :index)

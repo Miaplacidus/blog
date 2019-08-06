@@ -1,4 +1,4 @@
-defmodule BlogWeb.DocumentsController do
+defmodule BlogWeb.DocumentController do
   use BlogWeb, :controller
 
   def download_resume(conn, _params) do
@@ -8,7 +8,7 @@ defmodule BlogWeb.DocumentsController do
       |> send_file(200, path)
   end
 
-  def download_physnet_paper(conn, _params) do 
+  def download_physnet_paper(conn, _params) do
     path = Path.join(:code.priv_dir(:blog), "/static/documents/intuitive_physics_net_paper.pdf")
     conn
       |> put_resp_content_type("application/pdf", "utf-8")

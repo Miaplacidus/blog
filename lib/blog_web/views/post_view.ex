@@ -5,6 +5,7 @@ defmodule BlogWeb.PostView do
   alias BlogWeb.PostView
 
   def to_html(body) do 
+    # consider adding random digits to the 'post_body' name
     tmp_dir_path = Path.join(System.tmp_dir, "post_body.md")
     File.write(tmp_dir_path, body)
     

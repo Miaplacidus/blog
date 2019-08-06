@@ -1,10 +1,10 @@
 main
   .back-to-index
-    = link "<< back to admin index", to: post_path(@conn, :admin_index)
+    = link "<< back to admin index", to: Routes.post_path(@conn, :admin_index)
 
   h2.new-post Create New Post
 
-  = form_for @changeset, post_path(@conn, :create), [class: "post-form", multipart: true], fn f ->
+  = form_for @changeset, Routes.post_path(@conn, :create), [class: "post-form", multipart: true], fn f ->
     fieldset
       = label f, :title, "Title"
       = error_tag f, :title
@@ -13,7 +13,7 @@ main
       = label f, :external_resource_url, "External Resource URL"
       = error_tag f, :external_resource_url
       = text_input f, :external_resource_url, class: "external-resource-url"
-      
+
       = label f, :author_id, "Author"
       = error_tag f, :author_id
       = select f, :author_id, @authors, class: "author"
@@ -25,7 +25,7 @@ main
       = error_tag f, :image_url
       = file_input f, :image_url, class: "image-url"
 
-      = label f, :original, "Original" 
+      = label f, :original, "Original"
       = error_tag f, :original
       = checkbox f, :original, class: "original", checked: "checked"
 
@@ -33,15 +33,15 @@ main
       = label f, :description, "Description"
       = error_tag f, :description
       = textarea f, :description, class: "description"
-      
+
       = label f, :body, "Body"
       = error_tag f, :body
       = textarea f, :body, class: "body"
 
     fieldset.actions
       = submit "Save Post", class: "btn save-button"
-  
-  = form_for @conn, post_path(@conn, :post_preview), [class: "preview-post-form"], fn f ->
+
+  = form_for @conn, Routes.post_path(@conn, :post_preview), [class: "preview-post-form"], fn f ->
     = submit "Preview Post", class: "preview-post-button"
 
     .preview-post

@@ -9,12 +9,13 @@ use Mix.Config
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or yourself later on).
 config :blog, BlogWeb.Endpoint,
-  secret_key_base: "${SECRET_KEY_BASE}" 
+  http: [:inet6, port: String.to_integer(System.get_env("PORT") || "4000")],
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Configure your database
 config :blog, Blog.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: "${DATABASE_URL}",
+  url: System.get_env("DATABASE_URL"),
   database: "",
-  pool_size: 1,
+  pool_size: 10,
   ssl: true

@@ -1,4 +1,5 @@
 defmodule Blog.Application do
+  @moduledoc false
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -9,11 +10,11 @@ defmodule Blog.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(Blog.Repo, []),
+      Blog.Repo,
       # Start the endpoint when the application starts
-      supervisor(BlogWeb.Endpoint, []),
-      # Start your own worker by calling: Blog.Worker.start_link(arg1, arg2, arg3)
-      # worker(Blog.Worker, [arg1, arg2, arg3]),
+      BlogWeb.Endpoint
+      # Start your own worker by calling: Blog.Worker.start_link(arg)
+      # {Blog.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

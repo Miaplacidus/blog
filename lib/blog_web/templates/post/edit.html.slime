@@ -1,13 +1,13 @@
 main
   .back-to-index
-    = link "<< back to admin index", to: post_path(@conn, :admin_index)
+    = link "<< back to admin index", to: Routes.post_path(@conn, :admin_index)
 
   h2.section-title Edit Post
 
   button.delete-post
-    = link "delete post", to: post_path(@conn, :delete, @post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
+    = link "delete post", to: Routes.post_path(@conn, :delete, @post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
 
-  = form_for @changeset, post_path(@conn, :update, @post), [class: "post-form", multipart: true], fn f ->
+  = form_for @changeset, Routes.post_path(@conn, :update, @post), [class: "post-form", multipart: true], fn f ->
     fieldset.form-group
       = label f, :title, "Title"
       = error_tag f, :title
@@ -22,14 +22,17 @@ main
       = select f, :author_id, @authors, class: "author"
 
       = label :publish_post, :state, "Publish State"
-      = select :publish_post, :state, ["draft", "publish"], class: "publish", selected: publish_state_selected_value(@post) 
+      = select :publish_post, :state, ["draft", "publish"], class: "publish", selected: publish_state_selected_value(@post)
 
       = label f, :image_url, "Add Image"
       img.image-preview src="#{generate_image_url(@post)}"
       = error_tag f, :image_url
       = file_input f, :image_url, class: "image-url"
 
-      = label f, :original, "Original" 
+      = label f, :manual_image_input, "Input Image Text"
+      = text_input f, :manual_image_input
+
+      = label f, :original, "Original"
       = error_tag f, :original
       = checkbox f, :original, class: "original"
 
@@ -37,14 +40,14 @@ main
       = label f, :description, "Description"
       = error_tag f, :description
       = textarea f, :description, class: "description"
-      
+
       = label f, :body, "Body"
       = error_tag f, :body
       = textarea f, :body, class: "body"
 
     = submit "Save Post", class: "btn save-button"
 
-  = form_for @conn, post_path(@conn, :post_preview), [class: "preview-post-form"], fn f ->
+  = form_for @conn, Routes.post_path(@conn, :post_preview), [class: "preview-post-form"], fn f ->
     = submit "Preview Post", class: "preview-post-button"
 
     .preview-post

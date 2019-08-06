@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Ifu Aniemeka's blog">
+    <meta name="keywords" content="ruby, javascript, elixir, python, machine learning, martial arts, software, software engineer">
+    <meta name="author" content="Ifu Aniemeka">
 
     <title>Life As Algorithm</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://myCDN.com/prism@v1.x/themes/prism.css" />
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120709202-1"></script>
@@ -31,6 +33,8 @@
         <%= render @view_module, @view_template, assigns %>
 
     </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script type="text/javascript" src="https://myCDN.com/prism@v1.x/components/prism-core.min.js"></script>
+	  <script type="text/javascript" src="https://myCDN.com/prism@v1.x/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

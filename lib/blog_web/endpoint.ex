@@ -1,14 +1,18 @@
 defmodule BlogWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :blog
 
-  socket "/socket", BlogWeb.UserSocket
+  socket "/socket", BlogWeb.UserSocket,
+    websocked: true,
+    longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :blog, gzip: false,
+    at: "/",
+    from: :blog,
+    gzip: false,
     only: ~w(css fonts images js documents favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -20,12 +24,12 @@ defmodule BlogWeb.Endpoint do
   end
 
   plug Plug.RequestId
-  plug Plug.Logger
+  plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Poison
+    json_decoder: Jason
 
   plug Plug.MethodOverride
   plug Plug.Head
@@ -40,19 +44,4 @@ defmodule BlogWeb.Endpoint do
     encryption_salt: "tI9s7sa42"
 
   plug BlogWeb.Router
-
-  @doc """
-  Callback invoked for dynamically configuring the endpoint.
-
-  It receives the endpoint configuration and checks if
-  configuration should be loaded from the system environment.
-  """
-  def init(_key, config) do
-    if config[:load_from_system_env] do
-      port = System.get_env("PORT") || raise "expected the PORT environment variable to be set"
-      {:ok, Keyword.put(config, :http, [:inet6, port: port])}
-    else
-      {:ok, config}
-    end
-  end
 end

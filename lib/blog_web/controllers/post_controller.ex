@@ -5,9 +5,9 @@ defmodule BlogWeb.PostController do
   alias Blog.Content
   alias Blog.Content.Post
   alias Blog.Accounts
-  
+
   def index(conn, params) do
-    page_number = 
+    page_number =
       Map.get(params, "page_number", "1")
       |> String.to_integer
 
@@ -17,13 +17,13 @@ defmodule BlogWeb.PostController do
       |> order_by(desc: :published_at)
       |> Blog.Repo.paginate(page: page_number, page_size: 7)
 
-    render(conn, 
-           "index.html", 
+    render(conn,
+           "index.html",
            posts: page.entries,
            page_number: page_number,
            page_size: page.page_size,
            total_pages: page.total_pages,
-           total_entries: page.total_entries 
+           total_entries: page.total_entries
     )
   end
 
@@ -40,10 +40,10 @@ defmodule BlogWeb.PostController do
   def create(conn, %{"post" => post_params} = params) do
     params_w_publish_state = save_or_publish(params)
 
-    complete_params = case upload_image(params_w_publish_state) do 
+    complete_params = case upload_image(params_w_publish_state) do
       {:ok, updated_params} ->
         updated_params
-      {:error, _} -> 
+      {:error, _} ->
         params_w_publish_state
     end
 
@@ -53,7 +53,7 @@ defmodule BlogWeb.PostController do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post saved!")
-        |> redirect(to: post_path(conn, :admin_index))
+        |> redirect(to: Routes.post_path(conn, :admin_index))
       {:error, %Ecto.Changeset{} = changeset} ->
         put_flash(conn, :error, "See errors below")
         IO.inspect changeset
@@ -75,10 +75,10 @@ defmodule BlogWeb.PostController do
 
     post = Content.get_post_by_slug(id)
 
-    params = case upload_image(params) do 
+    params = case upload_image(params) do
       {:ok, updated_params} ->
         updated_params
-      {:error, _} -> 
+      {:error, _} ->
         params
     end
 
@@ -88,7 +88,7 @@ defmodule BlogWeb.PostController do
       {:ok, _updated_post} ->
         conn
         |> put_flash(:info, "Post successfully updated!")
-        |> redirect(to: post_path(conn, :admin_index))
+        |> redirect(to: Routes.post_path(conn, :admin_index))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", post: post, changeset: changeset, authors: authors())
     end
@@ -96,14 +96,14 @@ defmodule BlogWeb.PostController do
 
   def delete(conn, %{"id" => id}) do
     post = Content.get_post_by_slug(id)
-    
+
     delete_image(post.image_url)
 
     {:ok, _post} = Content.delete_post(post)
 
     conn
     |> put_flash(:info, "Post successfully deleted")
-    |> redirect(to: post_path(conn, :admin_index))
+    |> redirect(to: Routes.post_path(conn, :admin_index))
   end
 
   def post_preview(conn, params) do
@@ -111,42 +111,42 @@ defmodule BlogWeb.PostController do
     render conn, "preview.json", post_body: post_body
   end
 
-  def admin_index(conn, _params) do 
+  def admin_index(conn, _params) do
     render(conn, "admin_index.html", posts: Content.list_posts())
   end
 
-  defp authors do 
+  defp authors do
     Accounts.list_authors
       |> Enum.map(&{"#{&1.first_name} #{&1.last_name}", &1.id})
   end
 
-  defp upload_image(%{"post" => %{"image_url" => %Plug.Upload{ path: image_path}}} = params) do 
+  defp upload_image(%{"post" => %{"image_url" => %Plug.Upload{ path: image_path}}} = params) do
     delete_old_image(params)
     upload_to_cloudex(image_path, params)
   end
 
-  defp upload_image(%{"post" => %{ "external_resource_url" => ""}}) do 
-    {:error, "image not updated"} 
+  defp upload_image(%{"post" => %{ "external_resource_url" => ""}}) do
+    {:error, "image not updated"}
   end
 
-  defp upload_image(%{"post" => %{"external_resource_url" => external_resource_url}} = params) do 
+  defp upload_image(%{"post" => %{"external_resource_url" => external_resource_url}} = params) do
     delete_old_image(params)
 
     body = make_request(external_resource_url)
 
     og_image_url =
-      Floki.find(body, "meta[property='og:image']") 
+      Floki.find(body, "meta[property='og:image']")
         |> get_image_url
 
     upload_to_cloudex(og_image_url, params)
   end
 
-  defp upload_image(_) do 
+  defp upload_image(_) do
     {:error, "image not updated"}
   end
 
-  defp make_request(url) do 
-    case HTTPoison.request(:get, url, "", [], [follow_redirect: true]) do 
+  defp make_request(url) do
+    case HTTPoison.request(:get, url, "", [], [follow_redirect: true]) do
       {:ok, %HTTPoison.Response{ body: body }} ->
         body
       {:error, %HTTPoison.Error{ reason: reason }} ->
@@ -155,29 +155,29 @@ defmodule BlogWeb.PostController do
     end
   end
 
-  defp get_image_url([]) do   
+  defp get_image_url([]) do
     ""
   end
 
-  defp get_image_url([html_tree]) do 
+  defp get_image_url([html_tree]) do
     html_tree
-      |> Floki.attribute("content") 
+      |> Floki.attribute("content")
       |> List.first
   end
 
-  defp upload_to_cloudex(image_location, params) do 
-    case Cloudex.upload(image_location) do 
-      {:ok, image} -> 
+  defp upload_to_cloudex(image_location, params) do
+    case Cloudex.upload(image_location) do
+      {:ok, image} ->
         %Cloudex.UploadedImage{public_id: public_id} = image
-        {:ok, put_in(params, ["post", "image_url"], public_id)} 
-      {:error, message} -> 
-        {:error, params} 
+        {:ok, put_in(params, ["post", "image_url"], public_id)}
+      {:error, message} ->
+        {:error, params}
     end
   end
 
-  defp delete_old_image(params) do 
+  defp delete_old_image(params) do
     if Map.has_key?(params, "id") == true do
-      post = 
+      post =
         Map.get(params, "id")
         |> Content.get_post_by_slug
       delete_image(post.image_url)
@@ -190,19 +190,19 @@ defmodule BlogWeb.PostController do
 
   defp save_or_publish(%{"post" => post_params,"id" => id, "publish_post" => %{"state" => "publish"}} = params) do
     %Post{published_at: published_at} = Content.get_post_by_slug(id)
-    
-    if published_at == nil do 
-      put_in(params, ["post", "published_at"], Timex.now) 
+
+    if published_at == nil do
+      put_in(params, ["post", "published_at"], Timex.now)
     else
       params
     end
   end
 
-  defp save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "draft"}} = params) do 
+  defp save_or_publish(%{"post" => post_params, "publish_post" => %{"state" => "draft"}} = params) do
     params
   end
 
-  defp generate_slug(%{ "post" => %{ "title" => title }} = params) do 
+  defp generate_slug(%{ "post" => %{ "title" => title }} = params) do
     slug = String.downcase(title)
       |> String.replace(" ", "-")
 

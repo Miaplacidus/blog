@@ -19,7 +19,7 @@ defmodule BlogWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      import BlogWeb.Router.Helpers
+      alias BlogWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
       @endpoint BlogWeb.Endpoint

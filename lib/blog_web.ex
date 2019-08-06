@@ -21,7 +21,7 @@ defmodule BlogWeb do
     quote do
       use Phoenix.Controller, namespace: BlogWeb
       import Plug.Conn
-      import BlogWeb.Router.Helpers
+      alias BlogWeb.Router.Helpers, as: Routes
       import BlogWeb.Gettext
     end
   end
@@ -32,12 +32,12 @@ defmodule BlogWeb do
                         namespace: BlogWeb
 
       # Import convenience functions from controllers
-      import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
+      import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import BlogWeb.Router.Helpers
+      alias BlogWeb.Router.Helpers, as: Routes
       import BlogWeb.ErrorHelpers
       import BlogWeb.Gettext
     end
