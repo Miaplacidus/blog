@@ -14,8 +14,9 @@ config :blog, BlogWeb.Endpoint,
 
 # Configure your database
 config :blog, Blog.Repo,
+  username: System.get_env("DB_USER"),
+  password: System.get_env("DB_PW"),
+  database: System.get_env("DB_NAME"),
   adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
-  database: "",
-  pool_size: 10,
+  pool_size: 15,
   ssl: true
