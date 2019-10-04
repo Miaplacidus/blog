@@ -15,11 +15,10 @@ use Mix.Config
 # which you typically run after static files are built.
 config :blog, BlogWeb.Endpoint,
   http: [port: 4000],
-  load_from_system_env: true,
   server: true,
   url: [host: "lifeasalgorithm.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
-  force_ssl: [rewrite_on: [:x_forwarded_proto]]
+  code_reloader: false
 
 # Do not print debug messages in production
 config :logger, level: :info
