@@ -16,7 +16,7 @@ use Mix.Config
 config :blog, BlogWeb.Endpoint,
   http: [port: 4000],
   server: true,
-  url: [host: "lifeasalgorithm.com", port: 80],
+  url: [host: "lifeasalgorithm.com"],
   cache_static_manifest: "priv/static/cache_manifest.json",
   code_reloader: false
 
