@@ -20,7 +20,7 @@ defmodule Blog.Mixfile do
   def application do
     [
       mod: {Blog.Application, []},
-      extra_applications: [:logger, :cloudex, :httpoison, :runtime_tools, :timex, :guardian, :ueberauth_google, :scrivener_ecto]
+      extra_applications: [:logger, :cloudex, :httpoison, :runtime_tools, :timex, :guardian, :ueberauth_google, :scrivener_ecto, :edeliver]
     ]
   end
 
