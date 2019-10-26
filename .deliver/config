@@ -14,7 +14,7 @@ pre_erlang_clean_compile() {
     [ -f ~/.profile ] && source ~/.profile
     set -e
 
-    cd '$BUILD_AT'
+    cd '$BUILD_AT/assets'
     npm install $SILENCE
   "
 
