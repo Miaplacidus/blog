@@ -20,7 +20,7 @@ defmodule Blog.Mixfile do
   def application do
     [
       mod: {Blog.Application, []},
-      extra_applications: [:logger, :cloudex, :httpoison, :runtime_tools, :timex, :guardian, :ueberauth_google, :scrivener_ecto, :edeliver]
+      extra_applications: [:logger, :cloudex, :httpoison, :runtime_tools, :timex, :guardian, :ueberauth_google, :scrivener_ecto]
     ]
   end
 
@@ -35,9 +35,7 @@ defmodule Blog.Mixfile do
     [
       {:cloudex, "~> 1.3"},
       {:ecto_sql, "~> 3.1"},
-      {:edeliver, "~> 1.7"},
       {:espec, "~> 1.4.6", only: :test},
-      {:distillery, "~> 2.1"},
       {:faker, "~> 0.12.0", only: [:test, :dev]},
       {:floki, "~> 0.20.0"},
       {:gettext, "~> 0.11"},
