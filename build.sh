@@ -12,6 +12,6 @@ mix phx.digest
 MIX_ENV=prod mix release --overwrite
 
 # Install Pandoc
-wget https://github.com/jgm/pandoc/releases/download/2.5/pandoc-2.5-1-amd64.deb
-sudo dpkg -i pandoc-2.5-1-amd64.deb
-rm pandoc-2.5-1-amd64.deb
+wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
+tar xvzf pandoc-2.7.3-linux.tar.gz --strip-components 1 -C ~/project/src
+rm pandoc-2.7.3-linux.tar.gz 
