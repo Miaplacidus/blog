@@ -11,10 +11,11 @@ defmodule BlogWeb.PostView do
     
     args = [tmp_dir_path, "--from", "markdown", "--to", "html"]
 
-    if Application.get_env(:blog, :env) == :prod do 
-      {output, _} = System.cmd "./bin/pandoc", args
-    else 
-      {output, _} = System.cmd "pandoc", args
+    case Application.get_env(:blog, :env)  do
+      :dev ->
+        {output, _} = System.cmd "pandoc", args
+      _ ->
+        {output, _} = System.cmd "./bin/pandoc", args
     end
     
     output
