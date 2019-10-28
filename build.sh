@@ -16,5 +16,6 @@ wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.ta
 tar xvzf pandoc-2.7.3-linux.tar.gz --strip-components 1 -C ~/project/src
 rm pandoc-2.7.3-linux.tar.gz 
 
-# Add Pandoc to PATH
-PATH=$PATH:$HOME/project/src/bin
+# Add Pandoc command
+alias pandoc="~/project/src/bin/pandoc"
+alias pandoc-citeproc="~/project/src/bin/pandoc-citeproc"
