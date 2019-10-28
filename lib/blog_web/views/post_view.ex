@@ -14,8 +14,12 @@ defmodule BlogWeb.PostView do
   end
 
   def safe_html(body) do 
-    PostView.to_html(body)
-    |> raw
+    case PostView.to_html(body) |> raw do
+      {:safe, output} ->
+        output
+      _ ->
+        "err"
+    end
   end
 
   def display_time(nil) do 
