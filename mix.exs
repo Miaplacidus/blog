@@ -42,6 +42,7 @@ defmodule Blog.Mixfile do
       {:guardian, "~> 1.2.1"},
       {:httpoison, "~> 1.5.1"},
       {:jason, "~> 1.1"},
+      {:panpipe, "~> 0.1"},
       {:phoenix, "~> 1.4.9"},
       {:phoenix_ecto, "~> 4.0"},
       {:phoenix_html, "~> 2.13.3"},

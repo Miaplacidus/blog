@@ -34,7 +34,8 @@ main
       header
         p.name Ifu Aniemeka
         p.title software engineer/openAI scholar/martial artist
-        p.location Chicago
+        p.location 
+          ' Chicago
           i.chitown-flag
 
       article
@@ -51,7 +52,8 @@ main
             ' Hashrocket
             img.hashrocket-logo src="/images/hashrocket.png"
           ', a software consultancy.
-        p At the moment, I'm taking a 3-month sabbatical to study machine learning as an
+        p 
+          ' At the moment, I'm taking a 3-month sabbatical to study machine learning as an
           '
           a href="https://openai.com"
             ' OpenAI Scholar
@@ -60,14 +62,16 @@ main
           ' I'm working under the tutelage of
           a href="https://scholar.google.com/citations?user=Vzr1RukAAAAJ" Igor Mordatch 🧔🏻
           ', a researcher at OpenAI. At the end of those 3 months, I'm not entirely certain what will happen, but I'm excited to find out.
-        p Other subjects I'm interested in include science fiction*, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice muay thai at
+        p 
+          'Other subjects I'm interested in include science fiction*, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice muay thai at
           '
           a href="https://chicagomma.com"
             ' ChicagoMMA
             img.cmma-logo src="/images/cmma.png"
           '
           ' and  martial arts choreography with the Forza Fight stunt team.
-        p Feel free to check out my
+        p 
+          ' Feel free to check out my
           '
           = link to: Routes.post_path(@conn, :index) do
             'blog 📃

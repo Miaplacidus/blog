@@ -5,20 +5,12 @@ defmodule BlogWeb.PostView do
   alias BlogWeb.PostView
 
   def to_html(body) do 
-    # consider adding random digits to the 'post_body' name
-    tmp_dir_path = Path.join(System.tmp_dir, "post_body.md")
-    File.write(tmp_dir_path, body)
-    
-    args = [tmp_dir_path, "--from", "markdown", "--to", "html"]
-
-    case Application.get_env(:blog, :env)  do
-      :dev ->
-        {output, _} = System.cmd "pandoc", args
+    case Panpipe.pandoc(body, to: :html) do 
+      {:ok, output} -> 
+        output
       _ ->
-        {output, _} = System.cmd "./bin/pandoc", args
+        "error"
     end
-    
-    output
   end
 
   def safe_html(body) do 

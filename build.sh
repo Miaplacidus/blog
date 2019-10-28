@@ -15,3 +15,6 @@ MIX_ENV=prod mix release --overwrite
 wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
 tar xvzf pandoc-2.7.3-linux.tar.gz --strip-components 1 -C ~/project/src
 rm pandoc-2.7.3-linux.tar.gz 
+
+# Add Pandoc to PATH
+export PATH=$PATH:$HOME/project/src/bin
