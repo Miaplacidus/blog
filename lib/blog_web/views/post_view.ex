@@ -8,7 +8,7 @@ defmodule BlogWeb.PostView do
     tmp_dir_path = Path.join(System.tmp_dir, "post_body.md")
     File.write(tmp_dir_path, body)
     
-    pandoc_command = if Application.get_env(:blog, :env) == :prod do
+    pandoc_command = if Application.get_env(:blog, :env) != :dev do
       "./bin/pandoc"
     else 
       "pandoc"
