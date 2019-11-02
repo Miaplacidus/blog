@@ -5,18 +5,33 @@ defmodule BlogWeb.PostView do
   alias BlogWeb.PostView
 
   def to_html(body) do 
-    case Panpipe.pandoc(body, to: :html) do 
-      {:ok, output} -> 
-        output
-      _ ->
-        "error"
+    tmp_dir_path = Path.join(System.tmp_dir, "post_body.md")
+    File.write(tmp_dir_path, body)
+    
+    pandoc_command = if Application.get_env(:blog, :env) == :prod do
+      "./bin/pandoc"
+    else 
+      "pandoc"
+    end
+
+    call_pandoc(pandoc_command, tmp_dir_path)
+  end
+
+  def call_pandoc(pandoc_command, dir_path) do
+    args = [dir_path, "--from", "markdown", "--to", "html"] 
+    case Rambo.run(pandoc_command, args) do 
+      {:ok, results} -> 
+        results.out
+      {:error, _} ->
+        "Oh, shoot! Something's not working."
     end
   end
 
   def safe_html(body) do 
-    case PostView.to_html(body) |> raw do
+    raw_html = PostView.to_html(body) |> raw
+    case raw_html do
       {:safe, output} ->
-        output
+        raw_html
       _ ->
         "err"
     end
