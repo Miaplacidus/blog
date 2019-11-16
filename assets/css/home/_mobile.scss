@@ -92,14 +92,18 @@
           font-family: $raleway-med;
         }
 
-        img.hashrocket-logo, img.openai-logo, img.phoenix-logo, img.cmma-logo {
+        img.hashrocket-logo, img.openai-logo, img.phoenix-logo, img.cmma-logo, img.hp-logo {
           width: 1em;
           position: relative;
           top: 0.09em;
         }
+
+        img.hp-logo {
+          top: 0.13em;
+        }
       }
       .footnote {
-        margin-top: 3.5em;
+        // margin-top: 3.5em;
         font-size: 0.7em;
       }
     }

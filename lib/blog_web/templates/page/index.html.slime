@@ -27,13 +27,13 @@ main
   .hero-container
     .hero
       p.name Ifu Aniemeka
-      p.title web dev
+      p.title programmer &amp; pugilist
 
   .about-me-container#about-me-section
     .about-me
       header
         p.name Ifu Aniemeka
-        p.title software engineer/openAI scholar/martial artist
+        p.title freelance software engineer/martial artist
         p.location 
           ' Chicago
           i.chitown-flag
@@ -47,23 +47,27 @@ main
           a href="https://phoenixframework.org/"
             ' phoenix framework
             img.phoenix-logo src="/images/phoenix.png"
-          '). I work at the Chicago office of
-          a href="https://hashrocket.com"
-            ' Hashrocket
-            img.hashrocket-logo src="/images/hashrocket.png"
-          ', a software consultancy.
-        p 
-          ' At the moment, I'm taking a 3-month sabbatical to study machine learning as an
           '
+          ').
+        p 
+          'I'm currently working with the team at 
+          '
+          a href="https://humanpredictions.io" 
+            ' Human Predictions 
+            img.hp-logo src="/images/hp_bot.png"
+          ' , which is using publicly available data and machine learning to predict when software engineers are open to new jobs. If you're a recruiter looking for folks to add to your dev team, you should definitely check it out!  
+        p 
+          ' Prior to my current gig, I was a part of the inaugural class of 
+          ' 
           a href="https://openai.com"
-            ' OpenAI Scholar
+            ' OpenAI Scholars
             img.openai-logo src="/images/openai.jpg"
           '.
-          ' I'm working under the tutelage of
+          ' For 3 months, I worked on a research project under the tutelage of
           a href="https://scholar.google.com/citations?user=Vzr1RukAAAAJ" Igor Mordatch 🧔🏻
-          ', a researcher at OpenAI. At the end of those 3 months, I'm not entirely certain what will happen, but I'm excited to find out.
+          ', a researcher at OpenAI. 
         p 
-          'Other subjects I'm interested in include science fiction*, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice muay thai at
+          'Other subjects I'm interested in include science fiction*, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice muay thai with the awesome folks at
           '
           a href="https://chicagomma.com"
             ' ChicagoMMA
@@ -76,6 +80,9 @@ main
           = link to: Routes.post_path(@conn, :index) do
             'blog 📃
           ' to see what I'm working on.
+
+        p 
+          ' I'm open to new clients at the moment, so if you're interested in working with me, shoot me a message using the contact form below. 
         .footnote * Wakanda forever
 
   .work#work-section
