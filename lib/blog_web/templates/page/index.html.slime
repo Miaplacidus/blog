@@ -27,13 +27,13 @@ main
   .hero-container
     .hero
       p.name Ifu Aniemeka
-      p.title programmer &amp; pugilist
+      p.title Nerd as a Service
 
   .about-me-container#about-me-section
     .about-me
       header
         p.name Ifu Aniemeka
-        p.title freelance software engineer/martial artist
+        p.title software engineer/martial artist
         p.location 
           ' Chicago
           i.chitown-flag
@@ -80,9 +80,7 @@ main
           = link to: Routes.post_path(@conn, :index) do
             'blog 📃
           ' to see what I'm working on.
-
-        p 
-          ' I'm open to new clients at the moment, so if you're interested in working with me, shoot me a message using the contact form below. 
+ 
         .footnote * Wakanda forever
 
   .work#work-section
