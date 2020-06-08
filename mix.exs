@@ -53,8 +53,8 @@ defmodule Blog.Mixfile do
       {:rambo, "~> 0.2"},
       {:scrivener_ecto, "~> 2.2.0"},
       {:timex, "~> 3.1"},
-      {:ueberauth, "~> 0.4"},
-      {:ueberauth_google, "~> 0.7.0"}
+      {:ueberauth, "~> 0.6.3"},
+      {:ueberauth_google, "~> 0.9"}
     ]
   end
 
