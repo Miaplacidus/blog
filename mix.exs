@@ -39,7 +39,7 @@ defmodule Blog.Mixfile do
       {:faker, "~> 0.12.0", only: [:test, :dev]},
       {:floki, "~> 0.20.0"},
       {:gettext, "~> 0.11"},
-      {:guardian, "~> 1.2.1"},
+      {:guardian, "~> 2.1.1"},
       {:httpoison, "~> 1.5.1"},
       {:jason, "~> 1.1"},
       {:phoenix, "~> 1.4.9"},

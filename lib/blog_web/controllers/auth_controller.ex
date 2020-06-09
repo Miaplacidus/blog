@@ -8,8 +8,7 @@ defmodule BlogWeb.AuthController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
-    %Ueberauth.Auth{ extra: %Ueberauth.Auth.Extra{ raw_info: %{ user: %{ "email" => email} }}, uid: uid} = auth
-
+    %Ueberauth.Auth{ info: %Ueberauth.Auth.Info{ email: email}} = auth
     author = Blog.Accounts.find_author(email)
 
     case Blog.Accounts.find_author(email) do
