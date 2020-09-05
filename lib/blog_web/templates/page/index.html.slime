@@ -104,24 +104,35 @@ main
                     .post-title
                       = post.title
 
-      .post-index
-        = link "view all posts", to: Routes.post_path(@conn, :index), class: "post-index"
+      .post-index-link-container.field.is-grouped.is-grouped-centered
+          .control
+            button class="button is-link" view all posts
 
   .contact#contact-section
     article
       header
-        h1 Let's Grab Coffee
-        p.contact-intro Feel free to send me a message if you want to work with me or if you just want to chat!
+        h1 Let's grab coffee
+        p.contact-intro Feel free to send me a message if you want to work together!
       section.contact-form
-        form action="https://formspree.io/ianiemeka@gmail.com" method="POST"
-          input type="text" name="name" class="name" placeholder="name"
-          input type="email" name="_replyto" class="email" placeholder="email"
-          label for="message" class="message"  message
-          textarea name="message" class="message"
+        form action="https://formspree.io/ianiemeka@gmail.com" method="POST" class="field"
+          .field.is-grouped
+            .control.has-icons-left.is-expanded
+              input type="text" name="name" class="input" placeholder="name"
+              span class="icon is-small is-left"
+                i class="fas fa-user"
+              span
+            .control.has-icons-left.is-expanded
+              input type="email" name="_replyto" class="input" placeholder="email"
+              span class="icon is-small is-left"
+                i class="fas fa-envelope"
+              span
+          .field
+            textarea name="message" class="textarea has-fixed-size" placeholder="message"
           input type="text" name="_gotcha" style="display:none"
           input type="hidden" name="_subject" value="LAA message"
-          fieldset
-            input type="submit" value="send" class="submit"
+          .field.is-grouped.is-grouped-centered
+            .control
+              button type="submit" value="send" class="button" Submit
 
 
   footer

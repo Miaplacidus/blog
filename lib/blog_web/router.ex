@@ -18,13 +18,14 @@ defmodule BlogWeb.Router do
     plug Blog.Auth.Pipeline
   end
 
-  scope "/", BlogWeb do 
-    pipe_through [:browser, :require_auth]
+  scope "/", BlogWeb do
+    # pipe_through [:browser, :require_auth]
+    pipe_through [:browser]
 
-    resources "/posts", PostController, only: [:new, :create, :edit, :update, :delete] 
+    resources "/posts", PostController, only: [:new, :create, :edit, :update, :delete]
     get "/admin/posts", PostController, :admin_index
   end
-  
+
   scope "/", BlogWeb do
     pipe_through :browser # Use the default browser stack
 

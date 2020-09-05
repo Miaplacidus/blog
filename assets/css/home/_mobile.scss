@@ -183,23 +183,14 @@
         }
       }
 
-      div.post-index {
+      .post-index-link-container {
         display: flex;
         justify-content: center;
         margin-top: 0.8em;
-      }
 
-      a.post-index {
-        display: block;
-        text-decoration: none;
-        font-family: $arial-black, sans-serif;
-        background-color: $transparent-button;
-        width: 9.8em;
-        padding: 0.7em;
-        font-size: 1.2em;
-        text-align: center;
-        border-radius: $button-border-radius;
-        &:link, &:visited, &:hover, &:active {
+        button {
+          font-family: $arial-black, sans-serif;
+          background-color: $med-gray;
           color: $cerulean;
         }
       }
@@ -232,8 +223,9 @@
         }
 
         .contact-intro {
-          color: $dark-gray;
+          color: $med-gray;
           margin-top: 0.2em;
+          margin-bottom: 15px;
         }
       }
 
@@ -242,86 +234,10 @@
       }
 
       form {
-        display: flex;
-        flex-direction: column;
-
-        input.name, input.email, textarea {
-          background-color: $off-white;
-          border-style: solid;
-          border-color: rgba(8, 8, 8, 0.6);
-          font-size: 1.1em;
-        }
-
-        label.message {
+        button {
+          background-color: $cerulean;
+          color: $med-gray;
           font-family: $arial-black, sans-serif;
-          margin-top: 1.5em;
-          color: $cerulean;
-          font-size: 1em;
-        }
-
-        textarea {
-          resize: none;
-          border-width: 1px;
-          border-radius: 3px;
-          height: 11em;
-        }
-
-        input.name, input.email {
-         margin-top: 1.5em;
-         border-width: 0 0 1px 0;
-        }
-
-        fieldset {
-          display: flex;
-          justify-content: center;
-          padding: 0;
-          border: 0;
-          margin-top: 1.5em;
-        }
-
-        input.submit {
-          display: block;
-          color: $cerulean;
-          font-family: $arial-black, sans-serif;
-          background-color: $transparent-button;
-          padding: 0.4em 1.5em;
-          font-size: 1.2em;
-          text-align: center;
-          border-radius: $button-border-radius;
-          margin: 0 auto;
-        }
-
-        input:focus {
-          outline: none;
-        }
-
-        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-          font-family: $arial-black, sans-serif;
-          color: $cerulean;
-          line-height: 2.5em;
-          margin: 0;
-          font-size: 0.9em;
-        }
-        ::-moz-placeholder { /* Firefox 19+ */
-          font-family: $arial-black, sans-serif;
-          color: $cerulean;
-          line-height: 2.5em;
-          margin: 0;
-          font-size: 0.9em;
-        }
-        :-ms-input-placeholder { /* IE 10+ */
-          font-family: $arial-black, sans-serif;
-          color: $cerulean;
-          line-height: 2.5em;
-          margin: 0;
-          font-size: 0.9em;
-        }
-        :-moz-placeholder { /* Firefox 18- */
-          font-family: $arial-black, sans-serif;
-          color: $cerulean;
-          line-height: 2.5em;
-          margin: 0;
-          font-size: 0.9em;
         }
       }
     }
