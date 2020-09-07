@@ -123,8 +123,6 @@
 }
 
 @mixin posts-navigation {
-  background: url("/images/tk_servers.jpg") no-repeat 50% 10% fixed;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   color: $eggshell-white;
@@ -150,6 +148,7 @@
     -webkit-transition: 0.8s;
     -ms-transition: 0.8s;
     display: block;
+    padding: 0.5em 0em;
 
     &:link, &:visited, &:active, &:hover {
       text-decoration: none;
@@ -313,9 +312,10 @@
  .pagination {
    display: flex;
    justify-content: center;
+   background-color: $off-white;
 
    .page-numbers {
-     padding: 0 0 3em 0;
+     padding: 1em 0 1em 0;
    }
 
    ul {
@@ -332,7 +332,7 @@
 
    li {
      a {
-       &:active, &:link, &:hover, &:visited {
+        &:link, &:hover, &:visited {
           color: $dark-gray;
           text-decoration: none;
        }
@@ -365,3 +365,21 @@
     }
   }
 } 
+
+@mixin footer {
+  background-color: $transparent-black-light;
+  padding: 1.5rem;
+  p.photo-credit {
+    font-family: $raleway-semibold;
+    color: $eggshell-white;
+    a {
+      text-decoration: none;
+      &:link, &:visited, &:active {
+          color: $cerulean;
+      }
+      &:hover {
+          color: $eggshell-white;
+      }
+    }
+  }
+}

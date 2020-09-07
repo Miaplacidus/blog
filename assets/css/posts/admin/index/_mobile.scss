@@ -4,7 +4,6 @@
 
     nav {
       @include posts-navigation;
-      background-size: auto 43em;
       flex-direction: row;
       justify-content: space-between;
 

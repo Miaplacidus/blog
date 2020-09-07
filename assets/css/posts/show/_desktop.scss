@@ -1,11 +1,6 @@
 @media screen and (min-width: $desktop){
   body.post-show {
     @include desktop-posts-navigation; 
-
-    nav {
-      background-size: cover;
-    }    
-    
     .post {
       width: 85%;
     }

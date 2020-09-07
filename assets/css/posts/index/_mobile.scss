@@ -5,13 +5,13 @@
 
     main {
       flex-grow: 1;
+      footer {
+        @include footer;
+      }
     }
 
     nav {
       @include posts-navigation;
-      background-size: auto 43em;
-      // flex-direction: row;
-      // justify-content: space-between;
 
       .blog-title {
         @include posts-navigation-title;
@@ -19,16 +19,13 @@
       }
     }
 
-    background-color: $off-white;
-    background-image: none;
-    margin: 0;
-
     p.alert {
       display: none;
     }
 
     main {
       .posts {
+        background-color: $off-white;
         padding: 0.8em;
       }
 

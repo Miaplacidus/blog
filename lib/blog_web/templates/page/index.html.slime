@@ -1,7 +1,6 @@
 nav
   .blog-title
     'Life As Algorithm
-
   ul.nav-list
     li
       span.binary 00 &nbsp;

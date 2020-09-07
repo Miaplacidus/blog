@@ -2,10 +2,6 @@
   body.post-index {
     @include desktop-posts-navigation;
 
-    nav {
-      background-size: cover;
-    }    
-
     main .posts {
       .post-list .post-list-item {
         width: 85%;

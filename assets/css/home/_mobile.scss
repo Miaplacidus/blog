@@ -1,10 +1,16 @@
 @media screen and (max-width: $desktop) {
   body.page-index {
-    @include header-navigation;
+    nav {
+      display: none;
+    }
   }
 }
+
 @media screen and (min-width: $mobile){
   body.page-index {
+    footer {
+      @include footer;
+    }
 
     .hero-container {
       display: flex;
@@ -240,23 +246,7 @@
       }
     }
 
-    footer {
-      background-color: $transparent-black-light;
-      padding: 1.5rem;
-      p.photo-credit {
-       font-family: $raleway-semibold;
-       color: $eggshell-white;
-       a {
-          text-decoration: none;
-          &:link, &:visited, &:active {
-              color: $cerulean;
-          }
-          &:hover {
-              color: $eggshell-white;
-          }
-       }
-      }
-    }
+    
   }
 }
 

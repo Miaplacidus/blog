@@ -28,3 +28,11 @@ main
           = @post.title
       .publish_date= BlogWeb.PostView.display_time(@post.published_at)
       .body= BlogWeb.PostView.safe_html(@post.body)
+
+  footer.footer
+    p.photo-credit
+      ' photo by
+      a href="https://unsplash.com/@freeche" Thomas Kvistholt
+      '
+      ' on
+      a href="https://unsplash.com" Unsplash

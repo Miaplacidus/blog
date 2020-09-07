@@ -27,13 +27,21 @@ main
               .body= BlogWeb.PostView.safe_html(post.description)
             p.read-more= link "read more", to: Routes.post_path(@conn, :show, post)
 
-  .pagination
-    .page-numbers
-      ul.page-list
-        li.chevron
-          = link "<<", to: Routes.post_path(@conn, :index, page_number: chevron_page_number("left", @page_number))
-        = for page <- 1..@total_pages do
-            li.page-number
-              = link "#{page}", to: Routes.post_path(@conn, :index, page_number: page), class: active_page(page, @page_number)
-        li.chevron
-          = link ">>", to: Routes.post_path(@conn, :index, page_number: chevron_page_number("right", @page_number, @total_pages))
+    .pagination
+      .page-numbers
+        ul.page-list
+          li.chevron
+            = link "<<", to: Routes.post_path(@conn, :index, page_number: chevron_page_number("left", @page_number))
+          = for page <- 1..@total_pages do
+              li.page-number
+                = link "#{page}", to: Routes.post_path(@conn, :index, page_number: page), class: active_page(page, @page_number)
+          li.chevron
+            = link ">>", to: Routes.post_path(@conn, :index, page_number: chevron_page_number("right", @page_number, @total_pages))
+
+  footer.footer
+    p.photo-credit
+      ' photo by
+      a href="https://unsplash.com/@freeche" Thomas Kvistholt
+      '
+      ' on
+      a href="https://unsplash.com" Unsplash

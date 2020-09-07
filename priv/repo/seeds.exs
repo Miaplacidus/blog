@@ -30,7 +30,7 @@ defmodule Blog.DatabaseSeeder do
       author_id: author.id,
       title: Faker.Lorem.Shakespeare.hamlet(),
       description: Faker.Lorem.Shakespeare.king_richard_iii(),
-      body: Faker.Lorem.paragraph(3..7),
+      body: Faker.Lorem.paragraphs(40..50) |> Enum.join(""),
       image_url: Faker.Avatar.image_url(),
       slug: String.downcase(Faker.Pizza.pizza()) |> String.replace(" ", "-"),
       published_at: DateTime.truncate(Timex.now, :second),
