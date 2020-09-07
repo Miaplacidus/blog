@@ -1,15 +1,13 @@
 @media screen and (min-width: $desktop){
   body.post-show {
-    @include desktop-header-navigation;
+    @include desktop-posts-navigation; 
 
     nav {
-      .hamburger {
-        display: none;
-      }
+      background-size: cover;
     }    
-
+    
     .post {
-      width: 75%;
+      width: 85%;
     }
   }
 }

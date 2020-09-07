@@ -19,8 +19,7 @@ defmodule BlogWeb.Router do
   end
 
   scope "/", BlogWeb do
-    # pipe_through [:browser, :require_auth]
-    pipe_through [:browser]
+    pipe_through [:browser, :require_auth]
 
     resources "/posts", PostController, only: [:new, :create, :edit, :update, :delete]
     get "/admin/posts", PostController, :admin_index

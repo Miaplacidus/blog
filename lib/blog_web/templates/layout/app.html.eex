@@ -25,13 +25,11 @@
   </head>
 
   <body class="<%= body_class @conn %>">
-    <div class="container">
-
+    <div class="content-container">
       <%# <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %1></p> %>
       <%# <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %1></p> %>
 
-        <%= render @view_module, @view_template, assigns %>
-
+      <%= render @view_module, @view_template, assigns %>
     </div> <!-- /container -->
     <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>

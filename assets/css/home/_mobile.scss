@@ -7,14 +7,10 @@
   body.page-index {
 
     .hero-container {
-      flex-shrink: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 50vh;
-      min-height: 24em;
-      padding: 0 0em;
     }
 
     .hero {
@@ -22,7 +18,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: $transparent-black-light;
+      background-color: $transparent-black-dark;
       padding: 0 0.5em;
 
       p.name {
@@ -32,16 +28,16 @@
       }
 
       p.title {
+        color: $cerulean;
         font-family: $raleway-semibold, sans-serif;
         margin: 0 0 0.55em 0;
         font-size: 1.2em;
+        text-transform: lowercase;
       }
     }
 
     .about-me-container {
       padding: 1.5em 1em;
-      min-height: 40em;
-      height: 80vh;
       background-color: $off-white;
       display: flex;
       flex-direction: column;
@@ -103,7 +99,6 @@
         }
       }
       .footnote {
-        // margin-top: 3.5em;
         font-size: 0.7em;
       }
     }
@@ -138,61 +133,64 @@
         background-size: contain;
       }
 
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-flow: wrap row;
-        justify-content: center;
-      }
+      .blog-posts {
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-flow: wrap row;
+          justify-content: center;
 
-      .blog-posts li {
-        position: relative;
-        display: inline-block;
-        margin-top: 2em;
-        margin-bottom: 2em;
-      }
+          li {
+            position: relative;
+            display: inline-block;
+            margin-top: 2em;
+            margin-bottom: 2em;
 
-      .post-image {
-        width: 21em;
-        height: 14em;
-        background: no-repeat center;
-        background-size: contain;
-      }
+            .post-image {
+              width: 21em;
+              height: 14em;
+              background: no-repeat center;
+              background-size: contain;
+            }
+      
+            .title-container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 0.5em;
+              position: absolute;
+              bottom: -1em;
+              right: 0.5em;
+              font-family: $arial-black, sans-serif;
+              width: 19em;
+              min-height: 5em;
+              background: $transparent-black-dark;
+              a {
+                text-decoration: none;
+                display: block;
+                text-align: center;
+              }
+              a:link, a:visited, a:hover, a:active {
+                color: $cerulean;
+              }
+            }
 
-      .title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.5em;
-        position: absolute;
-        bottom: -1em;
-        right: 0.5em;
+          }
+        }
+      }
+    }
+
+    .post-index-link-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 3em;
+
+      button {
         font-family: $arial-black, sans-serif;
-        width: 19em;
-        min-height: 5em;
-        background: $transparent-black-dark;
-        a {
-          text-decoration: none;
-          display: block;
-          text-align: center;
-        }
-        a:link, a:visited, a:hover, a:active {
-          color: $cerulean;
-        }
-      }
-
-      .post-index-link-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 0.8em;
-
-        button {
-          font-family: $arial-black, sans-serif;
-          background-color: $med-gray;
-          color: $cerulean;
-        }
+        background-color: $med-gray;
+        color: $cerulean;
       }
     }
 
@@ -243,23 +241,19 @@
     }
 
     footer {
-      padding-top: 1em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      hr {
-        width: 70%;
-      }
-
+      background-color: $transparent-black-light;
+      padding: 1.5rem;
       p.photo-credit {
        font-family: $raleway-semibold;
        color: $eggshell-white;
        a {
-         text-decoration: none;
-         &:link, &:visited, &:hover, &:active {
-            color: $cerulean;
-         }
+          text-decoration: none;
+          &:link, &:visited, &:active {
+              color: $cerulean;
+          }
+          &:hover {
+              color: $eggshell-white;
+          }
        }
       }
     }

@@ -1,35 +1,32 @@
 nav
-  .hamburger
-    .top-line
-    .mid-line
-    .end-line
-    .text
-      'Menu
-
   .blog-title
     'Life As Algorithm
 
   ul.nav-list
     li
-      span.binary 01 &nbsp;
+      span.binary 00 &nbsp;
       span.text
         = link "about", to: "#about-me-section", class: "to-about-me"
     li
-      span.binary 10 &nbsp;
+      span.binary 01 &nbsp;
       span.text
         = link "work", to: "#work-section", class: "to-work"
     li
-      span.binary 11 &nbsp;
+      span.binary 10 &nbsp;
       span.text
         = link "contact", to: "#contact-section", class: "to-contact"
+    li
+      span.binary 11 &nbsp;
+      span.text
+        = link "blog", to: Routes.post_path(@conn, :index), class: "to-contact"
 
 main
-  .hero-container
+  .hero-container.container
     .hero
       p.name Ifu Aniemeka
       p.title Nerd as a Service
 
-  .about-me-container#about-me-section
+  .about-me-container.container#about-me-section
     .about-me
       header
         p.name Ifu Aniemeka
@@ -42,7 +39,7 @@ main
         p
           'Hey there! My name's Ifu and I write code.
         p
-          'My languages of choice are ruby, python, javascript, and elixir (btw, this site was built using the
+          'My languages of choice are ruby, python, javascript, golang, and elixir (btw, this site was built using the
           '
           a href="https://phoenixframework.org/"
             ' phoenix framework
@@ -83,7 +80,7 @@ main
  
         .footnote * Wakanda forever
 
-  .work#work-section
+  .work.container#work-section
     article
       section.resume-github
         a href="https://www.github.com/miaplacidus"
@@ -96,17 +93,18 @@ main
         ul
           = for post <- @posts do
               li
-                .image
+                .image-container
                   = link to: Routes.post_path(@conn, :show, post) do
                     .post-image style="background-image: url('#{generate_image_url(post)}');"
-                .title
+                .title-container
                   = link to: Routes.post_path(@conn, :show, post) do
                     .post-title
                       = post.title
+          
 
       .post-index-link-container.field.is-grouped.is-grouped-centered
           .control
-            button class="button is-link" view all posts
+            = button "view all posts", to: Routes.post_path(@conn, :index), method: :get, class: "button is-medium"
 
   .contact#contact-section
     article
@@ -115,17 +113,20 @@ main
         p.contact-intro Feel free to send me a message if you want to work together!
       section.contact-form
         form action="https://formspree.io/ianiemeka@gmail.com" method="POST" class="field"
-          .field.is-grouped
-            .control.has-icons-left.is-expanded
-              input type="text" name="name" class="input" placeholder="name"
-              span class="icon is-small is-left"
-                i class="fas fa-user"
-              span
-            .control.has-icons-left.is-expanded
-              input type="email" name="_replyto" class="input" placeholder="email"
-              span class="icon is-small is-left"
-                i class="fas fa-envelope"
-              span
+          .field.is-horizontal
+            .field-body
+              .field
+                .control.has-icons-left.is-expanded
+                  input type="text" name="name" class="input" placeholder="name"
+                  span class="icon is-small is-left"
+                    i class="fas fa-user"
+                  span
+              .field
+                .control.has-icons-left.is-expanded
+                  input type="email" name="_replyto" class="input" placeholder="email"
+                  span class="icon is-small is-left"
+                    i class="fas fa-envelope"
+                  span
           .field
             textarea name="message" class="textarea has-fixed-size" placeholder="message"
           input type="text" name="_gotcha" style="display:none"
@@ -135,8 +136,7 @@ main
               button type="submit" value="send" class="button" Submit
 
 
-  footer
-    hr
+  footer.footer
     p.photo-credit
       ' photo by
       a href="https://unsplash.com/@freeche" Thomas Kvistholt

@@ -3,14 +3,18 @@
     @include header-navigation;
     @include paginated-posts-nav;
 
+    main {
+      flex-grow: 1;
+    }
+
     nav {
-      @include top-navigation;
+      @include posts-navigation;
       background-size: auto 43em;
-      flex-direction: row;
-      justify-content: space-between;
+      // flex-direction: row;
+      // justify-content: space-between;
 
       .blog-title {
-        @include top-navigation-title;
+        @include posts-navigation-title;
         display: inline;
       }
     }
@@ -18,11 +22,6 @@
     background-color: $off-white;
     background-image: none;
     margin: 0;
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-    }
 
     p.alert {
       display: none;

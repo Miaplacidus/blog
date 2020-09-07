@@ -1,13 +1,13 @@
 @media screen and (min-width: $desktop){
   body.page-index {
+     main {
+      padding-right: 1em;
+     }
+
      nav {
        min-width: 12em;
        display: block;
        color: $eggshell-white;
-
-       .hamburger {
-        display: none;
-       }
 
        ul.nav-list {
          display: flex;
@@ -33,15 +33,20 @@
              font-size: 1.6em;
 
              a {
-                &:link, &:visited, &:hover, &:visited {
+                &:link, &:visited, &:visited {
                   text-decoration: none;
                   color: $eggshell-white;
+                }
+
+                &:hover {
+                  text-decoration: underline;
+                  text-decoration-color: $cerulean;
+                  text-decoration-thickness: 2.5px;
                 }
              }
            }
          }
        }
-
      }
 
     .hero-container {
@@ -60,12 +65,10 @@
     }
 
     .about-me-container {
-      height: 95vh;
+      padding: 3em;
     }
 
     .about-me {
-     height: max-content;
-      
      .name, .title, .location {
       font-size: 1.4em;
      }

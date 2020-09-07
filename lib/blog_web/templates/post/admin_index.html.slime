@@ -2,13 +2,6 @@ nav
   .blog-title
     = link "Life As Algorithm", to: Routes.page_path(@conn, :index)
 
-  .hamburger
-    .top-line
-    .mid-line
-    .end-line
-    .text
-      'Menu
-
   ul.nav-list
     li
       span.text

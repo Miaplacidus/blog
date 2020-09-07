@@ -2,13 +2,6 @@ nav
   .blog-title
     = link "Life As Algorithm", to: Routes.page_path(@conn, :index)
 
-  .hamburger
-    .top-line
-    .mid-line
-    .end-line
-    .text
-      'Menu
-
   ul.nav-list
     li
       span.text
@@ -21,12 +14,17 @@ nav
         = link "contact", to: Routes.page_path(@conn, :index) <> "#contact-section"
 
 main
-  .back-to-index
-    = link "<< back to index", to: Routes.post_path(@conn, :index)
+  .post-show-content
+    .back-to-index
+      = link to: Routes.post_path(@conn, :index) do 
+        span.icon
+          i class="fas fa-angle-double-left"
+        span.text
+          'back to posts
 
-  .post
-    header style="background-image: url('#{generate_image_url(@post)}');"
-      h2.title
-        = @post.title
-    .publish_date= BlogWeb.PostView.display_time(@post.published_at)
-    .body= BlogWeb.PostView.safe_html(@post.body)
+    .post
+      header style="background-image: url('#{generate_image_url(@post)}');"
+        h2.title
+          = @post.title
+      .publish_date= BlogWeb.PostView.display_time(@post.published_at)
+      .body= BlogWeb.PostView.safe_html(@post.body)

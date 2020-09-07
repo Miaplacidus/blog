@@ -2,33 +2,34 @@
   body.post-show {
     @include header-navigation;
     @include back-to-index-link;
+    @include paginated-posts-nav;
+  
     background-color: $off-white;
     background-image: none;
 
-    .container {
-      display: flex;
-      flex-direction: column;
+    main {
+      flex-grow: 1;
       align-items: stretch;
+
+      .post-show-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center
+      }
     }
 
     nav {
-      @include top-navigation;
-      background-size: auto 43em;
-      flex-direction: row;
-      justify-content: space-between;
-
+      @include posts-navigation;
       .blog-title {
-        @include top-navigation-title;
+        @include posts-navigation-title;
         display: inline;
       }
     }
     
-    main {
-      align-items: center;
-      margin: 1em;
-    }
+    
 
     .post {
+      height: 100vh;
       width: 95%;
       padding: $post-content-padding;
       header {
