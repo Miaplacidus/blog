@@ -1,21 +1,19 @@
 @media screen and (min-width: $mobile){
   body.post-show {
     @include header-navigation;
-    @include back-to-index-link;
     @include paginated-posts-nav;
+    @include back-to-index-link;
 
     main {
-      flex-grow: 1;
+      footer {
+        @include footer;
+      }
 
       .post-show-content {
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: $off-white;
-      }
-
-      footer {
-        @include footer;
       }
     }
 
@@ -28,8 +26,8 @@
     }
 
     .post {
-      width: 95%;
       padding: $post-content-padding;
+
       header {
         @include post-image-header(12em);
       }
@@ -45,8 +43,6 @@
 
       .body {
         font-family: $raleway-light, sans-serif;
-        padding-left: 1.5em; 
-        padding-right: 1.5em; 
 
         p {
           margin: 1em 0em;
@@ -58,6 +54,11 @@
           font-size: 120%;
         }
 
+        h3 {
+          font-weight: bold;
+          font-style: italic;
+        }
+
         iframe#ytplayer {
           display: block;
           margin: 1em auto;
@@ -66,6 +67,9 @@
         a {
           &:active, &:visited, &:link, &:hover {
             color: $dark-gray;
+            text-decoration: none;
+            color: $dark-gray;
+            font-family: $raleway-med;
           }
         }
 
@@ -75,8 +79,6 @@
       }
 
       .description {
-        padding-left: 1em;
-        padding-right: 1em;
         font-family: $arial-black, sans-serif;
       }
     }    

@@ -13,7 +13,7 @@ nav
       span.text
         = link "contact", to: Routes.page_path(@conn, :index) <> "#contact-section"
 
-main
+main.container
   .post-show-content
     .back-to-index
       = link to: Routes.post_path(@conn, :index) do 
