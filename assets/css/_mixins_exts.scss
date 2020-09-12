@@ -1,6 +1,7 @@
 @mixin header-navigation {
   nav {
     display: flex;
+    flex-grow: 1;
 
     .blog-title {
       display: none;

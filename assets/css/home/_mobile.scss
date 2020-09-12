@@ -11,34 +11,34 @@
     footer {
       @include footer;
     }
-
+    
     .hero-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-    }
 
-    .hero {
-      color: $eggshell-white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: $transparent-black-dark;
-      padding: 0 0.5em;
-
-      p.name {
-        font-family: $arial-black, sans-serif;
-        font-size: 2.88em;
-        margin: 0.25em 0 0 0;
-      }
-
-      p.title {
-        color: $cerulean;
-        font-family: $raleway-semibold, sans-serif;
-        margin: 0 0 0.55em 0;
-        font-size: 1.2em;
-        text-transform: lowercase;
+      .hero {
+        color: $eggshell-white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $transparent-black-dark;
+        padding: 0 0.5em;
+  
+        p.name {
+          font-family: $arial-black, sans-serif;
+          font-size: 2.88em;
+          margin: 0.25em 0 0 0;
+        }
+  
+        p.title {
+          color: $cerulean;
+          font-family: $raleway-semibold, sans-serif;
+          margin: 0 0 0.55em 0;
+          font-size: 1.2em;
+          text-transform: lowercase;
+        }
       }
     }
 
@@ -48,68 +48,68 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
 
-    .about-me {
-      color: $dark-gray;
-      .title, .location {
-        font-family: $raleway-regular, sans-serif;
-        font-size: 1.05em;
-      }
-
-      .name {
-        font-family: $arial-black, sans-serif;
-        margin-bottom: 0;
-        font-size: 1.05em;
-      }
-
-      .title {
-        margin-top: 0.1em;
-        margin-bottom: 0;
-      }
-
-      .location {
-        margin-top: 0.1em;
-      }
-
-      i.chitown-flag {
-        display: inline-block;
-        background: url("/images/chitown.svg") no-repeat;
-        background-size: contain;
-        height: 0.8em;
-        width: 1.7em;
-        margin-left: 0.3em;
-        position: relative;
-        top: 0.09em;
-      }
-
-      article {
-        font-family: $raleway-light, sans-serif;
-      }
-
-      a {
-        &:link, &:visited, &:hover, &:active {
-          text-decoration: none;
-          color: $dark-gray;
-          font-family: $raleway-med;
+      .about-me {
+        color: $dark-gray;
+        .title, .location {
+          font-family: $raleway-regular, sans-serif;
+          font-size: 1.05em;
         }
-
-        img.hashrocket-logo, img.openai-logo, img.phoenix-logo, img.cmma-logo, img.hp-logo {
-          width: 1em;
+  
+        .name {
+          font-family: $arial-black, sans-serif;
+          margin-bottom: 0;
+          font-size: 1.05em;
+        }
+  
+        .title {
+          margin-top: 0.1em;
+          margin-bottom: 0;
+        }
+  
+        .location {
+          margin-top: 0.1em;
+        }
+  
+        i.chitown-flag {
+          display: inline-block;
+          background: url("/images/chitown.svg") no-repeat;
+          background-size: contain;
+          height: 0.8em;
+          width: 1.7em;
+          margin-left: 0.3em;
           position: relative;
           top: 0.09em;
         }
-
-        img.hp-logo {
-          top: 0.13em;
+  
+        article {
+          font-family: $raleway-light, sans-serif;
         }
-      }
-      .footnote {
-        font-size: 0.7em;
+  
+        a {
+          &:link, &:visited, &:hover, &:active {
+            text-decoration: none;
+            color: $dark-gray;
+            font-family: $raleway-med;
+          }
+  
+          img.hashrocket-logo, img.openai-logo, img.phoenix-logo, img.cmma-logo, img.hp-logo {
+            width: 1em;
+            position: relative;
+            top: 0.09em;
+          }
+  
+          img.hp-logo {
+            top: 0.13em;
+          }
+        }
+        .footnote {
+          font-size: 0.7em;
+        }
       }
     }
 
-    .work {
+    .work-container {
       padding-top: 1.5em;
       padding-bottom: 1.5em;
       background-color: $off-white;
@@ -244,9 +244,7 @@
           font-family: $arial-black, sans-serif;
         }
       }
-    }
-
-    
+    } 
   }
 }
 

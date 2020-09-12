@@ -19,13 +19,13 @@ nav
       span.text
         = link "blog", to: Routes.post_path(@conn, :index), class: "to-contact"
 
-main
-  .hero-container.container
+main.container
+  .hero-container#hero-section
     .hero
       p.name Ifu Aniemeka
       p.title Nerd as a Service
 
-  .about-me-container.container#about-me-section
+  .about-me-container#about-me-section
     .about-me
       header
         p.name Ifu Aniemeka
@@ -79,7 +79,7 @@ main
  
         .footnote * Wakanda forever
 
-  .work.container#work-section
+  .work-container#work-section
     article
       section.resume-github
         a href="https://www.github.com/miaplacidus"

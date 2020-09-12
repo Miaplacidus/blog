@@ -1,91 +1,93 @@
 @media screen and (min-width: $desktop){
   body.page-index {
-     main {
-      padding-right: 1em;
-     }
+    nav {
+      min-width: 12em;
+      display: block;
+      color: $eggshell-white;
 
-     nav {
-       min-width: 12em;
-       display: block;
-       color: $eggshell-white;
+      ul.nav-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: fixed;
+        bottom: 33%;
+        left: 2%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
 
-       ul.nav-list {
-         display: flex;
-         flex-direction: column;
-         justify-content: space-around;
-         position: fixed;
-         bottom: 33%;
-         left: 2%;
-         list-style-type: none;
-         margin: 0;
-         padding: 0;
+        li {
+          display: block;
+          margin: 1.3em 0 1.3em 0;
+          .binary {
+            font-family: $raleway-med, sans-serif;
+            font-size: 1.8em;
+          }
 
-         li {
-           display: block;
-           margin: 1.3em 0 1.3em 0;
-           .binary {
-             font-family: $raleway-med, sans-serif;
-             font-size: 1.8em;
-           }
+          .text {
+            font-family: $raleway-semibold, sans-serif;
+            font-size: 1.6em;
 
-           .text {
-             font-family: $raleway-semibold, sans-serif;
-             font-size: 1.6em;
+            a {
+              &:link, &:visited, &:visited {
+                text-decoration: none;
+                color: $eggshell-white;
+              }
 
-             a {
-                &:link, &:visited, &:visited {
-                  text-decoration: none;
-                  color: $eggshell-white;
-                }
-
-                &:hover {
-                  text-decoration: underline;
-                  text-decoration-color: $cerulean;
-                  text-decoration-thickness: 2.5px;
-                }
-             }
-           }
-         }
-       }
-     }
-
-    .hero-container {
-      height: 100vh;
-    }
-
-    .hero {
-      padding: 0 3.5em;
-      p.name {
-        font-size: 4.56em;
-      }
-
-      p.title {
-        font-size: 1.9em;
+              &:hover {
+                text-decoration: underline;
+                text-decoration-color: $cerulean;
+                text-decoration-thickness: 2.5px;
+              }
+            }
+          }
+        }
       }
     }
 
-    .about-me-container {
-      padding: 3em;
-    }
+    main {
+    padding-right: 3em;
+    flex-grow: 1;
 
-    .about-me {
-     .name, .title, .location {
-      font-size: 1.4em;
-     }
+      // Hero 
+      .hero-container {
+        height: 100vh;
+        .hero {
+          padding: 0 3.5em;
+          p.name {
+            font-size: 4.56em;
+          }
+    
+          p.title {
+            font-size: 1.9em;
+          }
+        }
+      }
 
-     .title {
-       margin-top: 0.1em;
-       margin-bottom: 0;
-     }
+      // About Me
+      .about-me-container {
+        padding: 3em;
+        .about-me {
+          .name, .title, .location {
+           font-size: 1.4em;
+          }
+     
+          .title {
+            margin-top: 0.1em;
+            margin-bottom: 0;
+          }
+     
+          article {
+           font-size: 1.2em;
+          }
+        }
+      }
 
-     article {
-      font-size: 1.2em;
-     }
-    }
-
-    .contact {
-      height: 90vh;
+      // Contact
+      .contact {
+        flex-grow: 1;
+        height: 90vh;
+      }
     }
   }
-  
 }
