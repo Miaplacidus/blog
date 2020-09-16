@@ -26,7 +26,7 @@
     main {
       .posts {
         background-color: $off-white;
-        padding: 0.8em;
+        padding: 3em 0.8em 0.8em;
       }
 
       .post-list {
@@ -106,8 +106,11 @@
             font-family: $raleway-semibold, sans-serif;
             text-decoration: none;
             font-size: 1.2em;
-            &:visited, &:active, &:link, &:hover {
+            &:visited, &:active, &:link {
               color: $cerulean;
+            }
+            &:hover {
+              color: $dark-gray;
             }
           }
         }
