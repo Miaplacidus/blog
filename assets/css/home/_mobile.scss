@@ -51,15 +51,21 @@
 
       .about-me {
         color: $dark-gray;
-        .title, .location {
-          font-family: $raleway-regular, sans-serif;
-          font-size: 1.05em;
+
+        header {
+          margin-bottom: 1em;
         }
-  
+
         .name {
           font-family: $arial-black, sans-serif;
           margin-bottom: 0;
           font-size: 1.05em;
+        }
+
+        .title, .location {
+          font-family: $arial;
+          font-size: 1.05em;
+          font-weight: 300;
         }
   
         .title {
@@ -83,20 +89,41 @@
         }
   
         article {
-          font-family: $raleway-light, sans-serif;
+          font-family: $firamono-regular, sans-serif;
+
+          p {
+            margin: 0.5em 0em;
+          }
+
+          .more-info {
+            margin-top: 1em;
+            font-size: 1em;
+
+            a {
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
         }
   
         a {
+          .link-text:hover {
+            text-decoration: underline;
+          } 
+
           &:link, &:visited, &:hover, &:active {
             text-decoration: none;
             color: $dark-gray;
-            font-family: $raleway-med;
+            // font-family: $raleway-med;
+            font-family: $firamono-med;
           }
   
-          img.hashrocket-logo, img.openai-logo, img.phoenix-logo, img.cmma-logo, img.hp-logo {
+          img.hashrocket-logo, img.openai-logo, img.phoenix-logo, img.cmma-logo, img.hp-logo, span.link-img{
             width: 1em;
             position: relative;
             top: 0.09em;
+            margin-left: 5px;
           }
   
           img.hp-logo {

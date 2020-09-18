@@ -22,8 +22,30 @@
         url("/fonts/raleway/Raleway-Light.WOFF") format("woff")
 }
 
+@font-face {
+    font-family: "FiraMono-Bold";
+    src:
+        url("/fonts/fira_mono/FiraMono-Bold.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "FiraMono-Medium";
+    src:
+        url("/fonts/fira_mono/FiraMono-Medium.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "FiraMono-Regular";
+    src:
+        url("/fonts/fira_mono/FiraMono-Regular.ttf") format("truetype")
+}
+
+$arial: "Arial";
+$arial-black: "Arial Black";
+$firamono-regular: "FiraMono-Regular";
+$firamono-bold: "FiraMono-Bold";
+$firamono-med: "FiraMono-Medium";
 $raleway-med: "Raleway-Medium";
 $raleway-semibold: "Raleway-Semibold";
 $raleway-regular: "Raleway-Regular";
 $raleway-light: "Raleway-Light";
-$arial-black: "Arial Black";

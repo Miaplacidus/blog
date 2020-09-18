@@ -38,35 +38,31 @@ main.container
         p
           'Hey there! My name's Ifu and I write code.
         p
-          'My languages of choice are ruby, python, javascript, golang, and elixir (btw, this site was built using the
+          'My languages of choice are ruby, javascript, python, golang, and elixir (btw, this site was built using the
           '
           a href="https://phoenixframework.org/"
-            ' phoenix framework
+            span.link-text phoenix framework
             img.phoenix-logo src="/images/phoenix.png"
-          '
           ').
         p 
-          'I'm currently working with the team at 
-          '
-          a href="https://humanpredictions.io" 
-            ' Human Predictions 
-            img.hp-logo src="/images/hp_bot.png"
-          ' , which is using publicly available data and machine learning to predict when software engineers are open to new jobs. If you're a recruiter looking for folks to add to your dev team, you should definitely check it out!  
+          'I build web applications and machine learning models.  
         p 
-          ' Prior to my current gig, I was a part of the inaugural class of 
+          ' I was a part of the inaugural class of 
           ' 
           a href="https://openai.com"
-            ' OpenAI Scholars
+            span.link-text OpenAI Scholars
             img.openai-logo src="/images/openai.jpg"
           '.
           ' For 3 months, I worked on a research project under the tutelage of
-          a href="https://scholar.google.com/citations?user=Vzr1RukAAAAJ" Igor Mordatch 🧔🏻
+          a href="https://scholar.google.com/citations?user=Vzr1RukAAAAJ" 
+            span.link-text Igor Mordatch 
+            span.link-img 🧔🏻
           ', a researcher at OpenAI. 
         p 
-          'Other subjects I'm interested in include science fiction*, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice muay thai with the awesome folks at
+          'Other subjects I'm interested in include science fiction, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice muay thai with the awesome folks at
           '
           a href="https://chicagomma.com"
-            ' ChicagoMMA
+            span.link-text ChicagoMMA
             img.cmma-logo src="/images/cmma.png"
           '
           ' and  martial arts choreography with the Forza Fight stunt team.
@@ -74,20 +70,20 @@ main.container
           ' Feel free to check out my
           '
           = link to: Routes.post_path(@conn, :index) do
-            'blog 📃
-          ' to see what I'm working on.
+            span.link-text blog 
+            span.link-img 📃 
+          '  to see what I'm working on.
  
-        .footnote * Wakanda forever
+        .more-info
+          .github 
+            = link "View My GitHub", to: "https://www.github.com/miaplacidus"
+            i.github
+          .resume 
+            = link "Download My Resume", to: Routes.document_path(@conn, :download_resume)
+            i.resume
 
   .work-container#work-section
     article
-      section.resume-github
-        a href="https://www.github.com/miaplacidus"
-          .github
-            i.github
-        = link to: Routes.document_path(@conn, :download_resume) do
-          .resume
-            i.resume
       section.blog-posts
         ul
           = for post <- @posts do

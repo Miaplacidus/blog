@@ -92,12 +92,12 @@
         }
 
         .body {
+          font-family: $firamono-regular, sans-serif;
           overflow: hidden;
           position: relative; 
           line-height: 1.2em;
           max-height: 7em; 
-          padding-right: 1em;
-          padding-left: 1em;
+          padding: 1em 0.5em;
         }
 
         p.read-more, p.edit, p.delete {
