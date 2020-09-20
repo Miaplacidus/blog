@@ -2,11 +2,11 @@
   body.post-admin_index {
     @include header-navigation;
 
-    nav {
-      @include posts-navigation;
-      flex-direction: row;
-      justify-content: space-between;
+    .content-container {
+      flex-direction: column;
+    }
 
+    nav {
       .blog-title {
         @include posts-navigation-title;
         display: inline;
@@ -21,31 +21,44 @@
     main {
       padding: 1.5em;
       color: $eggshell-white; 
+      max-width: none;
+
       h2 {
         font-family: $raleway-med, sans-serif;
       }
 
-      .new-post, .post-index {
-        font-family: $raleway-med, sans-serif; 
-        font-size: 1.2em;
-        padding: 1.5em;
+      .post-actions {
+        display: flex;
+        justify-content: space-around;
         background-color: $transparent-black-dark;
-        a {
+
+        .new-post, .post-index {
+          font-family: $raleway-med, sans-serif; 
+          font-size: 1.2em;
+          padding: 1.5em;
+          font-weight: bold;
+          // color: $cerulean;
           &:link, &:active, &:visited, &:hover {
             color: $cerulean; 
           }
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
-
-      .post-index {
-        padding: 0 0 1.5em 1.5em;
-      }
+      
 
       table.posts {
         padding: 0.8em;
         background-color: $transparent-black-dark;
+
+        th, td {
+          padding: 1em;
+        }
+
         th {
           font-family: $raleway-med, sans-serif;
+          color: $salmon;
         }
 
         td {

@@ -15,6 +15,11 @@ nav
 
 main
   h2 Admin Index
+  .post-actions
+    = link "+ Create New Post", to: Routes.post_path(@conn, :new), class: "new-post"
+
+    = link "Post Index", to: Routes.post_path(@conn, :index), class: "post-index"
+
   table.posts
     tr
       th ID
@@ -34,9 +39,3 @@ main
         td
           img.image-preview src="#{generate_image_url(post)}"
         td.delete= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure you want to delete this post?"]
-
-  .new-post
-    = link "Create New Post", to: Routes.post_path(@conn, :new)
-
-  .post-index
-    = link "Post Index", to: Routes.post_path(@conn, :index)
