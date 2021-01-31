@@ -88,14 +88,13 @@ main.container
         ul
           = for post <- @posts do
               li
-                  = link to: Routes.post_path(@conn, :show, post) do
-                    .image-container
-                      .post-image style="background-image: url('#{generate_image_url(post)}');"
-                  = link to: Routes.post_path(@conn, :show, post) do
-                    .title-container
-                      .post-title
-                        = post.title
-          
+                = link to: Routes.post_path(@conn, :show, post) do
+                  .image-container
+                    .post-image style="background-image: url('#{generate_image_url(post)}');"
+                = link to: Routes.post_path(@conn, :show, post) do
+                  .title-container
+                    .post-title
+                      = post.title
 
       .post-index-link-container.field.is-grouped.is-grouped-centered
           .control
