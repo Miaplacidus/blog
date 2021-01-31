@@ -15,7 +15,6 @@
 
       .blog-title {
         @include posts-navigation-title;
-        display: inline;
       }
     }
 
@@ -26,13 +25,12 @@
     main {
       .posts {
         background-color: $off-white;
-        padding: 3em 0.8em 0.8em;
+        padding: 4em 0.8em 0.8em;
       }
 
       .post-list {
         padding: 0;
         list-style-type: none;
-        
       }
 
       .post-list-item {
@@ -57,7 +55,7 @@
         }
 
         h2.title {
-          @include post-image-title(1.3em)
+          @include post-image-title(1.3em);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -65,7 +63,7 @@
         }
 
         .post-brief {
-          padding: 0.6em;
+          padding: 2.5em 0.6em;
           font-family: $raleway-light;
         }
 
@@ -85,7 +83,7 @@
           }
         }
       
-        p.publish_date {
+        p.publish-date {
           margin-top: 0;
           margin-bottom: 0;
           font-family: $raleway-semibold, sans-serif; 
@@ -104,13 +102,15 @@
             text-align: right;
           a {
             font-family: $raleway-semibold, sans-serif;
-            text-decoration: none;
             font-size: 1.2em;
+
             &:visited, &:active, &:link {
               color: $cerulean;
             }
+            
             &:hover {
-              color: $dark-gray;
+              text-decoration: underline;
+              text-decoration-thickness: 0.08em;
             }
           }
         }

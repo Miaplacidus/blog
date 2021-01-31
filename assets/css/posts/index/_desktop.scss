@@ -2,9 +2,13 @@
   body.post-index {
     @include desktop-posts-navigation;
 
-    main .posts {
-      .post-list .post-list-item {
-        width: 85%;
+    main {
+      padding-right: 3em;
+
+      .posts {
+        .post-list .post-list-item {
+          width: 85%;
+        }
       }
     }
   }

@@ -68,15 +68,19 @@
       .about-me-container {
         padding: 3em;
         .about-me {
-          .name, .title, .location {
-           font-size: 1.4em;
+          header {
+            margin-bottom: 2.5em;
+            .name {
+              margin-bottom: 0.5em;
+            }
+            .name, .title, .location {
+             font-size: 1.4em;
+            }
+            .title {
+              margin-top: 0.1em;
+              margin-bottom: 0;
+            }
           }
-     
-          .title {
-            margin-top: 0.1em;
-            margin-bottom: 0;
-          }
-     
           article {
            font-size: 1.2em;
           }
@@ -86,7 +90,7 @@
       // Contact
       .contact {
         flex-grow: 1;
-        height: 90vh;
+        height: 60vh;
       }
     }
   }

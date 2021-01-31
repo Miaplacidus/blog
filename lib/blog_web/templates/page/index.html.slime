@@ -59,7 +59,7 @@ main.container
             span.link-img 🧔🏻
           ', a researcher at OpenAI. 
         p 
-          'Other subjects I'm interested in include science fiction, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice muay thai with the awesome folks at
+          'Other subjects I'm interested in include science fiction, martial arts, and how technology can be used to solve humanity's most intractable problems. In my free time, I practice Muay Thai with the awesome folks at
           '
           a href="https://chicagomma.com"
             span.link-text ChicagoMMA
@@ -88,13 +88,13 @@ main.container
         ul
           = for post <- @posts do
               li
-                .image-container
                   = link to: Routes.post_path(@conn, :show, post) do
-                    .post-image style="background-image: url('#{generate_image_url(post)}');"
-                .title-container
+                    .image-container
+                      .post-image style="background-image: url('#{generate_image_url(post)}');"
                   = link to: Routes.post_path(@conn, :show, post) do
-                    .post-title
-                      = post.title
+                    .title-container
+                      .post-title
+                        = post.title
           
 
       .post-index-link-container.field.is-grouped.is-grouped-centered

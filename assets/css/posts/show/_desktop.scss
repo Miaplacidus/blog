@@ -1,8 +1,13 @@
 @media screen and (min-width: $desktop){
   body.post-show {
     @include desktop-posts-navigation; 
-    .post {
-      width: 85%;
+    main {
+      padding-right: 3em;
+      max-width: 75%;
+
+      .post {
+        width: 80%;
+      }
     }
   }
 }

@@ -200,16 +200,22 @@
               width: 19em;
               min-height: 5em;
               background: $transparent-black-dark;
+              transition: 0.5s;
+
+              .post-title {
+                color: $eggshell-white;
+              }
+
               a {
                 text-decoration: none;
                 display: block;
                 text-align: center;
               }
-              a:link, a:visited, a:hover, a:active {
-                color: $cerulean;
+
+              &:hover {
+                background-color: rgba(100, 100, 100, 0.6);
               }
             }
-
           }
         }
       }
@@ -224,6 +230,14 @@
         font-family: $arial-black, sans-serif;
         background-color: $med-gray;
         color: $cerulean;
+        box-shadow: none;
+        border: none;
+        transition: 0.2s;
+
+        &:hover {
+          color: $eggshell-white;
+          border: none;
+        }
       }
     }
 
@@ -234,7 +248,7 @@
       align-items: center;
       background-color: $off-white;
       padding: 1.5em 1em 0em 1em;
-      height: 100vh;
+      height: 70vh;
       min-height: 40em;
       font-family: $arial-black, sans-serif;
 
@@ -269,6 +283,14 @@
           background-color: $cerulean;
           color: $med-gray;
           font-family: $arial-black, sans-serif;
+          box-shadow: none;
+          border: none;
+          transition: 0.2s;
+
+          &:hover {
+            color: $eggshell-white;
+            border: none;
+          }
         }
       }
     } 

@@ -14,18 +14,20 @@
         flex-direction: column;
         align-items: center;
         background-color: $off-white;
+        padding-top: 1.5em;
       }
     }
 
     nav {
       @include posts-navigation;
+
       .blog-title {
         @include posts-navigation-title;
-        display: inline;
       }
     }
 
     .post {
+      width: 90%;
       padding: $post-content-padding;
 
       header {
@@ -36,9 +38,9 @@
         @include post-image-title(1.3em);
       }
 
-      .publish_date {
+      .publish-date {
         font-family: $raleway-semibold, sans-serif;
-        padding: 0.6em;
+        padding: 1.5em 0.6em;
       }
 
       .body {

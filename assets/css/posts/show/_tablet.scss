@@ -1,10 +1,19 @@
 @media screen and (min-width: $tablet) {
  body.post-show {
-  .post {
-    width: 85%;
-    .body {
-      line-height: 1.5;
+   main {
+    .post-show-content {
+      .back-to-index {
+        padding-left: 1.5em;
+      }
+      
+      .post {
+        width: 75%;
+        .body {
+          line-height: 1.5;
+        }
+      }
     }
-  }
+    
+   }
  }
 }
