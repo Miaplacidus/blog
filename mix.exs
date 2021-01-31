@@ -33,14 +33,14 @@ defmodule Blog.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:cloudex, "~> 1.3"},
+      {:cloudex, "~> 1.4"},
       {:ecto_sql, "~> 3.1"},
       {:espec, "~> 1.4.6", only: :test},
       {:faker, "~> 0.12.0", only: [:test, :dev]},
       {:floki, "~> 0.20.0"},
       {:gettext, "~> 0.11"},
       {:guardian, "~> 2.1.1"},
-      {:httpoison, "~> 1.5.1"},
+      {:httpoison, "~> 1.8"},
       {:jason, "~> 1.1"},
       {:phoenix, "~> 1.4.9"},
       {:phoenix_ecto, "~> 4.0"},
@@ -52,7 +52,7 @@ defmodule Blog.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:rambo, "~> 0.3.2"},
       {:scrivener_ecto, "~> 2.2.0"},
-      {:timex, "~> 3.1"},
+      {:timex, "~> 3.6"},
       {:ueberauth, "~> 0.6.3"},
       {:ueberauth_google, "~> 0.9"}
     ]
