@@ -39,13 +39,18 @@
       }
 
       .publish-date {
+        padding: 1em 0.6em;
         font-family: $raleway-semibold, sans-serif;
-        padding: 1.5em 0.6em;
       }
 
       .body {
         font-family: $firamono-regular, sans-serif;
         font-size: 1.1em;
+
+        blockquote {
+          padding: 1em;
+          background-color: aliceblue;
+        }
 
         p {
           margin: 1em 0em;

@@ -73,14 +73,13 @@ main.container
             span.link-text blog 
             span.link-img 📃 
           '  to see what I'm working on.
- 
+
         .more-info
           .github 
             = link "View My GitHub", to: "https://www.github.com/miaplacidus"
             i.github
-          .resume 
-            = link "Download My Resume", to: Routes.document_path(@conn, :download_resume)
-            i.resume
+          .email
+            a href="mailto:lifeasalgo@gmail.com" Email Me
 
   .work-container#work-section
     article
@@ -106,7 +105,7 @@ main.container
         h1 Let's grab coffee
         p.contact-intro Feel free to send me a message if you want to work together!
       section.contact-form
-        form action="https://formspree.io/ianiemeka@gmail.com" method="POST" class="field"
+        form action="https://formspree.io/f/xnqoykvj" method="POST" class="field"
           .field.is-horizontal
             .field-body
               .field
