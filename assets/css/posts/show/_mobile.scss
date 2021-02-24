@@ -75,9 +75,9 @@
         a {
           &:active, &:visited, &:link, &:hover {
             color: $dark-gray;
-            text-decoration: none;
             color: $dark-gray;
             font-family: $raleway-med;
+            text-decoration: underline;
           }
         }
 
