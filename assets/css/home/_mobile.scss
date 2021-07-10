@@ -67,27 +67,26 @@
           font-size: 1.05em;
           font-weight: 300;
         }
-  
+
         .title {
           margin-top: 0.1em;
           margin-bottom: 0;
         }
-  
+
         .location {
+          display: flex;
+          height: 2em;
           margin-top: 0.1em;
+
+          .flag {
+            margin-left: 0.5em;
+
+            img.texas-flag {
+              height: 1.5em;
+            }
+          }
         }
-  
-        i.chitown-flag {
-          display: inline-block;
-          background: url("/images/chitown.svg") no-repeat;
-          background-size: contain;
-          height: 0.8em;
-          width: 1.7em;
-          margin-left: 0.3em;
-          position: relative;
-          top: 0.09em;
-        }
-  
+
         article {
           font-family: $firamono-regular, sans-serif;
 
